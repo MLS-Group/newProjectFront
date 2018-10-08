@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/bootstrap-table/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../css/common/common.css"/>
+    <link rel="stylesheet" href="../../css/index/index.css">
+    <link rel="stylesheet" href="../../css/index/reset.min.css">
+    <link rel="stylesheet" href="../../css/index/style.css">
+    <title>EPC</title>
+</head>
+<body id="index-body">
+<div class="index-content">
+    <div class="wait-event">
+        <div class="event-head">
+            <span class="event-head-img glyphicon glyphicon-list-alt"></span>
+            <span class="event-title">待办事项</span>
+        </div>
+        <hr>
+        <div class="event-content">
+            <ul class="event-ul" id="event-wait-list"></ul>
+        </div>
+    </div>
+    <div class="data-publish">
+        <div class="data-head">
+            <sapn class="data-head-img glyphicon glyphicon-send"></sapn>
+            <span class="data-title">数据发布</span>
+            <a class="data-more" href="#">查看更多 ></a>
+        </div>
+        <hr>
+        <div class="data-content" id="data-table">
+
+        </div>
+    </div>
+    <div class="spare-query">
+        <div class="spare-head">
+            <span  class="spare-head-img glyphicon glyphicon-search"></span>
+            <span class="spare-title">备件查询</span>
+            <div class="spare-search">
+                <input class="search-input" placeholder="请输入VIN码查询">
+                <button class="search-btn glyphicon glyphicon-search"></button>
+            </div>
+        </div>
+        <hr>
+        <div class="spare-li-content">
+            <ul class="spare-img" id="spare-content"></ul>
+        </div>
+    </div>
+    <div class="tab-wrapper sbmo-excel">
+        <ul class="tab-menu">
+            <li class="active">SBOM</li>
+            <li>EXCEL导入</li>
+            <a class="sbmo-more" href="#">查看更多 ></a>
+        </ul>
+        <div class="tab-content se-content">
+            <div class="bom-sbom">
+                <div class="bom-update">
+                    <div class="bom-img">
+                        <img src="../../images/updatebom.png">
+                    </div>
+                    <span class="bom-num">5</span>
+                    <span class="bom-text">更新BOM</span>
+                </div>
+                <div class="bom-add">
+                    <div class="bom-img">
+                        <img src="../../images/addbom.png">
+                    </div>
+                    <span class="bom-num">10</span>
+                    <span class="bom-text">新增BOM</span>
+                </div>
+            </div>
+            <div class="bom-excle"></div>
+        </div>
+    </div>
+</div>
+<script src="../../lib/js/jquery.min.js"></script>
+<script src="../../../config/config.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../utils/const-manager.js"></script>
+<script src="../../js/index/index.js"></script>
+</body>
+</html>
