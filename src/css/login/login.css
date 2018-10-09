@@ -4,9 +4,9 @@
 * @Author qitian
 */
 .login-box {
-    height: 275px;
+    height: 300px;
     line-height: 1.5;
-    width: 25%;
+    width: 400px;
     padding: 1rem;
     margin: 8% auto;
     box-shadow: 0 0 0 5px rgba(137, 111, 111, 0.15);
@@ -28,9 +28,17 @@
 }
 
 .login-box .remember {
-    padding: 3% 12%;
+    padding: 1% 0%;
+    font-size: 10px;
+    width: 36%;
+    float: right;
 }
-
+.login-box .remember-left {
+    padding: 1% 10%;
+    font-size: 10px;
+    width: 36%;
+    float: left;
+}
 .input-group .input-sm,span {
     height: 100%;
 }
@@ -40,4 +48,15 @@
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
+}
+/**
+* @Desc 添加登录页面样式
+* @Date 2018年10月9日14:10:13
+* @Author zhangziteng
+*/
+.login-row {
+    /*float: right;*/
+    /*width: 30%;*/
+    /*margin-right: 26px;*/
+    /*margin-top: -43px;*/
 }
