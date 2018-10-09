@@ -33,7 +33,8 @@ const POP_TIP = {
     fileFormatFail: '您上传的文件格式不正确！',//by qitian
     completeInfo: '请完善信息',//by qitian
     checkInfo: '请核对信息',//,by qitian
-    confirm: '您确定执行此操作吗？'
+    confirm: '您确定执行此操作吗？',
+    choiceOne: '请选择一条选项'
 };
 
 /**
@@ -88,10 +89,14 @@ const AJAX_URL = {
      *@author zhangziteng
      */
     reportProblem: requestJson ? '../../jsonDatas/reportProblem.json' : '',
-    allProblemData:requestJson ? '../../jsonDatas/allProblemData.json' : '',
-    checkAllProblemData:requestJson ? '../../jsonDatas/checkAllProblemData.json' : '',
+    allProblemData: requestJson ? '../../jsonDatas/allProblemData.json' : '',
+    checkAllProblemData: requestJson ? '../../jsonDatas/checkAllProblemData.json' : '',
     //经销商管理 刘志杰 2018-09-25
     distributorData: requestJson ? '../../jsonDatas/distributorData.json' : '',
+    //系统设置-答疑设置（预警列表） 刘志杰 2018-09-28
+    answerSetting: requestJson ? '../../jsonDatas/answerSetting.json' : '',
+    //用户管理 刘志杰 2018-09-28
+    userManage: requestJson ? '../../jsonDatas/userData.json' : '',
     /**
      *@desc 日志管理，答疑管理数据
      *@date 2018/09/27 09:23:06
@@ -100,7 +105,7 @@ const AJAX_URL = {
     questionManage: requestJson ? '../../jsonDatas/questionManageData.json' : '',
     SBOMChangeLogData: requestJson ? '../../jsonDatas/SBOMChangeLogData.json' : '',
     operationLogData: requestJson ? '../../jsonDatas/operationLogData.json' : '',
-    announceManagementData:requestJson ? '../../jsonDatas/announceManagementData.json' : '',
+    announceManagementData: requestJson ? '../../jsonDatas/announceManagementData.json' : '',
     /**
      *@desc
      *@date 2018/09/27 10:05:20
@@ -108,12 +113,11 @@ const AJAX_URL = {
      */
     personnelConfiguration: requestJson ? '../../jsonDatas/personnelConfiguration.json' : '',
     bomChange: requestJson ? '../../jsonDatas/bomChange.json' : '',
-    administratorList: requestJson ? '../../jsonDatas/administratorList.json': '',
+    administratorList: requestJson ? '../../jsonDatas/administratorList.json' : '',
     //崔雨鑫
     announceData: requestJson ? '../../jsonDatas/announceData.json' : '',
     announceDetailData: requestJson ? '../../jsonDatas/announceDetailData.json' : '',
-    //系统设置-答疑设置（预警列表） 刘志杰 2018-09-28
-    answerSetting: requestJson ? '../../jsonDatas/answerSetting.json' : '',
+
     //王克龙
     knowledgeDetial: requestJson ? '../../jsonDatas/knowledgeDetial.json' : '',
     IndexEvent: requestJson ? '../../jsonDatas/index-event.json' : '',

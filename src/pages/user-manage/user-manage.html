@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/bootstrap-table/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../css/common/common.css"/>
+    <link rel="stylesheet" href="../../css/user-manage/user-manage.css"/>
+    <title>用户管理</title>
+</head>
+<body>
+<!--用户管理 刘志杰 2018-10-09-->
+
+<div class="content-box">
+    <div class="header-section">
+        <div class="title-header">用户管理</div>
+    </div>
+    <div class="content-section">
+        <div class="btn">
+            <button class="btn btn-primary btn-open" data-target="#my-modal" data-toggle="modal" onclick="AddUserModal()">创建</button>
+            <button class="btn btn-primary btn-open"  onclick="UppdateUserModal()">修改</button>
+            <button class="btn btn-primary btn-open" onclick="deleteUser()">删除</button>
+
+        </div>
+
+        <div class="table">
+            <table id="user-table"></table>
+        </div>
+    </div>
+
+
+</div>
+<!--模态框（用户创建、修改）-->
+<div class="modal fade drag-modal" id="my-modal" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>标题</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12 form-horizontal" id="open-dialog">
+                        <input type="hidden"
+                               id="user-key">
+                        <div class="form-group">
+                            <!--requred 必填样式（红色星号）-->
+                            <label for="user-account" class="col-sm-2 control-label required">登录账户 </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control need-check not-null" maxlength="15"
+                                       id="user-account" placeholder="请输入登录账户">
+                                <!--并且必须在表单项紧挨着的下方添加如下标签-->
+                                <span class="alert-warn"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!--requred 必填样式（红色星号）-->
+                            <label for="user-password" class="col-sm-2 control-label required">密码 </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control need-check not-null" maxlength="15"
+                                       id="user-password" placeholder="请输入密码">
+                                <!--并且必须在表单项紧挨着的下方添加如下标签-->
+                                <span class="alert-warn"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label required">状态 </label>
+                            <div class="col-sm-10">
+                                <div class="radio">
+                                    <label class="radio-inline">
+                                        <input type="radio" class="need-check not-null" name="status" value="0">启动
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" class=" need-check not-null" name="status" value="1">停用
+                                    </label>
+                                </div>
+                                <span class="alert-warn"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label required">身份 </label>
+                            <div class="col-sm-10">
+                                <select id="user-role" class="form-control  need-check not-null">
+                                    <option value="-1">请选择</option>
+                                    <option value="0">考生</option>
+                                    <option value="1">管理员</option>
+                                    <option value="2">招生者</option>
+                                </select>
+                                <span class="alert-warn"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                        </button>
+                        <!--当点击保存按钮的时候，需要将表单中所有绑定need-check的项都进行重新验证，
+                            此时需要在按钮上绑定class:save-check
+                            并且添加属性check-area=""，属性值为要验证的区域id-->
+                        <button type="button" class="btn btn-info save-check" check-area="open-dialog"
+                                onclick="saveInfo()">保存
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../lib/js/jquery.min.js"></script>
+<script src="../../../config/config.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../utils/common-util.js"></script>
+<script src="../../utils/const-manager.js"></script>
+<script src="../../js/user-manage/user-manage.js"></script>
+</body>
+</html>
