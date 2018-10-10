@@ -8,12 +8,12 @@ $(function () {
     $.idcode.setCode();
 });
 
-
 /**
  *@desc 验证码验证
  *@date 2018/10/09 14:50:33
  *@author zhangziteng
  */
+
 (function check($) {
     var settings = {
         e: 'idcode',
