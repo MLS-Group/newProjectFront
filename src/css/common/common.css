@@ -21,9 +21,10 @@
     border-radius: 50%;
 }
 
-.required::after {
+.required::before {
     content: '*';
     color: #f00;
+    margin-right: 3px;
 }
 
 .modal {
