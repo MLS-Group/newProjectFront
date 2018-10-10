@@ -1,10 +1,11 @@
 //用户管理 刘志杰 2018-10-09
 var UPDATEUSER = {} //修改时 选择的用户信息
 var ADDUSER = {} //创建时 填写的用户信息
+var USERURLALL = requestJson ? AJAX_URL.userManageALL : ""; //url地址 分页查询
+var USERURLCONDITION =  ""; //url地址 条件查询
 $(function () {
-    tableInit(); //表格初始化
+    tableInit(USERURLALL); //表格初始化
 })
-var USERURL = requestJson ? AJAX_URL.userManage : "";
 
 /**
  * @Desc 模态框（创建用户）
@@ -13,10 +14,12 @@ var USERURL = requestJson ? AJAX_URL.userManage : "";
  */
 function AddUserModal() {
     $(".modal-header h4").html("创建用户")
+    //清除提示
+    $(".alert-warn").text("")
     //状态默认为启用
-    $("input[name='status'][value='0']").attr("checked", true);
+    $("input[name='modal-radio-status'][value='0']").attr("checked", true);
     //身份默认为请选择
-    $("#user-role").val(-1);
+    $("#modal-select-role").val(-1);
 }
 
 /**
@@ -31,13 +34,15 @@ function UppdateUserModal() {
         poptip.alert(POP_TIP.choiceOne)
         return 0;
     }
+    //清除提示
+    $(".alert-warn").text("");
 
     $(".modal-header h4").html("修改用户");
-    $("#user-key").val(checkboxTable[0].userkey);
-    $("#user-account").val(checkboxTable[0].useraccount);
-    $("#user-password").val(checkboxTable[0].userpassword);
-    $("input[name='status'][value=" + checkboxTable[0].status + "]").attr("checked", true);
-    $("#user-role").val(checkboxTable[0].userrole);
+    $("#modal-input-key").val(checkboxTable[0].userkey);
+    $("#modal-input-account").val(checkboxTable[0].useraccount);
+    $("#modal-input-password").val(checkboxTable[0].userpassword);
+    $("input[name='modal-radio-status'][value=" + checkboxTable[0].status + "]").attr("checked", true);
+    $("#modal-select-role").val(checkboxTable[0].userrole);
     $("#my-modal").modal("show");
 }
 
@@ -49,10 +54,10 @@ function UppdateUserModal() {
 function saveInfo() {
     if ($(".modal-header h4").html() == "创建用户") { //创建
         ADDUSER = {
-            "useraccount": $("#user-account").val(),
-            "userpassword": $("#user-password").val(),
-            "userrole": $("input[name='status']:checked").val(),
-            "status": $("#user-role").val()
+            "useraccount": $("#modal-input-account").val(),
+            "userpassword": $("#modal-input-password").val(),
+            "userrole": $("input[name='modal-radio-status']:checked").val(),
+            "status": $("#modal-select-role").val()
         };
         $.ajax({
             url: USERURL,
@@ -68,11 +73,11 @@ function saveInfo() {
     }
     if ($(".modal-header h4").html() == "修改用户") { //修改
         UPDATEUSER = {
-            "userkey": $("#user-key").val(),
-            "useraccount": $("#user-account").val(),
-            "userpassword": $("#user-password").val(),
-            "userrole": $("input[name='status']:checked").val(),
-            "status": $("#user-role").val()
+            "userkey": $("#modal-input-key").val(),
+            "useraccount": $("#modal-input-account").val(),
+            "userpassword": $("#modal-input-password").val(),
+            "userrole": $("input[name='modal-radio-status']:checked").val(),
+            "status": $("#modal-select-role").val()
         };
         $.ajax({
             url: USERURL,
@@ -80,7 +85,7 @@ function saveInfo() {
             data: JSON.stringify(UPDATEUSER),
             dataType: "json",
             success: function (data) {
-                alert(POP_TIP.deleteSuccess);
+                alert(POP_TIP.updateSuccess);
                 pageToDo('../user-manage/user-manage.html');
 
             }
@@ -93,9 +98,9 @@ function saveInfo() {
  * @Author 刘志杰
  * @Date 2018-10-09
  */
-function tableInit() {
+function tableInit(tableUrl) {
     $('#user-table').bootstrapTable({
-        url: USERURL,
+        url: tableUrl,
         method: requestJson ? 'get' : 'post',                      //请求方式（*）
         dataType: "json",
         // height:  $(window).height() - 180,
@@ -189,9 +194,10 @@ function tableInit() {
     });
 }
 
-
 /**
- * 点击删除按钮
+ * @Desc 点击删除按钮
+ * @Author 刘志杰
+ * @Date 2018-10-09
  */
 function deleteUser() {
     let checkboxTable = $("#user-table").bootstrapTable('getSelections');
@@ -200,7 +206,7 @@ function deleteUser() {
         poptip.alert(POP_TIP.choiceOne);
         return 0;
     }
-    let checkboxTable2 = JSON.stringify(checkboxTable);
+    let checkboxTable2 = JSON.stringify(checkboxTable[0]);
 
     poptip.confirm({
         content: POP_TIP.confirm,
@@ -215,7 +221,6 @@ function deleteUser() {
                 success: function (data) {
                     alert(POP_TIP.deleteSuccess);
                     pageToDo('../user-manage/user-manage.html');
-
                 }
             })
             poptip.close();
@@ -226,4 +231,30 @@ function deleteUser() {
         }
     });
 
+}
+
+/**
+ * @Desc 查询
+ * @Author 刘志杰
+ * @Date 2018-10-10
+ */
+function selectUser() {
+    let accountSelect = $("#account-select").val();
+    let statusSelect = $("input[name='select-radio-status']:checked").val();
+    let tableUrl = USERURLCONDITION;
+    let user = {};
+    if ((!accountSelect || accountSelect.trim() == "") && (!statusSelect || statusSelect == "")) {
+        poptip.alert(POP_TIP.selectNotNull)
+        return 0;
+    } else {
+        tableUrl += "?";
+    }
+    if (accountSelect && accountSelect.trim() != "") {
+        tableUrl += ("&useraccount=" + accountSelect);
+    }
+    if (statusSelect && statusSelect.trim() != "") {
+        user.status += ("&status=" + statusSelect);
+    }
+
+    tableInit(tableUrl);
 }
