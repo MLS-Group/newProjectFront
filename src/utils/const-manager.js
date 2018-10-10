@@ -96,6 +96,12 @@ const AJAX_URL = {
     reportProblem: requestJson ? '../../jsonDatas/reportProblem.json' : '',
     allProblemData: requestJson ? '../../jsonDatas/allProblemData.json' : '',
     checkAllProblemData: requestJson ? '../../jsonDatas/checkAllProblemData.json' : '',
+    /**
+     *@desc 招生计划数据
+     *@date 2018/10/10 10:29:51
+     *@author zhangziteng
+     */
+    recruitPlanData: requestJson ? '../../jsonDatas/recruitPlanData.json' : '',
     //经销商管理 刘志杰 2018-09-25
     distributorData: requestJson ? '../../jsonDatas/distributorData.json' : '',
     //系统设置-答疑设置（预警列表） 刘志杰 2018-09-28
