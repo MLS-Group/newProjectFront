@@ -34,7 +34,12 @@ const POP_TIP = {
     completeInfo: '请完善信息',//by qitian
     checkInfo: '请核对信息',//,by qitian
     confirm: '您确定执行此操作吗？',
-    choiceOne: '请选择一条选项'
+    choiceOne: '请选择一条选项', //by 刘志杰
+    selectInputNotNull: "请输入要查询的内容",//by 刘志杰
+    selectChoiceNotNull: "请选择要查询的内容",//by 刘志杰
+    offlineTimeNotNull: "请选择下线时间",//by 刘志杰
+    publishSuccess: "发布成功",//by 刘志杰
+
 };
 
 /**
@@ -95,8 +100,11 @@ const AJAX_URL = {
     distributorData: requestJson ? '../../jsonDatas/distributorData.json' : '',
     //系统设置-答疑设置（预警列表） 刘志杰 2018-09-28
     answerSetting: requestJson ? '../../jsonDatas/answerSetting.json' : '',
-    //用户管理 刘志杰 2018-09-28
-    userManage: requestJson ? '../../jsonDatas/userData.json' : '',
+    //用户管理(分页查询) 刘志杰 2018-10-09
+    userManageAll: requestJson ? '../../jsonDatas/userData.json' : '',
+    //发布管理(分页查询) 刘志杰 2018-10-10
+    adminssions: requestJson ? '../../jsonDatas/adminssionsDate.json' : '',
+
     /**
      *@desc 日志管理，答疑管理数据
      *@date 2018/09/27 09:23:06

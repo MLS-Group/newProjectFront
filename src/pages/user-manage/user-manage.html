@@ -17,14 +17,34 @@
         <div class="title-header">用户管理</div>
     </div>
     <div class="content-section">
-        <div class="btn">
-            <button class="btn btn-primary btn-open" data-target="#my-modal" data-toggle="modal" onclick="AddUserModal()">创建</button>
-            <button class="btn btn-primary btn-open"  onclick="UppdateUserModal()">修改</button>
-            <button class="btn btn-primary btn-open" onclick="deleteUser()">删除</button>
+        <!--查询-->
+        <div class="select-section">
+            <div class="h2">信息查询</div>
+            <div class="select-input">
+                <label class="form-inline">
+                    <span>账户：</span>
+                    <input id="account-select" type="text" class="form-control" style="width: 150px;">
+                </label>
+                <label class="form-inline">
+                    <span>状态：</span>
+                    <input type="radio" class="" name="select-radio-status" value="0">启用
+                    <input type="radio" class="" name="select-radio-status" value="1">停用
+                </label>
+            </div>
 
+            <div class="select-btn">
+                <button class="btn btn-primary btn-open" onclick="selectUser()">查询</button>
+            </div>
         </div>
 
-        <div class="table">
+        <!--操作按钮-->
+        <hr>
+        <div class="btn-section">
+            <button class="btn btn-primary btn-open" data-target="#my-modal" data-toggle="modal" onclick="addUserModal()">创建</button>
+            <button class="btn btn-primary btn-open"  onclick="updateUserModal()">修改</button>
+            <button class="btn btn-primary btn-open" onclick="deleteUser()">删除</button>
+        </div>
+        <div class="table-section">
             <table id="user-table"></table>
         </div>
     </div>
@@ -45,45 +65,45 @@
                 <div class="row">
                     <div class="col-xs-12 form-horizontal" id="open-dialog">
                         <input type="hidden"
-                               id="user-key">
+                               id="modal-input-key">
                         <div class="form-group">
                             <!--requred 必填样式（红色星号）-->
-                            <label for="user-account" class="col-sm-2 control-label required">登录账户 </label>
+                            <label for="modal-input-account" class="col-sm-2 control-label required">登录账户 </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control need-check not-null" maxlength="15"
-                                       id="user-account" placeholder="请输入登录账户">
+                                <input type="text" class="form-control need-check not-null" maxlength="15" regex="account"
+                                       id="modal-input-account" placeholder="请输入登录账户">
                                 <!--并且必须在表单项紧挨着的下方添加如下标签-->
                                 <span class="alert-warn"></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <!--requred 必填样式（红色星号）-->
-                            <label for="user-password" class="col-sm-2 control-label required">密码 </label>
+                            <label for="modal-input-password" class="col-sm-2 control-label required">密码 </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control need-check not-null" maxlength="15"
-                                       id="user-password" placeholder="请输入密码">
+                                <input type="text" class="form-control need-check not-null" maxlength="15" regex="account"
+                                       id="modal-input-password" placeholder="请输入密码">
                                 <!--并且必须在表单项紧挨着的下方添加如下标签-->
                                 <span class="alert-warn"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label required">状态 </label>
+                            <label class="col-sm-2 control-label">状态 </label>
                             <div class="col-sm-10">
                                 <div class="radio">
                                     <label class="radio-inline">
-                                        <input type="radio" class="need-check not-null" name="status" value="0">启动
+                                        <input type="radio" class="" name="modal-radio-status" value="0">启用
                                     </label>
                                     <label class="radio-inline">
-                                        <input type="radio" class=" need-check not-null" name="status" value="1">停用
+                                        <input type="radio" class="" name="modal-radio-status" value="1">停用
                                     </label>
                                 </div>
                                 <span class="alert-warn"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label required">身份 </label>
+                            <label class="col-sm-2 control-label ">身份 </label>
                             <div class="col-sm-10">
-                                <select id="user-role" class="form-control  need-check not-null">
+                                <select id="modal-select-role" class="form-control ">
                                     <option value="-1">请选择</option>
                                     <option value="0">考生</option>
                                     <option value="1">管理员</option>
@@ -93,17 +113,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">取消
-                        </button>
-                        <!--当点击保存按钮的时候，需要将表单中所有绑定need-check的项都进行重新验证，
-                            此时需要在按钮上绑定class:save-check
-                            并且添加属性check-area=""，属性值为要验证的区域id-->
-                        <button type="button" class="btn btn-info save-check" check-area="open-dialog"
-                                onclick="saveInfo()">保存
-                        </button>
-                    </div>
                 </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                </button>
+                <!--当点击保存按钮的时候，需要将表单中所有绑定need-check的项都进行重新验证，
+                    此时需要在按钮上绑定class:save-check
+                    并且添加属性check-area=""，属性值为要验证的区域id-->
+                <button type="button" class="btn btn-info save-check" check-area="open-dialog"
+                        onclick="saveInfo()">保存
+                </button>
             </div>
         </div>
     </div>

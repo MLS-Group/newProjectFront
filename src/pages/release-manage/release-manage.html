@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/bootstrap-table/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../css/common/common.css"/>
+    <link rel="stylesheet" href="../../css/release-manage/release-manage.css"/>
+    <title>发布管理</title>
+</head>
+<body>
+<!--发布管理 刘志杰 2018-10-10 -->
+<div class="content-box">
+    <div class="header-section">
+        <div class="title-header">发布管理</div>
+    </div>
+    <div class="content-section">
+        <!--查询-->
+        <div class="select-section">
+            <div class="h2">信息查询</div>
+            <div class="select-input">
+                <label class="form-inline">
+                    <span>学校：</span>
+                    <select id="school-select" class="form-control">
+                        <option value="-1">请选择</option>
+                        <option value="1">学校1</option>
+                        <option value="2">学校2</option>
+                        <option value="3">学校3</option>
+                    </select>
+                </label>
+                <label class="form-inline">
+                    <span>省份：</span>
+                    <select id="province-select" class="form-control">
+                        <option value="-1">请选择</option>
+                        <option value="1">省份1</option>
+                        <option value="2">省份2</option>
+                        <option value="3">省份3</option>
+                    </select>
+
+                </label>
+                <label class="form-inline">
+                    <span>专业：</span>
+                    <select id="major-select" class="form-control">
+                        <option value="-1">请选择</option>
+                        <option value="1">专业1</option>
+                        <option value="2">专业2</option>
+                        <option value="3">专业3</option>
+                    </select>
+
+                </label>
+
+            </div>
+
+            <div class="select-btn">
+                <button class="btn btn-primary btn-open" onclick="selectAdminssions()">查询</button>
+            </div>
+        </div>
+
+        <!--操作按钮-->
+        <hr>
+        <div class="btn-section">
+            <button class="btn btn-primary btn-open"  onclick="openModel()">发布
+            </button>
+        </div>
+        <div class="table-section">
+            <table id="adminssions-table"></table>
+        </div>
+    </div>
+</div>
+<!--模态框（用户创建、修改）-->
+<div class="modal fade drag-modal" id="my-modal" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>发布</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12 form-horizontal" id="open-dialog">
+                        <input type="hidden"
+                               id="modal-input-key">
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label ">下线时间：</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="offlinetime" placeholder="发布时间">
+
+                                <span class="alert-warn"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                </button>
+                <!--当点击保存按钮的时候，需要将表单中所有绑定need-check的项都进行重新验证，
+                    此时需要在按钮上绑定class:save-check
+                    并且添加属性check-area=""，属性值为要验证的区域id-->
+                <button type="button" class="btn btn-info save-check" check-area="open-dialog"
+                        onclick="publishAdminssions()">发布
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../lib/js/jquery.min.js"></script>
+<script src="../../../config/config.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../lib/layer/laydate.js"></script>
+<script src="../../utils/common-util.js"></script>
+<script src="../../utils/const-manager.js"></script>
+<script src="../../js/release-manage/release-manage.js"></script>
+</body>
+</body>
+</html>
