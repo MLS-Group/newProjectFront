@@ -1,7 +1,7 @@
 //用户管理 刘志杰 2018-10-09
 var UPDATEUSER = {} //修改时 选择的用户信息
 var ADDUSER = {} //创建时 填写的用户信息
-var USERURLALL = requestJson ? AJAX_URL.userManageALL : ""; //url地址 分页查询
+var USERURLALL = requestJson ? AJAX_URL.userManageAll : ""; //url地址 分页查询
 var USERURLCONDITION =  ""; //url地址 条件查询
 $(function () {
     tableInit(USERURLALL); //表格初始化
@@ -12,7 +12,7 @@ $(function () {
  * @Author 刘志杰
  * @Date 2018-10-09
  */
-function AddUserModal() {
+function addUserModal() {
     $(".modal-header h4").html("创建用户")
     //清除提示
     $(".alert-warn").text("")
@@ -27,7 +27,7 @@ function AddUserModal() {
  * @Author 刘志杰
  * @Date 2018-10-09
  */
-function UppdateUserModal() {
+function updateUserModal() {
 
     let checkboxTable = $("#user-table").bootstrapTable('getSelections');
     if (checkboxTable.length <= 0) {
@@ -65,9 +65,8 @@ function saveInfo() {
             data: JSON.stringify(ADDUSE0R),
             dataType: "json",
             success: function (data) {
-                alert(POP_TIP.deleteSuccess);
-                pageToDo('../user-manage/user-manage.html');
-
+                poptip.alert(POP_TIP.deleteSuccess);
+                tableInit(USERURLALL);
             }
         })
     }
@@ -85,8 +84,8 @@ function saveInfo() {
             data: JSON.stringify(UPDATEUSER),
             dataType: "json",
             success: function (data) {
-                alert(POP_TIP.updateSuccess);
-                pageToDo('../user-manage/user-manage.html');
+                poptip.alert(POP_TIP.updateSuccess);
+                tableInit(USERURLALL);
 
             }
         })
@@ -219,8 +218,8 @@ function deleteUser() {
                 data: checkboxTable2,
                 dataType: "json",
                 success: function (data) {
-                    alert(POP_TIP.deleteSuccess);
-                    pageToDo('../user-manage/user-manage.html');
+                    poptip.alert(POP_TIP.deleteSuccess);
+                    tableInit(USERURLALL);
                 }
             })
             poptip.close();
@@ -242,9 +241,8 @@ function selectUser() {
     let accountSelect = $("#account-select").val();
     let statusSelect = $("input[name='select-radio-status']:checked").val();
     let tableUrl = USERURLCONDITION;
-    let user = {};
     if ((!accountSelect || accountSelect.trim() == "") && (!statusSelect || statusSelect == "")) {
-        poptip.alert(POP_TIP.selectNotNull)
+        poptip.alert(POP_TIP.selectInputNotNull)
         return 0;
     } else {
         tableUrl += "?";
@@ -253,7 +251,7 @@ function selectUser() {
         tableUrl += ("&useraccount=" + accountSelect);
     }
     if (statusSelect && statusSelect.trim() != "") {
-        user.status += ("&status=" + statusSelect);
+        tableUrl += ("&status=" + statusSelect);
     }
 
     tableInit(tableUrl);

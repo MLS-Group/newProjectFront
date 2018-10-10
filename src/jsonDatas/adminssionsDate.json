@@ -1,0 +1,125 @@
+{
+  "total": "5",
+  "rows": [
+    {
+      "adminssionskey": "1",
+      "schoolname": "学校1号",
+      "majorname": "专业1号",
+      "adminssionsnumber": 123,
+      "createtime": "2018-08-08",
+      "publishtime": "2018-08-08"
+    },
+    {
+      "adminssionskey": "2",
+      "schoolname": "学校2号",
+      "majorname": "专业2号",
+      "adminssionsnumber": 123,
+      "createtime": "2018-08-08",
+      "publishtime": "2018-08-08"
+    },
+    {
+      "adminssionskey": "3",
+      "schoolname": "学校3号",
+      "majorname": "专业3号",
+      "adminssionsnumber": 123,
+      "createtime": "2018-08-08",
+      "publishtime": "2018-08-08"
+    },
+    {
+      "adminssionskey": "1",
+      "schoolname": "学校1号",
+      "majorname": "专业1号",
+      "adminssionsnumber": 123,
+      "createtime": "2018-08-08",
+      "publishtime": "2018-08-08"
+    },
+    {
+      "adminssionskey": "2",
+      "schoolname": "学校2号",
+      "majorname": "专业2号",
+      "adminssionsnumber": 123,
+      "createtime": "2018-08-08",
+      "publishtime": "2018-08-08"
+    },
+    {
+      "adminssionskey": "3",
+      "schoolname": "学校3号",
+      "majorname": "专业3号",
+      "adminssionsnumber": 123,
+      "createtime": "2018-08-08",
+      "publishtime": "2018-08-08"
+    },
+    {
+      "adminssionskey": "1",
+      "schoolname": "学校1号",
+      "majorname": "专业1号",
+      "adminssionsnumber": 123,
+      "createtime": "2018-08-08",
+      "publishtime": "2018-08-08"
+    },
+    {
+      "adminssionskey": "2",
+      "schoolname": "学校2号",
+      "majorname": "专业2号",
+      "adminssionsnumber": 123,
+      "createtime": "2018-08-08",
+      "publishtime": "2018-08-08"
+    },
+    {
+      "adminssionskey": "3",
+      "schoolname": "学校3号",
+      "majorname": "专业3号",
+      "adminssionsnumber": 123,
+      "createtime": "2018-08-08",
+      "publishtime": "2018-08-08"
+    },
+    {
+      "adminssionskey": "1",
+      "schoolname": "学校1号",
+      "majorname": "专业1号",
+      "adminssionsnumber": 123,
+      "createtime": "2018-08-08",
+      "publishtime": "2018-08-08"
+    },
+    {
+      "adminssionskey": "2",
+      "schoolname": "学校2号",
+      "majorname": "专业2号",
+      "adminssionsnumber": 123,
+      "createtime": "2018-08-08",
+      "publishtime": "2018-08-08"
+    },
+    {
+      "adminssionskey": "3",
+      "schoolname": "学校3号",
+      "majorname": "专业3号",
+      "adminssionsnumber": 123,
+      "createtime": "2018-08-08",
+      "publishtime": "2018-08-08"
+    },
+    {
+      "adminssionskey": "1",
+      "schoolname": "学校1号",
+      "majorname": "专业1号",
+      "adminssionsnumber": 123,
+      "createtime": "2018-08-08",
+      "publishtime": "2018-08-08"
+    },
+    {
+      "adminssionskey": "2",
+      "schoolname": "学校2号",
+      "majorname": "专业2号",
+      "adminssionsnumber": 123,
+      "createtime": "2018-08-08",
+      "publishtime": "2018-08-08"
+    },
+    {
+      "adminssionskey": "3",
+      "schoolname": "学校3号",
+      "majorname": "专业3号",
+      "adminssionsnumber": 123,
+      "createtime": "2018-08-08",
+      "publishtime": "2018-08-08"
+    }
+  ]
+}
