@@ -18,7 +18,7 @@ $(function () {
     var settings = {
         e: 'idcode',
         codeType: {name: 'follow', len: 4},//len是修改验证码长度的
-        // codeTip: '<img class="F5" src="../img/f5.png " />',
+        codeTip: '<img class="F5" src="../../images/f5.png " />',
         inputID: 'captchac'//验证元素的ID
     };
 
