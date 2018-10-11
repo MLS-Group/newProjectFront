@@ -110,6 +110,10 @@ const AJAX_URL = {
     userManageAll: requestJson ? '../../jsonDatas/userData.json' : '',
     //发布管理(分页查询) 刘志杰 2018-10-10
     adminssions: requestJson ? '../../jsonDatas/adminssionsDate.json' : '',
+    //录取管理(分页查询) 刘志杰 2018-10-11
+    matriculateData: requestJson ? '../../jsonDatas/matriculateData.json' : '',
+
+
 
     /**
      *@desc 日志管理，答疑管理数据
