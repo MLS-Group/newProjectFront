@@ -31,6 +31,63 @@
     -moz-user-select: none;
     -webkit-user-select: none;
 }
+
+/*
+*验证码格式
+**/
+#ehong-code-input {
+    width: 42px;
+    letter-spacing: 2px;
+    margin: -20px 8px 0 0;
+}
+
+.ehong-idcode-val {
+    position: relative;
+    padding: 0 4px 1px 4px;
+    top: -24px;
+    letter-spacing: 4px;
+    display: block;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
+    font-weight: bold;
+}
+.ehong-idcode-val0 {
+    border: solid 1px #a4cded;
+    background-color: #ecfafb;
+}
+
+.ehong-idcode-val1 {
+    border: solid 1px #a4cded;
+    background-color: #fcefcf;
+}
+
+.ehong-idcode-val2 {
+    border: solid 1px #6c9;
+    background-color: #d0f0df;
+}
+
+.ehong-idcode-val3 {
+    border: solid 1px #6c9;
+    background-color: #dcddd8;
+}
+
+.ehong-idcode-val4 {
+    border: solid 1px #6c9;
+    background-color: #f1deff;
+}
+
+.ehong-idcode-val5 {
+    border: solid 1px #6c9;
+    background-color: #ace1f1;
+}
+
+.F5 {
+    width: 20px;
+    margin-top: -50px;
+    margin-left: 1%;
+}
 /**************************************************全局样式结束**************************************************/
 /**************************************************全局标签样式**************************************************/
 a,button {

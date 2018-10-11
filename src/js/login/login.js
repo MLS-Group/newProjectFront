@@ -18,7 +18,7 @@ $(function () {
     var settings = {
         e: 'idcode',
         codeType: {name: 'follow', len: 4},//len是修改验证码长度的
-        // codeTip: '<img class="F5" src="../img/f5.png " />',
+        codeTip: '<img class="F5" src="../../images/f5.png" />',
         inputID: 'captchac'//验证元素的ID
     };
 
@@ -47,7 +47,8 @@ $(function () {
             } else {
                 inputV = $(_set.store).val();
             }
-            if (inputV.toUpperCase() == _storeData(_set.storeLable, null).toUpperCase()) {//修改的不区分大小写
+            if (inputV.toUpperCase() == _storeData(_set.storeLable, null).toUpperCase()){
+                //修改的不区分大小写
                 return true;
             } else {
                 _setCodeStyle("#" + settings.e, settings.codeType.name, settings.codeType.len);
@@ -78,7 +79,7 @@ $(function () {
         }
         htmlCode += '<div id="ehong-code" class="ehong-idcode-val ehong-idcode-val';
         htmlCode += String(randNum);
-        htmlCode += '" href="#" onblur="return false" onfocus="return false" oncontextmenu="return false" onclick="$.idcode.setCode()">' + _setStyle(codeObj) + '</div>' + '<span id="ehong-code-tip-ck" class="ehong-code-val-tip" onclick="$.idcode.setCode()">' + settings.codeTip + '</span>';
+        htmlCode += '" href="#" onblur="return false" onfocus="return false" oncontextmenu="return false" onclick="$.idcode.setCode()">' + _setStyle(codeObj) + '</div>';
         $(eid).html(htmlCode);
         _storeData(_set.storeLable, codeObj);
     }
