@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/bootstrap-table/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../css/common/common.css"/>
+    <link rel="stylesheet" href="../../css/school-manage/school-manage.css"/>
+    <title>学校管理</title>
+</head>
+<!--学校管理-张子腾 2018年10月11日09:40:38-->
+<body>
+<ol class="breadcrumb">
+    <li><a href="#">后台管理系统</a></li>
+    <li class="active">学校管理</li>
+</ol>
+<div class="container">
+    <div class="page-header">
+        <h3>学校管理</h3>
+    </div>
+    <!--搜索部分-->
+    <div class="search-content">
+        <div class="search-head">
+            <form>
+                <div class="search-from form-group">
+                    <label>学校名称：</label>
+                    <input type="text" class="from-controller" id="school-input-search" placeholder="请输入学校名称">
+                </div>
+            </form>
+        </div>
+        <div class="search-submit">
+            <button class="btn btn-primary" id="plan-button-search" onclick="SearchPlan()">搜索</button>
+            <button class="btn" id="plan-button-reset" onclick="ResetPlanInput()">重置</button>
+        </div>
+    </div>
+    <hr>
+    <!--2018年10月11日09:41:02 表格新增修改删除按钮-->
+    <div class="btn-left">
+        <button type="button" class="btn btn-primary" onclick="AddSchoolModal()" data-target="#add-school-modal" data-toggle="modal" style="padding: 6px 20px;">创建</button>
+        <button type="button" class="btn btn-success" onclick="AlterSchoolModal()" style="padding: 6px 20px;">修改</button>
+        <button type="button" class="btn btn-danger" onclick="DeleteSchool()" style="padding: 6px 20px;">删除</button>
+    </div>
+    <br>
+    <div id="school-table">
+        <table id="school-table-all" style="text-align: center;"></table>
+    </div>
+</div>
+
+<!--创建修改按钮模态窗-->
+<div class="modal fade" id="add-school-modal" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width: 450px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 id="school-modal-title">创建学校名称</h3>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="margin: 0 auto;">
+                    <div class="col-xs-12 form-horizontal" id="add-school-info">
+                        <div class="form-group">
+                            <div class="col-sm-12 form-inline">
+                                <label for="add-input-school" class="col-sm-4 control-label">学校名称：</label>
+                                <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="30" id="add-input-school" placeholder="请输入学校名称">
+                                <span class="alert-warn" style="margin: 0px 130px 0px;"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12 form-inline">
+                                <label for="add-input-phone" class="col-sm-4 control-label">联系电话：</label>
+                                <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="15" id="add-input-phone" placeholder="请输入联系电话">
+                                <span class="alert-warn" style="margin: 0px 130px 0px;"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12 form-inline">
+                                <label for="add-input-address" class="col-sm-4 control-label">地址信息：</label>
+                                <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="30" id="add-input-address" placeholder="请输入地址信息">
+                                <span class="alert-warn" style="margin: 0px 130px 0px;"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12 form-inline">
+                                <label for="add-input-introduction" class="col-sm-4 control-label">简&emsp;&emsp;介：</label>
+                                <textarea class="form-control need-check" maxlength="500" rows="7" style="width: 200px;" regex="account" id="add-input-introduction" placeholder="请输入1-500字中英文简介"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer" style="text-align: center;">
+                            <!--<button class="btn" data-dismiss="modal">取消</button>-->
+                            <button class="btn btn-primary save-check" id="add-button-submit" style="width: 200px;">提交</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--**********JS部分*********-->
+<script src="../../lib/js/jquery.min.js"></script>
+<script src="../../../config/config.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../utils/common-util.js"></script>
+<script src="../../utils/const-manager.js"></script>
+<script src="../../js/school-manage/school-manage.js"></script>
+</body>
+</html>
