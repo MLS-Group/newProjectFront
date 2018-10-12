@@ -51,7 +51,8 @@ const POP_TIP = {
  */
 const INPUT_ALERT = {
     account: '请输入字母或数字，长度限制为4-15',//by qitian
-    notNull: '此项不可为空'//by qitian
+    notNull: '此项不可为空',//by qitian
+    IDNumber: '身份证格式不正确'//by qitian
 };
 
 /**
