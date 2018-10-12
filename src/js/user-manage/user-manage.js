@@ -324,7 +324,7 @@ function tableInit1(tableUrl) {
 
         }
     });
-    $('#my-table').bootstrapTable('hideColumn', 'volunteerkey');
+    $('#my-table').bootstrapTable('hideColumn', 'userkey');
 }
 
 /**

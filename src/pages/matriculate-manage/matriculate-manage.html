@@ -18,34 +18,23 @@
     <div class="content-section">
         <div class="select-section">
             <div class="h3">信息查询</div>
-            <div class="select-input">
+            <div class="select-input" style="width: 1050px;">
                 <label class="form-inline">
                     <span>学校：</span>
-                    <select id="select-school"  class="form-control">
-                        <option value="1">学校1号</option>
-                        <option value="2">学校2号</option>
-                        <option value="3">学校3号</option>
-                    </select>
+                    <input id="select-school" class="form-control"/>
                 </label>
                 <label class="form-inline">
                     <span>省份：</span>
-                    <select id="select-province"  class="form-control">
-                        <option value="1">省份1号</option>
-                        <option value="2">省份2号</option>
-                        <option value="3">省份3号</option>
-                    </select>
+                    <input type="text" id="search-input-province" class="form-control"/>
                 </label>
                 <label class="form-inline">
                     <span>状态：</span>
-                    <select id="select-status"  class="form-control">
-                        <option value="1">录取</option>
-                        <option value="0">未录取</option>
-                    </select>
+                    <input id="search-input-status" class="form-control"/>
                 </label>
                 <label class="form-inline">
                     <span>分数：</span>
-                    <input type="text" id="select-score1" class="select-score form-control" style="width: 50px">---
-                    <input type="text" id="select-score2" class="select-score form-control" style="width: 50px">
+                    <input type="text" id="search-input-score1" class="select-score form-control" style="width: 50px">---
+                    <input type="text" id="search-input-score2" class="select-score form-control" style="width: 50px">
                 </label>
             </div>
             <div class="select-btn">
@@ -57,14 +46,14 @@
         <hr>
         <div class="table-section">
             <div class="matriculate-btn">
-                <button class="btn btn-primary" data-target="#my-modal" data-toggle="modal">录取</button>
+                <button class="btn btn-primary" onclick="admssion()">录取</button>
             </div>
             <table id="my-table"></table>
         </div>
     </div>
 </div>
-<!--模态框（用户创建、修改）-->
-<div class="modal fade drag-modal" id="my-modal" data-backdrop="static">
+<!--模态框（录取）-->
+<div class="modal fade drag-modal" id="matriculate-modal" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -76,13 +65,12 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-xs-12 form-horizontal" id="open-dialog">
-                        <input type="hidden"
-                               id="modal-input-key">
-
+                        <input type="hidden" id="modal-input-key">
                         <div class="form-group">
                             <label class="col-sm-3 control-label ">录取时间：</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="matriculatetime" placeholder="录取时间">
+                                <input type="text" class="form-control" id="matriculate-input-admissiontime"
+                                       placeholder="录取时间">
 
                                 <span class="alert-warn"></span>
                             </div>
@@ -100,6 +88,149 @@
                         onclick="confirm()">确认
                 </button>
             </div>
+        </div>
+    </div>
+</div>
+<!--模态框（个人信息）-->
+<div class="modal fade drag-modal" id="personalinfo-modal" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>个人信息</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12 form-horizontal" id="open-dialog2">
+                        <div class="form-group">
+                            <!--requred 必填样式（红色星号）-->
+                            <label for="basicinfo-input-quasiexaminationnumber" class="col-sm-3 control-label required">准考证号 </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control " id="basicinfo-input-quasiexaminationnumber"
+                                       disabled>
+
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!--requred 必填样式（红色星号）-->
+                            <label for="basicinfo-input-realname"
+                                   class="col-sm-3 control-label required">真实姓名 </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control "
+                                       id="basicinfo-input-realname"
+                                       disabled>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label required">性别 </label>
+                            <div class="col-sm-9">
+                                <div class="radio">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="basicinfo-radio-sex"
+                                               value="男" disabled> 男
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="basicinfo-radio-sex"
+                                               value="女" disabled> 女
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!--requred 必填样式（红色星号）-->
+                            <label for="basicinfo-input-age" class="col-sm-3 control-label required">年龄</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control need-check not-null"
+                                       id="basicinfo-input-age"
+                                       disabled>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!--requred 必填样式（红色星号）-->
+                            <label for="basicinfo-input-idcardnumber"
+                                   class="col-sm-3 control-label required">身份证号</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control need-check not-null"
+                                       id="basicinfo-input-idcardnumber"
+                                       disabled>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!--requred 必填样式（红色星号）-->
+                            <label for="basicinfo-input-registeredresidence"
+                                   class="col-sm-3 control-label required">户口所在地</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control need-check not-null"
+                                       id="basicinfo-input-registeredresidence"
+                                       disabled>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!--requred 必填样式（红色星号）-->
+                            <label for="basicinfo-input-politicaloutlook"
+                                   class="col-sm-3 control-label required">政治面貌</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control need-check not-null"
+                                       id="basicinfo-input-politicaloutlook"
+                                       disabled>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!--requred 必填样式（红色星号）-->
+                            <label for="basicinfo-input-nativeplace"
+                                   class="col-sm-3 control-label required">籍贯</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control need-check not-null"
+                                       id="basicinfo-input-nativeplace"
+                                       disabled>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!--requred 必填样式（红色星号）-->
+                            <label for="basicinfo-input-email" class="col-sm-3 control-label required">邮箱地址</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control need-check not-null"
+                                       id="basicinfo-input-email"
+                                       disabled>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!--requred 必填样式（红色星号）-->
+                            <label for="basicinfo-input-phonenumber"
+                                   class="col-sm-3 control-label required">手机号</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control need-check not-null"
+                                       id="basicinfo-input-phonenumber"
+                                       disabled>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!--requred 必填样式（红色星号）-->
+                            <label for="basicinfo-input-graduateschool"
+                                   class="col-sm-3 control-label required">毕业学校</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control need-check not-null"
+                                       id="basicinfo-input-graduateschool"
+                                       disabled>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

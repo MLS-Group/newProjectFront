@@ -1,9 +1,11 @@
 /*录取管理 刘志杰 2018-10-11*/
-var MATRICULATE_URL = requestJson ? AJAX_URL.matriculateData : ""; //获取所有录取信息url
+const MATRICULATE_URL = requestJson ? AJAX_URL.matriculateData : requestUrl + "api/generate/examineevolunteerinformation/page"; //获取所有录取信息url
 
+const examineevolunteer = {};
 $(function () {
-    tableInit(MATRICULATE_URL);
-    laydateInit("#matriculatetime");
+    tableInit(MATRICULATE_URL, false);
+
+    laydateInit("#matriculate-input-admissiontime");
 })
 
 
@@ -12,7 +14,7 @@ $(function () {
  * @Author 刘志杰
  * @Date 2018-10-11
  */
-function tableInit(tableUrl) {
+function tableInit(tableUrl, flag) {
     $('#my-table').bootstrapTable({
         url: tableUrl,
         method: requestJson ? 'get' : 'post',                      //请求方式（*）
@@ -24,9 +26,9 @@ function tableInit(tableUrl) {
         pagination: true,                   //是否显示分页（*）
         sortable: false,                     //是否启用排序
         sortOrder: "asc",                   //排序方式
-        sidePagination: "client",           //分页方式：client客户端分页，server服务端分页（*）
+        sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
         pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
-        pageSize: 10,                     //每页的记录行数（*）
+        pageSize: 5,                     //每页的记录行数（*）
         pageList: [10],        //可供选择的每页的行数（*）
         search: false,                      //是否显示表格搜索
         strictSearch: true,
@@ -42,12 +44,27 @@ function tableInit(tableUrl) {
         //得到查询的参数
         queryParams: function (params) {
             //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
-            var temp = {
-                rows: params.limit,                         //页面大小
-                page: (params.offset / params.limit) + 1,   //页码
-                sort: params.sort,      //排序列名
-                sortOrder: params.order //排位命令（desc，asc）
-            };
+            var temp = {}
+            if (flag) {   // 条件查询
+                temp = {
+                    pageSize: params.limit,                         //页面大小
+                    page: (params.offset / params.limit) + 1,   //页码
+                    admissionstatue: "0",  //状态
+                    schoolname: "理",  //学校名称
+                    provincename: "天",  //省份
+                    starttotalscore: "1",  //开始分数
+                    endtotalscore: "100",  //结束分数
+                };
+            } else {
+                temp = {
+                    pageSize: params.limit,                         //页面大小
+                    page: (params.offset / params.limit) + 1,   //页码
+
+                    // sort: params.sort,      //排序列名
+                    // sortOrder: params.order //排位命令（desc，asc）
+                };
+            }
+
             return temp;
         },
         columns: [{
@@ -56,15 +73,15 @@ function tableInit(tableUrl) {
             visible: true               //是否显示复选框
         }, {
             field: 'volunteerkey',
-            title: 'id'
+            title: '志愿主键'
         }, {
             field: 'examinationnumber',
             title: '准考证号'
         }, {
-            field: 'schoolname',
+            field: 'SchoolInformationEO.schoolname',
             title: '学校名称'
         }, {
-            field: 'majorname',
+            field: 'MajorInformationEO.majorname',
             title: '专业名称',
         }, {
             field: 'declaretime',
@@ -73,6 +90,26 @@ function tableInit(tableUrl) {
             field: 'volunteernumber',
             title: '志愿编号',
 
+        }, {
+            field: 'ExamineeinformationEO.examineekey',
+            title: '学生信息主键',
+
+        }, {
+            field: 'ID',
+            title: '操作',
+            width: 120,
+            align: 'center',
+            valign: 'middle',
+            formatter: function (value, row, index) {
+                console.log("=========================================")
+
+                console.log(row)
+                //通过formatter可以自定义列显示的内容
+                //value：当前field的值，即id
+                //row：当前行的数据
+                let a = '<a href="#" onclick="personalDetails(' + row.ExamineeinformationEO.examineekey + ')">详情</a>';
+                return a;
+            }
         }],
         onLoadSuccess: function (e) {
             console.log(e)
@@ -83,11 +120,21 @@ function tableInit(tableUrl) {
         onDblClickRow: function (row, $element) {
         },
         //客户端分页，需要指定到rows
-        responseHandler: function (data) {
-            return data.rows;
+        responseHandler: function (result) {
+            console.log(result)
+            if (requestJson) {
+                return result.rows;
+            } else {
+                return {
+                    "rows": result.data.list,
+                    "total": result.data.count
+                };
+            }
         }
     });
     $('#my-table').bootstrapTable('hideColumn', 'volunteerkey');
+    $('#my-table').bootstrapTable('hideColumn', 'examineekey');
+
 }
 
 
@@ -98,15 +145,33 @@ function tableInit(tableUrl) {
  */
 function selectMatriculate() {
 
+    // $('#my-table').bootstrapTable('destroy');
+    // tableInit(MATRICULATE_URL, true);
+
 }
 
 /**
- * @Desc 模态框（“确认”按钮）
+ * @Desc 模态框【录取】（“确认”按钮）
  * @Author 刘志杰
  * @Date 2018-10-11
  */
 function confirm() {
-
+    $.ajax({
+        url: AJAX_URL.matriculateInsert,
+        type: requestJson ? 'get' : 'put',
+        data: JSON.stringify({
+            "volunteerkey": examineevolunteer.volunteerkey,
+            "admissionstatue": 1,
+            "admissiontime": $("#matriculate-input-admissiontime").val()
+        }),
+        dataType: "json",
+        contentType: "application/json;charset=utf-8",
+        success: function (data) {
+            poptip.alert(POP_TIP.deleteSuccess);
+            $("#matriculate-modal").modal("hide");
+            console.log(data)
+        }
+    })
 }
 
 /**
@@ -124,3 +189,60 @@ function laydateInit(id) {
     });
 
 }
+
+/**
+ * @Desc “录取”按钮
+ * @Author 刘志杰
+ * @Date 2018-10-12
+ */
+function admssion() {
+    let checkboxTable = $("#my-table").bootstrapTable('getSelections');
+    if (checkboxTable.length <= 0) {
+        poptip.alert(POP_TIP.choiceOne);
+        return 0;
+    } else if (checkboxTable.length > 1) {
+        poptip.alert(POP_TIP.choiceOnlyOne);
+        return 0;
+    }
+    $("#matriculate-modal").modal("show");
+    examineevolunteer.volunteerkey = checkboxTable[0].volunteerkey;
+
+
+}
+
+
+/**
+ * @Desc 打开模态框【个人详情】
+ * @Author 刘志杰
+ * @Date 2018-10-12
+ */
+function personalDetails(examineekey) {
+    $.ajax({
+        url: AJAX_URL.personalDetails + "/" + examineekey,
+        type: 'get',
+        dataType: "json",
+        // contentType: "application/json;charset=utf-8",
+        success: function (result) {
+            $("#basicinfo-input-quasiexaminationnumber").val(result.data.quasiexaminationnumber)
+            $("#basicinfo-input-realname").val(result.data.realname)
+            if (result.data.sex == "男") {
+                $("input[name='basicinfo-radio-sex'][value='男']").attr("checked", true);
+            } else if (result.data.sex == "女") {
+                $("input[name='basicinfo-radio-sex'][value='女']").attr("checked", true);
+            }
+
+            $("#basicinfo-input-age").val(result.data.age)
+            $("#basicinfo-input-idcardnumber").val(result.data.idcardnumber)
+            $("#basicinfo-input-registeredresidence").val(result.data.registeredresidence)
+            $("#basicinfo-input-politicaloutlook").val(result.data.politicaloutlook)
+            $("#basicinfo-input-nativeplace").val(result.data.nativeplace)
+            $("#basicinfo-input-email").val(result.data.email)
+            $("#basicinfo-input-phonenumber").val(result.data.phonenumber)
+            $("#basicinfo-input-graduateschool").val(result.data.graduateschool)
+            console.log(result)
+            $("#personalinfo-modal").modal('show');
+        }
+    })
+}
+
+

@@ -35,6 +35,7 @@ const POP_TIP = {
     checkInfo: '请核对信息',//,by qitian
     confirm: '您确定执行此操作吗？',
     choiceOne: '请选择一条选项', //by 刘志杰
+    choiceOnlyOne: '只能选择一条选项', //by 刘志杰
     selectInputNotNull: "请输入要查询的内容",//by 刘志杰
     selectChoiceNotNull: "请选择要查询的内容",//by 刘志杰
     offlineTimeNotNull: "请选择下线时间",//by 刘志杰
@@ -111,9 +112,11 @@ const AJAX_URL = {
     //发布管理(分页查询) 刘志杰 2018-10-10
     adminssions: requestJson ? '../../jsonDatas/adminssionsDate.json' : '',
     //录取管理(分页查询) 刘志杰 2018-10-11
-    matriculateData: requestJson ? '../../jsonDatas/matriculateData.json' : '',
-
-
+    matriculateSelect: requestJson ? '../../jsonDatas/matriculateData.json' : requestUrl + "api/generate/examineevolunteerinformation/page",
+    //录取管理 录取（修改） 刘志杰 2018-10-11
+    matriculateInsert: requestJson ? '../../jsonDatas/matriculateData.json' : requestUrl + 'api/generate/examineevolunteerinformation',
+    //录取管理 （个人详情） 刘志杰 2018-10-11
+    personalDetails: requestJson ? '../../jsonDatas/matriculateData.json' : requestUrl + 'api/generate/examineeinformation',
 
     /**
      *@desc 日志管理，答疑管理数据
