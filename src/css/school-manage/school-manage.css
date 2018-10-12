@@ -1,6 +1,6 @@
 /**
-* @Desc 招生计划界面样式
-* @Date 2018年10月10日10:28:16
+* @Desc 学校管理界面样式
+* @Date 2018年10月11日09:43:16
 * @Author zhangziteng
 */
 body, html {
@@ -16,11 +16,11 @@ body, html {
     border-bottom: 1px solid #eee;
 }
 .search-content {
+    margin-bottom: 72px;
     width: 100%;
     /*height: 0%;*/
     margin-top: 20px;
     margin-bottom: 75px;
-    margin-left: -20px;
 }
 .child-content {
     height: 100%;
@@ -35,13 +35,13 @@ body, html {
 }
 
 .search-from {
-    width: 23%;
+    width: 25%;
     /*width: 500px;*/
     float: left;
     margin-left: 1%;
 }
 .search-from label {
-    min-width: 35%;
+    min-width: 70px;
     text-align: right;
 }
 .search-submit {
@@ -55,7 +55,7 @@ body, html {
 }
 .from-controller {
     /*display: block;*/
-    width: 55%;
+    /*width: 100%;*/
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -63,7 +63,7 @@ body, html {
     color: #555;
     border: 1px solid #ccc;
     border-radius: 4px;
-    /*width: 150px;*/
+    width: 150px;
 }
 .pull-right.pagination-detail {
     display:none;

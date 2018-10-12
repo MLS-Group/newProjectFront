@@ -1,6 +1,6 @@
 /**
- *@desc 招生计划初始化
- *@date 2018/10/10 11:12:34
+ *@desc 学校管理初始化
+ *@date 2018年10月11日10:06:08
  *@author zhangziteng
  */
 $(function () {
@@ -8,13 +8,13 @@ $(function () {
 });
 
 /**
- *@desc 招生计划表格初始化
- *@date 2018/10/10 11:13:27
+ *@desc 学校信息表格初始化
+ *@date 22018年10月11日10:06:11
  *@author zhangziteng
  */
 
 function tableInit() {
-    $('#plan-table-all').bootstrapTable({
+    $('#school-table-all').bootstrapTable({
         url: AJAX_URL.recruitPlanData,
         method: requestJson ? 'get' : 'post',                      //请求方式（*）
         dataType: "json",
@@ -66,37 +66,37 @@ function tableInit() {
             width:300
         }, {
             field: 'Gender',
-            title: '专业名称',
-            width:200
+            title: '省份名称',
+            width:100
         }, {
             field: 'Age',
-            title: '招生人数',
-            width:100
+            title: '简介',
+            width:300
         }, {
             field: 'BirthDate',
-            title: '年份',
-            width:100
+            title: '联系电话',
+            width:150
         },{
             field: 'BirthDate',
-            title: '创建时间',
+            title: '地址',
             width:300
         }
-        // ,{
-        //     field:'ID',
-        //     title: '操作',
-        //     width: 220,
-        //     align: 'center',
-        //     valign: 'middle',
-        //     formatter:function(value,row,index){
-        //         //通过formatter可以自定义列显示的内容
-        //         //value：当前field的值，即id
-        //         //row：当前行的数据
-        //         // let a = '<a href="#" onclick="openContinueModal()" data-target="#allproblem-continue" data-toggle="modal">继续提问</a>';
-        //         let b = '<a href="#" onclick="openAllModal()" id="check-allproblem" data-target="#allproblem" data-toggle="modal">修改</a>';
-        //         let c = '<a href="#" onclick="openDeleteModal()">删除</a>';
-        //         return b +'   '+ c;
-        //     }
-         ],
+            // ,{
+            //     field:'ID',
+            //     title: '操作',
+            //     width: 220,
+            //     align: 'center',
+            //     valign: 'middle',
+            //     formatter:function(value,row,index){
+            //         //通过formatter可以自定义列显示的内容
+            //         //value：当前field的值，即id
+            //         //row：当前行的数据
+            //         // let a = '<a href="#" onclick="openContinueModal()" data-target="#allproblem-continue" data-toggle="modal">继续提问</a>';
+            //         let b = '<a href="#" onclick="openAllModal()" id="check-allproblem" data-target="#allproblem" data-toggle="modal">修改</a>';
+            //         let c = '<a href="#" onclick="openDeleteModal()">删除</a>';
+            //         return b +'   '+ c;
+            //     }
+        ],
         onLoadSuccess: function (e) {
             console.log(e)
         },
@@ -131,41 +131,41 @@ function ResetPlanInput() {
 }
 
 /**
- *@desc 创建招生计划
- *@date 2018/10/10 15:35:15
+ *@desc 创建学校名称
+ *@date 2018年10月11日10:06:17
  *@author zhangziteng
  */
-function AddPlanModal() {
-    $("#plan-modal-title").html('<h3>创建招生计划</h3>');
+function AddSchoolModal() {
+    $("#school-modal-title").html('<h3>创建学校名称</h3>');
 
 }
 
 /**
- *@desc 修改招生计划
- *@date 2018/10/10 15:35:39
+ *@desc 修改学校名称
+ *@date 2018年10月11日10:06:20
  *@author zhangziteng
  */
 
-function AlterPlanModal() {
-    let checkboxTable = $("#plan-table-all").bootstrapTable('getSelections');
+function AlterSchoolModal() {
+    let checkboxTable = $("#school-table-all").bootstrapTable('getSelections');
     if (checkboxTable.length <= 0) {
         poptip.alert(POP_TIP.choiceOne)
         return 0;
     }
 
 
-    $("#plan-modal-title").html('<h3>修改招生计划</h3>');
-    $("#add-plan-modal").modal("show");
+    $("#school-modal-title").html('<h3>修改学校名称</h3>');
+    $("#add-school-modal").modal("show");
 }
 
 /**
  *@desc 删除按钮
- *@date 2018/10/10 16:09:59
+ *@date 2018年10月11日10:06:24
  *@author zhangziteng
  */
 
-function DeletePlan() {
-    let checkboxTable = $("#plan-table-all").bootstrapTable('getSelections');
+function DeleteSchool(){
+    let checkboxTable = $("#school-table-all").bootstrapTable('getSelections');
     if (checkboxTable.length <= 0) {
         poptip.alert(POP_TIP.choiceOne)
         return 0;
