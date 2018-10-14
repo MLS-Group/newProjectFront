@@ -104,20 +104,28 @@ const AJAX_URL = {
      *@author zhangziteng
      */
     recruitPlanData: requestJson ? '../../jsonDatas/recruitPlanData.json' : '',
-    //经销商管理 刘志杰 2018-09-25
-    distributorData: requestJson ? '../../jsonDatas/distributorData.json' : '',
-    //系统设置-答疑设置（预警列表） 刘志杰 2018-09-28
-    answerSetting: requestJson ? '../../jsonDatas/answerSetting.json' : '',
+
+    /*==============================用户管理=========================================*/
     //用户管理(分页查询) 刘志杰 2018-10-09
-    userManageAll: requestJson ? '../../jsonDatas/userData.json' : '',
+    selectUserManag: requestJson ? '../../jsonDatas/userData.json' : requestUrl + "api/generate/userinformation/queryUserInfoByPage",
+    //用户管理(删除) 刘志杰 2018-10-09
+    deleteUserManage: requestJson ? '' : requestUrl + "api/generate/userinformation/deleteUserInfo",
+    //用户管理(新增) 刘志杰 2018-10-09
+    insertUserManage: requestJson ? '' : requestUrl + "api/generate/userinformation/createUserInfo",
+    //用户管理(修改) 刘志杰 2018-10-09
+    updateUserManage: requestJson ? '' : requestUrl + "api/generate/userinformation/updateUserInfo",
+    /*==============================发布管理=========================================*/
     //发布管理(分页查询) 刘志杰 2018-10-10
-    adminssions: requestJson ? '../../jsonDatas/adminssionsDate.json' : '',
+    selectReleaseManage: requestJson ? '../../jsonDatas/adminssionsDate.json' : '',
+    //发布管理(发布,即修改) 刘志杰 2018-10-10
+    updateReleaseManage: requestJson ? '../../jsonDatas/adminssionsDate.json' : '',
+    /*==============================录取管理=========================================*/
     //录取管理(分页查询) 刘志杰 2018-10-11
-    matriculateSelect: requestJson ? '../../jsonDatas/matriculateData.json' : requestUrl + "api/generate/examineevolunteerinformation/page",
+    selectMatriculate: requestJson ? '../../jsonDatas/matriculateData.json' : requestUrl + "api/generate/examineevolunteerinformation/page",
     //录取管理 录取（修改） 刘志杰 2018-10-11
-    matriculateInsert: requestJson ? '../../jsonDatas/matriculateData.json' : requestUrl + 'api/generate/examineevolunteerinformation',
+    insertMatriculate: requestJson ? '../../jsonDatas/matriculateData.json' : requestUrl + 'api/generate/examineevolunteerinformation',
     //录取管理 （个人详情） 刘志杰 2018-10-11
-    personalDetails: requestJson ? '../../jsonDatas/matriculateData.json' : requestUrl + 'api/generate/examineeinformation',
+    personalDetailsMatriculate: requestJson ? '../../jsonDatas/matriculateData.json' : requestUrl + 'api/generate/examineeinformation',
 
     /**
      *@desc 日志管理，答疑管理数据

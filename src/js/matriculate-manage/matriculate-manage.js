@@ -1,9 +1,7 @@
 /*录取管理 刘志杰 2018-10-11*/
-const MATRICULATE_URL = requestJson ? AJAX_URL.matriculateData : requestUrl + "api/generate/examineevolunteerinformation/page"; //获取所有录取信息url
-
-const examineevolunteer = {};
+const EXAMINEEVOLUNTEER = {}; //复选框 选中的志愿
 $(function () {
-    tableInit(MATRICULATE_URL, false);
+    tableInit(AJAX_URL.selectMatriculate, false);
 
     laydateInit("#matriculate-input-admissiontime");
 })
@@ -12,7 +10,9 @@ $(function () {
 /**
  * @Desc 表格初始化
  * @Author 刘志杰
- * @Date 2018-10-11
+ * @param tableUrl 表格中获取数据的url地址
+ * @param flag 是否是条件查询（true:条件查询）
+ * @Date 2018-10-09
  */
 function tableInit(tableUrl, flag) {
     $('#my-table').bootstrapTable({
@@ -138,6 +138,7 @@ function tableInit(tableUrl, flag) {
 }
 
 
+
 /**
  * @Desc “查询”按钮
  * @Author 刘志杰
@@ -145,8 +146,16 @@ function tableInit(tableUrl, flag) {
  */
 function selectMatriculate() {
 
-    // $('#my-table').bootstrapTable('destroy');
-    // tableInit(MATRICULATE_URL, true);
+    var opt = {
+        url: "http://local/api/data/?format=json",
+        silent: true,
+        query:{
+            type:1,
+            level:2
+        }
+    };
+
+    $("#my_table").bootstrapTable('refresh', opt);
 
 }
 
@@ -157,10 +166,10 @@ function selectMatriculate() {
  */
 function confirm() {
     $.ajax({
-        url: AJAX_URL.matriculateInsert,
+        url: AJAX_URL.insertMatriculate,
         type: requestJson ? 'get' : 'put',
         data: JSON.stringify({
-            "volunteerkey": examineevolunteer.volunteerkey,
+            "volunteerkey": EXAMINEEVOLUNTEER.volunteerkey,
             "admissionstatue": 1,
             "admissiontime": $("#matriculate-input-admissiontime").val()
         }),
@@ -177,6 +186,7 @@ function confirm() {
 /**
  * @Desc laydate 初始化
  * @Author 刘志杰
+ * @param id 时间控件的id
  * @Date 2018-10-11
  */
 function laydateInit(id) {
@@ -205,7 +215,7 @@ function admssion() {
         return 0;
     }
     $("#matriculate-modal").modal("show");
-    examineevolunteer.volunteerkey = checkboxTable[0].volunteerkey;
+    EXAMINEEVOLUNTEER.volunteerkey = checkboxTable[0].volunteerkey;
 
 
 }
@@ -214,11 +224,12 @@ function admssion() {
 /**
  * @Desc 打开模态框【个人详情】
  * @Author 刘志杰
+ * @param examineekey 该志愿 对应的考生id
  * @Date 2018-10-12
  */
 function personalDetails(examineekey) {
     $.ajax({
-        url: AJAX_URL.personalDetails + "/" + examineekey,
+        url: AJAX_URL.personalDetailsMatriculate + "/" + examineekey,
         type: 'get',
         dataType: "json",
         // contentType: "application/json;charset=utf-8",

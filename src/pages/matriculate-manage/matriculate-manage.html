@@ -21,15 +21,18 @@
             <div class="select-input" style="width: 1050px;">
                 <label class="form-inline">
                     <span>学校：</span>
-                    <input id="select-school" class="form-control"/>
+                    <input id="search-input-school" type="text" class="form-control"/>
                 </label>
                 <label class="form-inline">
                     <span>省份：</span>
-                    <input type="text" id="search-input-province" class="form-control"/>
+                    <input type="text" id="search-input-province" type="text" class="form-control"/>
                 </label>
                 <label class="form-inline">
                     <span>状态：</span>
-                    <input id="search-input-status" class="form-control"/>
+                    <select id="search-select-status" class="form-control" style="width: 150px;">
+                        <option value="0">停用</option>
+                        <option value="1">启用</option>
+                    </select>
                 </label>
                 <label class="form-inline">
                     <span>分数：</span>
