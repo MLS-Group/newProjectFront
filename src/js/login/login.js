@@ -85,8 +85,8 @@ $(function () {
     }
 
     function _setStyle(codeObj) {
-        var fnCodeObj = new Array();
-        var col = new Array('#BF0C43', '#E69A2A', '#707F02', '#18975F', '#BC3087', '#73C841', '#780320', '#90719B', '#1F72D8', '#D6A03C', '#6B486E', '#243F5F', '#16BDB5');
+        var fnCodeObj = [];
+        var col = ['#BF0C43', '#E69A2A', '#707F02', '#18975F', '#BC3087', '#73C841', '#780320', '#90719B', '#1F72D8', '#D6A03C', '#6B486E', '#243F5F', '#16BDB5'];
         var charIndex;
         for (var i = 0; i < codeObj.length; i++) {
             charIndex = Math.floor(Math.random() * col.length);
@@ -109,7 +109,7 @@ $(function () {
 
     function _createCodeCalc(codeLength) {
         var code1, code2, codeResult;
-        var selectChar = new Array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+        var selectChar = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
         var charIndex;
         for (var i = 0; i < codeLength; i++) {
             charIndex = Math.floor(Math.random() * selectChar.length);
@@ -123,7 +123,7 @@ $(function () {
 
     function _createCodeFollow(codeLength) {
         var code = "";
-        var selectChar = new Array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+        var selectChar = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
         for (var i = 0; i < codeLength; i++) {
             var charIndex = Math.floor(Math.random() * selectChar.length);

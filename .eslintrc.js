@@ -69,6 +69,7 @@ module.exports = {
         "padded-blocks": 0,//块级元素必须新起一行
         "spaced-comment": 0,
         "radix": 0,
+        'no-unused-expressions': 0,//允许短路求值，允许三目运算符
         "no-param-reassign": 0,//不允许对 function 的参数进行重新赋值
         "object-curly-spacing": 0,
         "no-multiple-empty-lines":0,//禁止出现多行空行

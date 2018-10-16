@@ -3,7 +3,6 @@
  * @Date 2018-09-18 08:38:17
  * @Author qitian
  */
-'use strict';
 $(function() {
     let activeLi = sessionStorage.getItem('nav-page');
     if (activeLi) {
