@@ -3,6 +3,8 @@ body, html {
     background-color: #fff;
     height: 100%;
     width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .content-box {
@@ -17,11 +19,15 @@ body, html {
     padding-left: 2%;
 }
 
-.header-section .title-header {
-    height: 100%;
-    padding-left: 1.5%;
-    border-left: 5px solid rgb(74, 80, 100);
-    padding-top: 3px;
+.content-box .page-header {
+    padding-bottom: 11px;
+    margin: -22px 0 0;
+    border-bottom: 1px solid #eee;
+}
+
+.content-box .page-header h3 {
+    margin-left: 1.5%;
+    margin-top: 40px;
 }
 
 .content-section {
@@ -61,9 +67,8 @@ body, html {
 
 .content-section .select-section .select-btn {
     float: right;
-    width: 250px;
+    width: 220px;
     margin-top: 3%;
-    margin-right: 15%;
 }
 
 .content-section .select-section .select-btn button {
@@ -75,7 +80,7 @@ body, html {
     margin-bottom: 2%;
 }
 
-.table-section #my-table tr,.table-section #my-table .th-inner {
+.table-section #my-table tr, .table-section #my-table .th-inner {
     text-align: center;
 }
 
