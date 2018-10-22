@@ -14,11 +14,23 @@
             </div>
             <ul class="nav nav-pills header-navbar">
                 <li class="user-logout">
-                    <a href="../login/login.html" style="margin:0;padding:0"><span href="#">退出</span></a>
+                    <a href="../login/login.html" style="margin:0; padding:0;"><span href="#">退出</span></a>
                 </li>
                 <li class="role-line">|</li>
                 <li class="user-role">
-                    <span href="#">您好，管理员</span>
+                    <!--<span href="#">您好，管理员</span>-->
+                    <nav class="nav-check">
+                        <ul>
+                            <li><a href="#">你好，管理员</a>
+                                <ul>
+                                    <li><a href="#" check-area="update-point-info" data-target="#update-point-nothing" data-toggle="modal">修改密码</a></li>
+                                    <li><a href="#">二级导航</a></li>
+                                    <li><a href="#">二级导航</a></li>
+                                    <li><a href="#">二级导航</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
                 </li>
                 <li class="user-img">
                     <span class="glyphicon glyphicon-user" ></span>
@@ -37,4 +49,47 @@
                 </li>-->
             </ul>
         </div>
+</div>
+
+<!--修改密码模态框-->
+<div class="modal fade" id="update-point-nothing">
+    <div class="modal-dialog" role="document" style="width: 400px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 id="">修改密码</h3>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="margin: 0 auto">
+                    <div class="col-xs-12 form-horizontal" id="update-point-info">
+
+                        <div class="form-group">
+                            <div class="col-sm-12 form-inline">
+                                <label for="inputNumber" class="col-sm-5 control-label required">账户原密码：</label>
+                                <input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="12" id="inputNumber" placeholder="请输入原密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12 form-inline">
+                                <label for="inputProblem" class="col-sm-5 control-label">新密码：</label>
+                                <input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="12" id="inputProblem" placeholder="请输入新密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12 form-inline">
+                                <label for="inputProblem" class="col-sm-5 control-label">确认新密码：</label>
+                                <input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="12" id="inputProblem" placeholder="请确认新密码">
+                            </div>
+                        </div>
+                        <div class="modal-footer" style="text-align: center">
+                            <!--<button class="btn" data-dismiss="modal">取消</button>-->
+                            <button class="btn btn-success save-check" style="width: 200px;">确认</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

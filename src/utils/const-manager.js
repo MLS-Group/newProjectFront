@@ -34,13 +34,7 @@ const POP_TIP = {
     completeInfo: '请完善信息',//by qitian
     checkInfo: '请核对信息',//,by qitian
     confirm: '您确定执行此操作吗？',
-    choiceOne: '请选择一条选项', //by 刘志杰
-    choiceOnlyOne: '只能选择一条选项', //by 刘志杰
-    selectInputNotNull: "请输入要查询的内容",//by 刘志杰
-    selectChoiceNotNull: "请选择要查询的内容",//by 刘志杰
-    offlineTimeNotNull: "请选择下线时间",//by 刘志杰
-    publishSuccess: "发布成功",//by 刘志杰
-
+    choiceOne: '请选择一条选项'
 };
 
 /**
@@ -52,8 +46,7 @@ const POP_TIP = {
  */
 const INPUT_ALERT = {
     account: '请输入字母或数字，长度限制为4-15',//by qitian
-    notNull: '此项不可为空',//by qitian
-    IDNumber: '身份证格式不正确'//by qitian
+    notNull: '此项不可为空'//by qitian
 };
 
 /**
@@ -104,29 +97,13 @@ const AJAX_URL = {
      *@author zhangziteng
      */
     recruitPlanData: requestJson ? '../../jsonDatas/recruitPlanData.json' : '',
-
-    /*==============================用户管理=========================================*/
-    //用户管理(分页查询) 刘志杰 2018-10-09
-    selectUserManag: requestJson ? '../../jsonDatas/userData.json' : requestUrl + "api/generate/userinformation/queryUserInfoByPage",
-    //用户管理(删除) 刘志杰 2018-10-09
-    deleteUserManage: requestJson ? '' : requestUrl + "api/generate/userinformation/deleteUserInfo",
-    //用户管理(新增) 刘志杰 2018-10-09
-    insertUserManage: requestJson ? '' : requestUrl + "api/generate/userinformation/createUserInfo",
-    //用户管理(修改) 刘志杰 2018-10-09
-    updateUserManage: requestJson ? '' : requestUrl + "api/generate/userinformation/updateUserInfo",
-    /*==============================发布管理=========================================*/
-    //发布管理(分页查询) 刘志杰 2018-10-10
-    selectReleaseManage: requestJson ? '../../jsonDatas/adminssionsDate.json' : '',
-    //发布管理(发布,即修改) 刘志杰 2018-10-10
-    updateReleaseManage: requestJson ? '../../jsonDatas/adminssionsDate.json' : '',
-    /*==============================录取管理=========================================*/
-    //录取管理(分页查询) 刘志杰 2018-10-11
-    selectMatriculate: requestJson ? '../../jsonDatas/matriculateData.json' : requestUrl + "api/generate/examineevolunteerinformation/page",
-    //录取管理 录取（修改） 刘志杰 2018-10-11
-    insertMatriculate: requestJson ? '../../jsonDatas/matriculateData.json' : requestUrl + 'api/generate/examineevolunteerinformation',
-    //录取管理 （个人详情） 刘志杰 2018-10-11
-    personalDetailsMatriculate: requestJson ? '../../jsonDatas/matriculateData.json' : requestUrl + 'api/generate/examineeinformation',
-
+    checkPlanData: requestJson ? '' : requestUrl + 'api/generate/schoolinformation/querySchoolInfoByPage',
+    //经销商管理 刘志杰 2018-09-25
+    distributorData: requestJson ? '../../jsonDatas/distributorData.json' : '',
+    //系统设置-答疑设置（预警列表） 刘志杰 2018-09-28
+    answerSetting: requestJson ? '../../jsonDatas/answerSetting.json' : '',
+    //用户管理 刘志杰 2018-09-28
+    userManage: requestJson ? '../../jsonDatas/userData.json' : '',
     /**
      *@desc 日志管理，答疑管理数据
      *@date 2018/09/27 09:23:06
