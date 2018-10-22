@@ -84,6 +84,13 @@ const AJAX_URL = {
     loginLog: requestJson ? '../../jsonDatas/loginLog.json' : '',
     knowledgeData: requestJson ? '../../jsonDatas/knowledgeData.json' : '',
     /**
+     *@desc 修改密码
+     *@date 2018/10/22 21:13:59
+     *@author zhangziteng
+     */
+    updatePassword: requestJson ? '../../jsonDatas/reportProblem.json' : '',
+    checkPassword: requestJson ? '../../jsonDatas/reportProblem.json' : '',
+    /**
      *@desc 问题反馈数据
      *@date 2018/09/27 09:22:00
      *@author zhangziteng

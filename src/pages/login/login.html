@@ -24,19 +24,19 @@
                             <!--用户名-->
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input class="input-sm" name="username" maxlength="12" id="username" type="text" placeholder="请输入用户名"/>
+                                <input class="input-sm" name="username" maxlength="12" id="login-input-username" type="text" placeholder="请输入用户名"/>
                             </div>
                             <div class="clearfix"></div>
                             <!--密码-->
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input class="input-sm" name="password" maxlength="12" id="password" type="password" placeholder="请输入密码"/>
+                                <input class="input-sm" name="password" maxlength="12" id="login-input-password" type="password" placeholder="请输入密码"/>
                             </div>
                             <div class="clearfix"></div>
                             <!--验证码-->
                                 <div class="input-group" style="width: 75%;float: left">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-qrcode"></i></span>
-                                    <input class="input-sm" name="captchac" maxlength="4" id="captchac" type="text" placeholder="请输入验证码"/>
+                                    <input class="input-sm" name="captchac" maxlength="4" id="login-input-captchac" type="text" placeholder="请输入验证码"/>
                                 </div>
                                 <div id="idcode" class="login-row">
                                     <!--<img border=0 src="" id="imageLoginCode" onclick="loginCodeReload()" class="col-xs-5" style="width: 100%;height:33px;">-->
@@ -52,7 +52,7 @@
                             </div>
 
                             <div class="button-login text-center" style="margin-top: 40px;">
-                                <button type="button" onclick="window.location.href='../default/default.html'" class="btn btn-primary" style="width: 100px">登录</button>
+                                <button type="button" id="login-button-examineelogin" class="btn btn-primary" style="width: 100px;">登录</button>
                             </div>
                             <div class="clearfix"></div>
                         </fieldset>
@@ -76,39 +76,39 @@
                         <div class="col-xs-12 form-horizontal" id="add-point-info">
                             <div class="form-group">
                                 <div class="col-sm-12 form-inline">
-                                    <label for="ProblemType" class="col-sm-4 control-label required">准考证号：</label>
-                                    <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="12" id="ProblemType" placeholder="请输入准考证号">
+                                    <label for="regist-input-examinationnumber" class="col-sm-4 control-label required">准考证号：</label>
+                                    <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="12" id="regist-input-examinationnumber" placeholder="请输入准考证号">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-12 form-inline">
-                                    <label for="inputNumber" class="col-sm-4 control-label required">登录账户：</label>
-                                    <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="12" id="inputNumber" placeholder="请输入账户名">
+                                    <label for="regist-input-username" class="col-sm-4 control-label required">登录账户：</label>
+                                    <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="12" id="regist-input-username" placeholder="请输入账户名">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-12 form-inline">
-                                    <label for="inputProblem" class="col-sm-4 control-label required">密码：</label>
-                                    <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="12" id="inputProblem" placeholder="请输入密码">
+                                    <label for="regist-input-password" class="col-sm-4 control-label required">密码：</label>
+                                    <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="12" id="regist-input-password" placeholder="请输入密码">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-12 form-inline">
-                                    <label for="inputProblem" class="col-sm-4 control-label">邮箱：&nbsp;</label>
-                                    <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="20" id="inputProblem" placeholder="请输入邮箱">
+                                    <label for="regist-input-email" class="col-sm-4 control-label">邮箱：&nbsp;</label>
+                                    <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="20" id="regist-input-email" placeholder="请输入邮箱">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-12 form-inline">
-                                    <label for="inputProblem" class="col-sm-4 control-label">手机号：&nbsp;</label>
-                                    <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="11" id="inputProblem" placeholder="请输入手机号">
+                                    <label for="regist-input-phonenumber" class="col-sm-4 control-label">手机号：&nbsp;</label>
+                                    <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="11" id="regist-input-phonenumber" placeholder="请输入手机号">
                                 </div>
                             </div>
                             <!--验证码-->
                             <div class="form-group">
                                 <div class="col-sm-12 form-inline">
-                                    <label for="inputProblem" class="col-sm-4 control-label">验证码：&nbsp;</label>
-                                    <input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="4" id="inputProblem" placeholder="请输入验证码">
+                                    <label for="regist-input-verfication" class="col-sm-4 control-label">验证码：&nbsp;</label>
+                                    <input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="4" id="regist-input-verfication" placeholder="请输入验证码">
                                 </div>
                                 <div id="idcode-modal" class="login-row">
                                     <!--<img border=0 src="" id="imageLoginCode" onclick="loginCodeReload()" class="col-xs-5" style="width: 100%;height:33px;">-->
@@ -117,7 +117,7 @@
 
                             <div class="modal-footer" style="text-align: center">
                                 <!--<button class="btn" data-dismiss="modal">取消</button>-->
-                                <button class="btn btn-success save-check" style="width: 200px;">注册</button>
+                                <button class="btn btn-success save-check" style="width: 200px;" id="regist-button-userreg">注册</button>
                             </div>
                         </div>
                     </div>
@@ -127,47 +127,47 @@
     </div>
 
     <!--修改密码模态框-->
-    <div class="modal fade" id="update-point-nothing">
-        <div class="modal-dialog" role="document" style="width: 400px">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h3 id="">修改密码</h3>
-                </div>
-                <div class="modal-body">
-                    <div class="row" style="margin: 0 auto">
-                        <div class="col-xs-12 form-horizontal" id="update-point-info">
+    <!--<div class="modal fade" id="update-point-nothing">-->
+        <!--<div class="modal-dialog" role="document" style="width: 400px">-->
+            <!--<div class="modal-content">-->
+                <!--<div class="modal-header">-->
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+                        <!--<span aria-hidden="true">&times;</span>-->
+                    <!--</button>-->
+                    <!--<h3 id="">修改密码</h3>-->
+                <!--</div>-->
+                <!--<div class="modal-body">-->
+                    <!--<div class="row" style="margin: 0 auto">-->
+                        <!--<div class="col-xs-12 form-horizontal" id="update-point-info">-->
 
-                            <div class="form-group">
-                                <div class="col-sm-12 form-inline">
-                                    <label for="inputNumber" class="col-sm-5 control-label required">账户原密码：</label>
-                                    <input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="12" id="inputNumber" placeholder="请输入原密码">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12 form-inline">
-                                    <label for="inputProblem" class="col-sm-5 control-label">新密码：</label>
-                                    <input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="12" id="inputProblem" placeholder="请输入新密码">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12 form-inline">
-                                    <label for="inputProblem" class="col-sm-5 control-label">确认新密码：</label>
-                                    <input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="12" id="inputProblem" placeholder="请确认新密码">
-                                </div>
-                            </div>
-                            <div class="modal-footer" style="text-align: center">
-                                <!--<button class="btn" data-dismiss="modal">取消</button>-->
-                                <button class="btn btn-success save-check" style="width: 200px;">确认</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                            <!--<div class="form-group">-->
+                                <!--<div class="col-sm-12 form-inline">-->
+                                    <!--<label for="inputNumber" class="col-sm-5 control-label required">账户原密码：</label>-->
+                                    <!--<input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="12" id="inputNumber" placeholder="请输入原密码">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<div class="col-sm-12 form-inline">-->
+                                    <!--<label for="inputProblem" class="col-sm-5 control-label">新密码：</label>-->
+                                    <!--<input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="12" id="inputProblem" placeholder="请输入新密码">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<div class="col-sm-12 form-inline">-->
+                                    <!--<label for="inputProblem" class="col-sm-5 control-label">确认新密码：</label>-->
+                                    <!--<input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="12" id="inputProblem" placeholder="请确认新密码">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="modal-footer" style="text-align: center">-->
+                                <!--&lt;!&ndash;<button class="btn" data-dismiss="modal">取消</button>&ndash;&gt;-->
+                                <!--<button class="btn btn-success save-check" style="width: 200px;">确认</button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 
     <!--**************JS部分************-->
     <script src="../../lib/js/jquery.min.js"></script>
