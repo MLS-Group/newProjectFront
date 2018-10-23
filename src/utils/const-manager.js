@@ -34,7 +34,8 @@ const POP_TIP = {
     completeInfo: '请完善信息',//by qitian
     checkInfo: '请核对信息',//,by qitian
     confirm: '您确定执行此操作吗？',
-    choiceOne: '请选择一条选项'
+    choiceOne: '请选择一条选项',
+    repeat: '重复！！！' //by yueben
 };
 
 /**

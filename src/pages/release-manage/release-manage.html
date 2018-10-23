@@ -7,58 +7,40 @@
     <link rel="stylesheet" href="../../lib/bootstrap-table/bootstrap-table.min.css">
     <link rel="stylesheet" href="../../css/common/common.css"/>
     <link rel="stylesheet" href="../../css/release-manage/release-manage.css"/>
+    <link rel="stylesheet" href="../../css/release-manage/laydate.css">
     <title>发布管理</title>
 </head>
 <body>
 <!--发布管理 刘志杰 2018-10-10 -->
-<ol class="breadcrumb">
-    <li><a href="#">后台管理系统</a></li>
-    <li class="active">发布管理</li>
-</ol>
 <div class="content-box">
-    <div class="page-header">
-        <h3>发布管理</h3>
+    <div class="header-section">
+        <div class="title-header">发布管理</div>
     </div>
     <div class="content-section">
-        <!--查询-->
-        <div class="select-section">
-            <div class="select-input">
-                <label class="form-inline">
-                    <span>学校：</span>
-                    <select id="search-select-school" class="form-control">
-                        <option value="-1">请选择</option>
-                        <option value="1">学校1</option>
-                        <option value="2">学校2</option>
-                        <option value="3">学校3</option>
-                    </select>
-                </label>
-                <label class="form-inline">
-                    <span>省份：</span>
-                    <select id="search-select-province" class="form-control">
-                        <option value="-1">请选择</option>
-                        <option value="1">省份1</option>
-                        <option value="2">省份2</option>
-                        <option value="3">省份3</option>
-                    </select>
-
-                </label>
-                <label class="form-inline">
-                    <span>专业：</span>
-                    <select id="search-select-major" class="form-control">
-                        <option value="-1">请选择</option>
-                        <option value="1">专业1</option>
-                        <option value="2">专业2</option>
-                        <option value="3">专业3</option>
-                    </select>
-
-                </label>
-
+            <div class="h3">信息查询</div>
+            <div class="search-content">
+                <div class="search-head">
+                    <form>
+                        <div class="search-from form-group">
+                            <label>学校名称：</label>
+                            <input type="text" class="from-controller" name="SSK" id="schName" placeholder="请输入学校名称" aria-describedby="sizing-addon2">
+                        </div>
+                        <div  class="search-from form-group">
+                            <label>专业名称：</label>
+                            <input type="text" class="from-controller" name="SSK" id="majName" placeholder="请输入专业名称">
+                        </div>
+                        <div class="search-from form-group">
+                            <label>省份：</label>
+                            <input type="text" class="from-controller" name="SSK" id="proName" placeholder="请选择省份">
+                        </div>
+                    </form>
+                </div>
+                <div class="search-submit">
+                    <button class="btn btn-primary" id="search-button">搜索</button>
+                    <button class="btn" id="reset-button">重置</button>
+                </div>
             </div>
 
-            <div class="select-btn">
-                <button class="btn btn-primary btn-open" onclick="selectAdminssions()">查询</button>
-            </div>
-        </div>
 
         <!--操作按钮-->
         <hr>
@@ -90,8 +72,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label ">下线时间：</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="release-input-offlinetime" placeholder="发布时间">
-
+                                <input type="text" class="form-control" id="offlinetime" placeholder="请选择下线时间">
                                 <span class="alert-warn"></span>
                             </div>
                         </div>
@@ -104,8 +85,7 @@
                 <!--当点击保存按钮的时候，需要将表单中所有绑定need-check的项都进行重新验证，
                     此时需要在按钮上绑定class:save-check
                     并且添加属性check-area=""，属性值为要验证的区域id-->
-                <button type="button" class="btn btn-info save-check" check-area="open-dialog"
-                        onclick="publishAdminssions()">发布
+                <button type="button" class="btn btn-info save-check" check-area="open-dialog" onclick="publishAdminssions()">发布
                 </button>
             </div>
         </div>
@@ -121,6 +101,8 @@
 <script src="../../utils/common-util.js"></script>
 <script src="../../utils/const-manager.js"></script>
 <script src="../../js/release-manage/release-manage.js"></script>
+<script src="../../js/release-manage/laydate.js"></script>
+
 </body>
 </body>
 </html>
