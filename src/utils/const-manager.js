@@ -40,6 +40,9 @@ const POP_TIP = {
     selectChoiceNotNull: "请选择要查询的内容",//by 刘志杰
     offlineTimeNotNull: "请选择下线时间",//by 刘志杰
     publishSuccess: "发布成功",//by 刘志杰
+    selectFail:"查询失败", //by 刘志杰
+
+
 
 };
 

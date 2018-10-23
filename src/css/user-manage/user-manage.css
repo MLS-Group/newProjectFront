@@ -8,7 +8,6 @@ body, html {
     height: 100%;
     width: 100%;
     overflow-x: hidden;
-    overflow-y: hidden;
 }
 
 .content-box {
@@ -47,53 +46,42 @@ body, html {
     height: 20%;
 }
 
-.content-section .select-section .h3 {
-    margin-bottom: 3%;
-}
-
 .content-section .select-section .select-input {
     float: left;
-    width: 500px;
+    width: 60%;
 }
 
 .content-section .select-section label {
-    margin-left: 2%;
+    margin-right: 4%;
     width: 200px;
 }
 
-.content-section .select-section label input[type='radio'] {
-    margin-left: 5px;
-}
+
 
 .content-section .select-section .select-btn {
-    float: right;
-    margin-right: 15%;
+    float: left;
+    margin-right: 3%;
+    width: 250px;
 }
 
-.content-section .select-section .select-btn button {
-    margin-top: 2%;
-    margin-left: 2%;
-    width: 100px;
+.content-section .select-section .select-btn input.btn {
+    float: left;
+    margin-left: 4%;
+    width: 40%;
+}
+
+.content-section .btn-section {
+    padding-bottom: 5%;
 }
 
 .content-section .btn-section button {
     float: left;
-    width: 100px;
-    margin-right: 1%;
-    margin-bottom: 2%;
+    padding: 6px 20px;
+    margin-right: 4px;
 }
 
 .table-section .th-inner, .table-section td {
     text-align: center;
 }
 
-.content-section .select-section .select-btn {
-    float: right;
-    margin-right: 15%;
-}
 
-.content-section .select-section .select-btn button {
-    margin-top: 2%;
-    margin-left: 2%;
-    width: 100px;
-}

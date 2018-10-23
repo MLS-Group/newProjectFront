@@ -507,10 +507,12 @@ let poptip;
                 break;
         }
 
-        $(_this).on('input',function() {
+        $(t_this).on('input',function() {
             warn.html('');
             warn.hide();
         })
+        //点击模态框保存按钮无反应问题 刘志杰 2018/10/19
+        return true;
     }
     /**
      * @Desc 表单输入，保存按钮验证
