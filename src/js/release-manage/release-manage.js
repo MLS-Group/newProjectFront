@@ -206,11 +206,7 @@ $("#reset-button").click(function () {
     $("input[name='SSK']").val("");
 })
 
-/**
- *@desc 搜索按钮
- *@date 2018/10/21 21:21:46
- *@author yueben
- */
+
 //发布时间控件
 laydate.render({
     elem: '#offlinetime',
