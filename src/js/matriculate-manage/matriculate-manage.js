@@ -88,7 +88,13 @@ function tableInit(tableUrl) {
             title: '专业名称',
         }, {
             field: 'declaretime',
-            title: '申报时间'
+            title: '申报时间',
+            formatter: function (value) {
+                if (value != null) {
+                    return new Date(value).Format("yyyy-MM-dd");
+                }
+               return "-";
+            }
         }, {
             field: 'volunteernumber',
             title: '志愿编号',
@@ -145,7 +151,7 @@ function tableInit(tableUrl) {
  * @Date 2018-10-11
  */
 function selectMatriculate() {
-    if ((!$("#search-select-status") || $("#search-select-status").val().trim() == "") &&
+    if (!$("#search-select-status") &&
         (!$("#search-input-school") || $("#search-input-school").val().trim() == "") &&
         (!$("#search-input-province") || $("#search-input-province").val().trim() == "") &&
         (!$("#search-input-score1") || $("#search-input-score1").val().trim() == "") &&
