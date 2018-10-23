@@ -158,8 +158,8 @@ function tableInit(tableUrl,cond) {
             field: 'createtime',
             title: '创建时间',
             width:300,
-            formatter: function (v) {
-                return (new Date(v)).Format("yyyy-MM-dd hh:mm:ss");
+            formatter: function (valve,row,index) {
+                return valve;
             }
         }
          ],
@@ -216,6 +216,7 @@ function AlterPlanModal() {
     } else {
         selectInit("update");
         $("#plan-modal-title").html('<h3>' + '修改招生计划' + '</h3>');
+        $("#inputPlanNum").val(checkboxTable[0].adminssionsnumber);
         $("#add-plan-modal").modal("show");
     }
 }
@@ -228,6 +229,7 @@ function AlterPlanModal() {
 function AddPlanModal() {
     $("#plan-modal-title").html('<h3>' + '创建招生计划' + '</h3>');
     selectInit("creat");
+    $("#inputPlanNum").val("");
 
 }
 
@@ -244,19 +246,19 @@ function selectInit(cOrU) {
         checkboxTable = $("#plan-table-all").bootstrapTable('getSelections');
     }
     $.each(SCH_ARR,function (i,v) {
-        if (checkboxTable[0].schoolName == v.schoolname) {
+        if (checkboxTable[0].schoolname == v.schoolname) {
             $("#selectSchName").append("<option value='" + v.schoolname + "' selected>" + v.schoolname + "</option>");
         } else {
             $("#selectSchName").append("<option value='" + v.schoolname + "'>" + v.schoolname + "</option>");
         }
-        if (checkboxTable[0].provinceName == v.provincename) {
+        if (checkboxTable[0].provincename == v.provincename) {
             $("#selectProName").append("<option value='" + v.provincename + "' selected>" + v.provincename + "</option>");
         } else {
             $("#selectProName").append("<option value='" + v.provincename + "'>" + v.provincename + "</option>");
         }
     });
     $.each(MAJ_ARR,function (i,v) {
-        if (checkboxTable[0].majorName == v.majorname) {
+        if (checkboxTable[0].majorname == v.majorname) {
             $("#selectMajName").append("<option value='" + v.majorkey + "' selected>" + v.majorname + "</option>");
         } else {
             $("#selectMajName").append("<option value='" + v.majorkey + "'>" + v.majorname + "</option>");
