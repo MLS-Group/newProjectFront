@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
@@ -25,93 +28,88 @@
             <form>
                 <div class="search-from form-group">
                     <label>学校名称：</label>
-                    <input type="text" id="school-input-search" class="from-controller" placeholder="请输入学校名称">
+                    <input type="text" class="from-controller" name="SSK" id="schName" placeholder="请输入学校名称" aria-describedby="sizing-addon2">
                 </div>
                 <div  class="search-from form-group">
                     <label>专业名称：</label>
-                    <input type="text" id="discipline-input-search" class="from-controller" placeholder="请输入专业名称">
+                    <input type="text" class="from-controller" name="SSK" id="majName" placeholder="请输入专业名称">
                 </div>
                 <div class="search-from form-group">
-                    <label>省&emsp;&emsp;份：</label>
-                    <input type="text" id="province-input-search" class="from-controller" placeholder="请选择省份">
+                    <label>省份：</label>
+                    <input type="text" class="from-controller" name="SSK" id="proName" placeholder="请选择省份">
                 </div>
             </form>
         </div>
         <div class="search-submit">
-            <button class="btn btn-primary" id="plan-button-search" onclick="SearchPlan()">搜索</button>
-            <button class="btn" id="plan-button-reset" onclick="ResetPlanInput()">重置</button>
+            <button class="btn btn-primary" id="search-button">搜索</button>
+            <button class="btn" id="reset-button">重置</button>
         </div>
     </div>
     <hr>
     <!--2018年10月10日11:15:31 表格新增修改删除按钮-->
     <div class="btn-left">
         <button type="button" class="btn btn-primary" onclick="AddPlanModal()" data-target="#add-plan-modal" data-toggle="modal" style="padding: 6px 20px;">创建</button>
-        <button type="button" class="btn btn-success" onclick="AlterPlanModal()" style="padding: 6px 20px;">修改</button>
+        <button type="button" class="btn btn-success" onclick="AlterPlanModal()">修改</button>
         <button type="button" class="btn btn-danger" onclick="DeletePlan()" style="padding: 6px 20px;">删除</button>
     </div>
     <br>
     <div id="plan-table">
-        <table id="plan-table-all" style="text-align: center;"></table>
+        <table id="plan-table-all" style="text-align: center"></table>
     </div>
 </div>
 
 <!--创建修改按钮模态窗-->
-<div class="modal fade" id="add-plan-modal" data-backdrop="static">
-    <div class="modal-dialog" role="document" style="width: 450px;">
+<div class="modal fade" id="add-plan-modal">
+    <div class="modal-dialog" role="document" style="width: 450px">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true" id="close-modal">&times;</span>
                 </button>
                 <h3 id="plan-modal-title">创建招生计划</h3>
             </div>
             <div class="modal-body">
-                <div class="row" style="margin: 0 auto;">
+                <div class="row" style="margin: 0 auto">
                     <div class="col-xs-12 form-horizontal" id="add-plan-info">
                         <div class="form-group">
                             <div class="col-sm-12 form-inline">
-                                <label for="add-input-school" class="col-sm-4 control-label">学校名称：</label>
-                                <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="30" id="add-input-school" placeholder="请输入准考证号">
-                                <span class="alert-warn" style="margin: 0px 130px 0px;"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-12 form-inline">
-                                <label for="add-input-discipline" class="col-sm-4 control-label">专业名称：</label>
-                                <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="30" id="add-input-discipline" placeholder="请输入账户名">
-                                <span class="alert-warn" style="margin: 0px 130px 0px;"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-12 form-inline">
-                                <label for="add-input-province" class="col-sm-4 control-label">省&emsp;&emsp;份：</label>
-                                <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="12" id="add-input-province" placeholder="请输入密码">
-                                <span class="alert-warn" style="margin: 0px 130px 0px;"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-12 form-inline">
-                                <label for="add-input-number" class="col-sm-4 control-label">招生人数：</label>
-                                <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="3" id="add-input-number" placeholder="请输入邮箱">
-                                <span class="alert-warn" style="margin: 0px 130px 0px;"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-12 form-inline">
-                                <label for="add-input-years" class="col-sm-4 control-label">年&emsp;&emsp;份：</label>
-                                <select class="from-controller" id="add-input-years" style="width: 200px">
-                                    <option>2016</option>
-                                    <option>2017</option>
-                                    <option selected>2018</option>
-                                    <option>2019</option>
-                                    <option>2020</option>
+                                <label for="selectSchName" class="col-sm-4 control-label">学校名称：</label>
+                                <select class="from-controller" id="selectSchName" style="width: 200px" onchange="schNameByPro(this.value)">
+                                    <option value="" style="display: none">请选择学校名称！</option>
                                 </select>
+                                <br><span id="schNameIsNull" class="IsNull" style="color: red"></span>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12 form-inline">
+                                <label for="selectMajName" class="col-sm-4 control-label">专业名称：</label>
+                                <select class="from-controller" id="selectMajName" style="width: 200px">
+                                    <option value="" style="display: none">请选择专业名称！</option>
+                                </select>
+                                <br><span id="majNameIsNull" class="IsNull" style="color: red"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12 form-inline">
+                                <label for="selectProName" class="col-sm-4 control-label">省&emsp;&emsp;份：</label>
+                                <select class="from-controller" id="selectProName" style="width: 200px" onchange="proNameBySch(this.value)">
+                                    <option value="" style="display: none">请选择省份！</option>
+                                </select>
+                                <br><span id="proNameIsNull" class="IsNull" style="color: red"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12 form-inline">
+                                <label for="inputPlanNum" class="col-sm-4 control-label">招生人数：</label>
+                                <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="3" id="inputPlanNum" placeholder="招生人数！！！">
+                                <br><span id="planNumIsNull" class="IsNull" style="color: red"></span>
                             </div>
                         </div>
 
-                        <div class="modal-footer" style="text-align: center;">
+                        <div class="modal-footer" style="text-align: center">
                             <!--<button class="btn" data-dismiss="modal">取消</button>-->
-                            <button class="btn btn-primary save-check" id="add-button-submit" style="width: 200px;">提交</button>
+                            <button class="btn btn-primary save-check" style="width: 200px;" id="button-modal" onclick="tiJiao()">提交</button>
                         </div>
                     </div>
                 </div>
@@ -119,67 +117,6 @@
         </div>
     </div>
 </div>
-
-<!--&lt;!&ndash;修改按钮模态窗&ndash;&gt;-->
-<!--<div class="modal fade" id="alter-plan-modal">-->
-    <!--<div class="modal-dialog" role="document" style="width: 450px">-->
-        <!--<div class="modal-content">-->
-            <!--<div class="modal-header">-->
-                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-                    <!--<span aria-hidden="true">&times;</span>-->
-                <!--</button>-->
-                <!--<h3>修改招生计划</h3>-->
-            <!--</div>-->
-            <!--<div class="modal-body">-->
-                <!--<div class="row" style="margin: 0 auto">-->
-                    <!--<div class="col-xs-12 form-horizontal" id="alter-plan-info">-->
-                        <!--<div class="form-group">-->
-                            <!--<div class="col-sm-12 form-inline">-->
-                                <!--<label for="ProblemType" class="col-sm-4 control-label">学校名称：</label>-->
-                                <!--<input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="30" id="ProblemType" placeholder="请输入准考证号">-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div class="form-group">-->
-                            <!--<div class="col-sm-12 form-inline">-->
-                                <!--<label for="inputNumber" class="col-sm-4 control-label">专业名称：</label>-->
-                                <!--<input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="30" id="inputNumber" placeholder="请输入账户名">-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div class="form-group">-->
-                            <!--<div class="col-sm-12 form-inline">-->
-                                <!--<label for="inputProblem" class="col-sm-4 control-label">省&emsp;&emsp;份：</label>-->
-                                <!--<input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="12" id="inputProblem" placeholder="请输入密码">-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div class="form-group">-->
-                            <!--<div class="col-sm-12 form-inline">-->
-                                <!--<label for="inputProblem" class="col-sm-4 control-label">招生人数：</label>-->
-                                <!--<input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="3" id="inputProblem" placeholder="请输入邮箱">-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div class="form-group">-->
-                            <!--<div class="col-sm-12 form-inline">-->
-                                <!--<label for="inputProblem" class="col-sm-4 control-label">年&emsp;&emsp;份：</label>-->
-                                <!--<select class="from-controller" style="width: 200px">-->
-                                    <!--<option>2016</option>-->
-                                    <!--<option>2017</option>-->
-                                    <!--<option selected>2018</option>-->
-                                    <!--<option>2019</option>-->
-                                    <!--<option>2020</option>-->
-                                <!--</select>-->
-                            <!--</div>-->
-                        <!--</div>-->
-
-                        <!--<div class="modal-footer" style="text-align: center">-->
-                            <!--&lt;!&ndash;<button class="btn" data-dismiss="modal">取消</button>&ndash;&gt;-->
-                            <!--<button class="btn btn-primary save-check" style="width: 200px;">修改</button>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
 
 <!--**********JS部分*********-->
 <script src="../../lib/js/jquery.min.js"></script>

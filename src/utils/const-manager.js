@@ -46,6 +46,8 @@ const POP_TIP = {
 
 
 
+
+    repeat: '重复！！！' //by yueben
 };
 
 /**

@@ -7,6 +7,6 @@
 const serverIp = "192.168.43.163";
 // const serverIp = "localhost";
 
-const serverPort = "8080";
+const serverPort = "8081";
 const requestUrl = "http://" + serverIp + ":" + serverPort + "/";
 const requestJson = false;//是否访问json静态数据，当为 false时，会访问后台接口
