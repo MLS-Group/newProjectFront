@@ -4,7 +4,9 @@
  * @Author qitian
  */
 
-const serverIp = "192.168.1.139";
+// const serverIp = "192.168.1.139";
+const serverIp = "localhost";
+
 const serverPort = "8080";
 const requestUrl = "http://" + serverIp + ":" + serverPort + "/";
 const requestJson = false;//是否访问json静态数据，当为 false时，会访问后台接口
