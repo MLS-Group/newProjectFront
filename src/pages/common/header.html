@@ -1,40 +1,105 @@
 <!--公共组件：项目header-->
 <div class="mody-header">
-        <div class="container">
-            <div class="head-left">
+    <div class="container">
+        <div class="head-left">
                 <span class="logo-head glyphicon glyphicon-th-large">
                   <!-- <img >-->
                 </span>
-                <h2 class="title-head">后台管理系统</h2>
-                <span class="title-line"></span>
-                <div class="index-header">
-                    <span class="index-img glyphicon glyphicon-home"></span>
-                    <sapn class="title-index">首页</sapn>
+            <h2 class="title-head">后台管理系统</h2>
+            <span class="title-line"></span>
+            <div class="index-header">
+                <span class="index-img glyphicon glyphicon-home"></span>
+                <sapn class="title-index">首页</sapn>
+            </div>
+        </div>
+        <ul class="nav nav-pills header-navbar">
+            <li class="user-logout">
+                <a href="../login/login.html" style="margin:0;padding:0"><span href="#">退出</span></a>
+            </li>
+            <li class="role-line">|</li>
+            <li class="user-role">
+                <!--<span href="#">您好，管理员</span>-->
+                <nav class="nav-check">
+                    <ul>
+                        <li><a href="#">你好，管理员</a>
+                            <ul>
+                                <li><a href="#" check-area="update-point-info" data-target="#update-point-nothing" data-toggle="modal">修改密码</a></li>
+                                <li><a href="#">二级导航</a></li>
+                                <li><a href="#">二级导航</a></li>
+                                <li><a href="#">二级导航</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </li>
+            <li class="user-img">
+                <span class="glyphicon glyphicon-user" ></span>
+            </li>
+
+
+
+            <!--<li class="dropdown">
+                <a data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle" id="user-dropdown">
+                    用户中心
+                    <span class="caret"></span>
+                </a>
+                <ul id="user-ul" class="dropdown-menu">
+                    <li><a href="#" onclick="">注销</a></li>
+                </ul>
+            </li>-->
+        </ul>
+    </div>
+</div>
+
+
+<!--修改密码模态框 张子腾 2018年10月22日10:36:23-->
+<div class="modal fade" id="update-point-nothing">
+    <div class="modal-dialog" role="document" style="width: 400px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 id="">修改密码</h3>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="margin: 0 auto">
+                    <div class="col-xs-12 form-horizontal" id="update-point-info">
+
+                        <div class="form-group">
+                            <div class="col-sm-12 form-inline">
+                                <label for="update-input-oldpassword" class="col-sm-5 control-label required">账户原密码：</label>
+                                <input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="12" id="update-input-oldpassword" placeholder="请输入原密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12 form-inline">
+                                <label for="update-input-newpassword" class="col-sm-5 control-label">新密码：</label>
+                                <input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="12" id="update-input-newpassword" placeholder="请输入新密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12 form-inline">
+                                <label for="update-input-newpasswordagain" class="col-sm-5 control-label">确认新密码：</label>
+                                <input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="12" id="update-input-newpasswordagain" placeholder="请确认新密码">
+                            </div>
+                        </div>
+                        <div class="modal-footer" style="text-align: center;">
+                            <!--<button class="btn" data-dismiss="modal">取消</button>-->
+                            <button class="btn btn-success save-check" id="update-button-ok" style="width: 200px;">确认</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <ul class="nav nav-pills header-navbar">
-                <li class="user-logout">
-                    <a href="../login/login.html" style="margin:0;padding:0"><span href="#">退出</span></a>
-                </li>
-                <li class="role-line">|</li>
-                <li class="user-role">
-                    <span href="#">您好，管理员</span>
-                </li>
-                <li class="user-img">
-                    <span class="glyphicon glyphicon-user" ></span>
-                </li>
-
-
-
-                <!--<li class="dropdown">
-                    <a data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle" id="user-dropdown">
-                        用户中心
-                        <span class="caret"></span>
-                    </a>
-                    <ul id="user-ul" class="dropdown-menu">
-                        <li><a href="#" onclick="">注销</a></li>
-                    </ul>
-                </li>-->
-            </ul>
         </div>
+    </div>
 </div>
+
+<script src="../../lib/js/jquery.min.js"></script>
+<script src="../../../config/config.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../utils/common-util.js"></script>
+<script src="../../utils/const-manager.js"></script>
+<script src="../../js/common/banner-header.js"></script>

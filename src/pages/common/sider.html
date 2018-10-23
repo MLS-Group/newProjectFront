@@ -3,24 +3,10 @@
     <div class="sider-nav">
         <div class="navbar-collapse sidebar-nav">
             <ul class="nav nav-tabs nav-stacked main-menu">
-                <li style="background: #03213B;"  onclick="expendSider(event)"><a href="#"> <i class="fa fa-bars" aria-hidden="true"></i></a></li>
+                <li style="background: #03213B;"  onclick="expendSider(event)"><a href="#"> <i class="fa fa-bars top-bar" aria-hidden="true"></i></a></li>
                 <!--左侧菜单栏，每一个一级菜单都需要这样一个name属性，属性值为对应模块的文件夹的名字(小驼峰)
                                 需要跳转的菜单项需要添加go属性，属性值为要跳转的页面-->
                 <li name="index" go="../index/index.html"><a href="#" ><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-tablet"> 首页</span></a></li>
-                <li name="personalCenter">
-                    <!--每一个需要二级菜单的菜单项，都需要添加my-rotate类，用来控制菜单的动画效果-->
-                    <a href="#" class="dropdown nav-a my-rotate">
-                        <i class="fa fa-address-card" aria-hidden="true"></i>
-                        <span class="hidden-tablet"> 个人中心</span>
-                        <i class="fa fa-address-card fa-angle-right rotate-icon" aria-hidden="true"></i>
-                    </a>
-                    <ul class="dropdown-submenu" style="display: none;">
-                        <!--每一个二级菜单，都需要这样一个name属性，值为[文件夹名称]-[跳转的页面名称(小驼峰)]
-                                需要跳转的菜单项需要添加go属性，属性值为要跳转的页面-->
-                        <li name="personalCenter-personal" go="../personal-center/personal.html"><a href="#" class="drop-a" ><i class="fa fa-address-card"></i><span class="hidden-tablet">个人中心</span></a></li>
-                        <li name="personalCenter-fileupload" go="../personal-center/fileupload.html"><a href="#" class="drop-a"><i class="fa fa-address-card"></i><span class="hidden-tablet"> 文件管理</span></a></li>
-                    </ul>
-                </li>
                 <!--招生计划创建 张子腾 2018-10-10-->
                 <li name="RecruitPlan" go="../recruit-plan/recruit-plan.html"><a href="#" ><i class="fa fa-bars" style="margin-left: 0;" aria-hidden="true"></i><span class="hidden-tablet"> 招生计划</span></a></li>
                 <!--用户管理 刘志杰 2018-10-09-->

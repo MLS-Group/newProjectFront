@@ -118,3 +118,69 @@
 .role-line {
     margin-right: 5%;
 }
+/*下拉按钮*/
+.nav-check {
+    margin:-15px auto;
+    text-align:center;
+}
+.nav-check ul {
+    /*border-radius:10px;*/
+    /*background:linear-gradient(to bottom,#efefef,#bbbbbb);*/
+    padding: 0px 0px;
+    display:inline-table;
+    position:relative;
+    /*box-shadow:1px 1px 3px #666;*/
+    list-style: none;
+}
+.nav-check ul ul {
+    display:none;
+}
+.nav-check ul li {
+    float:left;
+}
+.nav-check ul::after {
+    content:"";
+    display:block;
+    clear:both;
+}
+.nav-check ul li a {
+    display:block;
+    padding: 15px 0px;
+    color:#000;
+    text-decoration:none;
+    font-family:"微软雅黑";
+}
+.nav-check ul li:hover > ul {
+    display:block;
+}
+.nav-check ul li:hover {
+    background:linear-gradient(to bottom,#4f5964,#5f6975);
+}
+.nav-check ul li:hover a {
+    color:#FFF;
+}
+.nav-check ul ul {
+    background:#5f6975;
+    border-radius:0;
+    position:absolute;
+    top:100%;
+    padding:0;
+    margin-left: 0px;
+}
+.nav-check ul ul li {
+    float:none;
+    border-top:1px solid #6b727c;
+    border-bottom:1px solid #575f6a;
+}
+.nav-check ul ul li a {
+    color:#FFF;
+}
+.nav-check ul ul li a:hover {
+    background:#4b545f;
+}
+.nav-check ul ul ul {
+    width:100%;
+    position:absolute;
+    left:100%;
+    top:50%;
+}

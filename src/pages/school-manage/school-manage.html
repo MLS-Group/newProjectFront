@@ -60,11 +60,11 @@
             <div class="modal-body">
                 <div class="row" style="margin: 0 auto;">
                     <div class="col-xs-12 form-horizontal" id="add-school-info">
+                        <input type="hidden" id="add-input-key">
                         <div class="form-group">
                             <div class="col-sm-12 form-inline">
                                 <label for="add-input-school" class="col-sm-4 control-label">学校名称：</label>
-                                <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="30" id="add-input-school" placeholder="请输入学校名称">
-                                <span class="alert-warn" style="margin: 0px 130px 0px;"></span>
+                                <input type="text" class="form-control not-null" style="width: 200px;" maxlength="30" id="add-input-school" placeholder="请输入学校名称">
                             </div>
                         </div>
                         <div class="form-group">
@@ -84,13 +84,15 @@
                         <div class="form-group">
                             <div class="col-sm-12 form-inline">
                                 <label for="add-input-introduction" class="col-sm-4 control-label">简&emsp;&emsp;介：</label>
-                                <textarea class="form-control need-check" maxlength="500" rows="7" style="width: 200px;" regex="account" id="add-input-introduction" placeholder="请输入1-500字中英文简介"></textarea>
+                                <textarea class="form-control" maxlength="500" rows="7" style="width: 200px;"  id="add-input-introduction" placeholder="请输入1-500字中英文简介"></textarea>
                             </div>
                         </div>
 
                         <div class="modal-footer" style="text-align: center;">
                             <!--<button class="btn" data-dismiss="modal">取消</button>-->
-                            <button class="btn btn-primary save-check" id="add-button-submit" style="width: 200px;">提交</button>
+                            <!--当点击保存按钮的时候，需要将表单中所有绑定need-check的项都进行重新验证，
+                                此时需要在按钮上绑定class:save-check,并且添加属性check-area=""，属性值为要验证的区域id-->
+                            <button class="btn btn-primary save-check" check-area="add-school-info" id="add-button-submit" onclick="AddSchool()" style="width: 200px;">提交</button>
                         </div>
                     </div>
                 </div>
