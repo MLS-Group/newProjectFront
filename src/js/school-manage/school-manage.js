@@ -65,11 +65,20 @@ function tableInit(tableUrl,cond) {
                             rows: params.limit,                         //页面大小
                             schoolname: $("#school-input-search").val(),
                             page: (params.offset / params.limit) + 1,   //页码
-                            // pageSize:params.pageSize
+                            pageSize:10,
                             sort: params.sort,      //排序列名
                             sortOrder: params.order //排位命令（desc，asc）
                         };
-                    return temp;
+                    return JSON.stringify(temp);
+                } else {
+                    temp = {
+                        rows: params.limit,                         //页面大小
+                        page: (params.offset / params.limit) + 1,   //页码
+                        pageSize:10,
+                        sort: params.sort,      //排序列名
+                        sortOrder: params.order //排位命令（desc，asc）
+                    };
+                    return JSON.stringify(temp);
                 }
         },
         columns: [{
