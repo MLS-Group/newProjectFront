@@ -21,33 +21,36 @@
     </div>
     <div class="content-section">
         <div class="select-section">
-            <div class="select-input" style="width: 1050px;">
-                <label class="form-inline">
-                    <span>学校：</span>
-                    <input id="search-input-school" type="text" class="form-control"/>
-                </label>
-                <label class="form-inline">
-                    <span>省份：</span>
-                    <input type="text" id="search-input-province" type="text" class="form-control"/>
-                </label>
-                <label class="form-inline">
-                    <span>状态：</span>
-                    <select id="search-select-status" class="form-control" style="width: 150px;">
-                        <option value="0">停用</option>
-                        <option value="1">启用</option>
-                    </select>
-                </label>
-                <label class="form-inline">
-                    <span>分数：</span>
-                    <input type="text" id="search-input-score1" class="select-score form-control" style="width: 50px">---
-                    <input type="text" id="search-input-score2" class="select-score form-control" style="width: 50px">
-                </label>
-            </div>
-            <div class="select-btn">
-                <button class="btn btn-primary" onclick="selectMatriculate()">查询</button>
-                <button class="btn " onclick="selectMatriculate()">重置</button>
+            <form >
+                <div class="select-input" style="width: 1050px;">
+                    <label class="form-inline">
+                        <span>学校：</span>
+                        <input id="search-input-school" type="text" class="form-control"/>
+                    </label>
+                    <label class="form-inline">
+                        <span>省份：</span>
+                        <input type="text" id="search-input-province" type="text" class="form-control"/>
+                    </label>
+                    <label class="form-inline">
+                        <span>状态：</span>
+                        <select id="search-select-status" class="form-control" style="width: 150px;">
+                            <option value="">请选择</option>
+                            <option value="0">停用</option>
+                            <option value="1">启用</option>
+                        </select>
+                    </label>
+                    <label class="form-inline">
+                        <span>分数：</span>
+                        <input type="text" id="search-input-score1" class="select-score form-control" style="width: 50px; margin-right: 8px">-
+                        <input type="text" id="search-input-score2" class="select-score form-control" style="width: 50px; margin-left: 8px">
+                    </label>
+                </div>
+                <div class="select-btn">
+                    <input type="button" value="查询" class="btn btn-primary" onclick="selectMatriculate()"></button>
+                    <input type="reset" value="重置" class="btn"/>
 
-            </div>
+                </div>
+            </form>
         </div>
         <hr>
         <div class="table-section">

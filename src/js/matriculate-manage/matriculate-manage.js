@@ -1,8 +1,9 @@
 /*录取管理 刘志杰 2018-10-11*/
-const EXAMINEEVOLUNTEER = {}; //复选框 选中的志愿
+const LOGIN_INFO = JSON.parse(sessionStorage.getItem("user-info"));//登录的用户信息
+var examinee_condition = {} //条件查询的内容
+var check_volunteerkey = ""; //选中的 记录的 volunteerkey
 $(function () {
-    tableInit(AJAX_URL.selectMatriculate, false);
-
+    tableInit(AJAX_URL.selectMatriculate);
     laydateInit("#matriculate-input-admissiontime");
 })
 
@@ -11,24 +12,24 @@ $(function () {
  * @Desc 表格初始化
  * @Author 刘志杰
  * @param tableUrl 表格中获取数据的url地址
- * @param flag 是否是条件查询（true:条件查询）
  * @Date 2018-10-09
  */
-function tableInit(tableUrl, flag) {
+function tableInit(tableUrl) {
     $('#my-table').bootstrapTable({
         url: tableUrl,
         method: requestJson ? 'get' : 'post',                      //请求方式（*）
         dataType: "json",
+        contentType: "application/json;charset=utf-8",
         // height:  $(window).height() - 180,
-        //toolbar: '#toolbar',              //工具按钮用哪个容器
+        toolbar: '#toolbar',              //工具按钮用哪个容器
         striped: true,                      //是否显示行间隔色
         cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
         pagination: true,                   //是否显示分页（*）
         sortable: false,                     //是否启用排序
         sortOrder: "asc",                   //排序方式
-        sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+        sidePagination: requestJson ? "client" : "server",           //分页方式：client客户端分页，server服务端分页（*）
         pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
-        pageSize: 5,                     //每页的记录行数（*）
+        pageSize: 10,                     //每页的记录行数（*）
         pageList: [10],        //可供选择的每页的行数（*）
         search: false,                      //是否显示表格搜索
         strictSearch: true,
@@ -37,35 +38,37 @@ function tableInit(tableUrl, flag) {
         minimumCountColumns: 2,             //最少允许的列数
         clickToSelect: true,                //是否启用点击选中行
         //height: 500,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
-        uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+        uniqueId: "volunteerkey",                     //每一行的唯一标识，一般为主键列
         showToggle: false,                   //是否显示详细视图和列表视图的切换按钮
         cardView: false,                    //是否显示详细视图
         detailView: false,                  //是否显示父子表
         //得到查询的参数
         queryParams: function (params) {
+            let temp = {};
             //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
-            var temp = {}
-            if (flag) {   // 条件查询
-                temp = {
-                    pageSize: params.limit,                         //页面大小
-                    page: (params.offset / params.limit) + 1,   //页码
-                    admissionstatue: "0",  //状态
-                    schoolname: "理",  //学校名称
-                    provincename: "天",  //省份
-                    starttotalscore: "1",  //开始分数
-                    endtotalscore: "100",  //结束分数
-                };
-            } else {
-                temp = {
-                    pageSize: params.limit,                         //页面大小
-                    page: (params.offset / params.limit) + 1,   //页码
-
-                    // sort: params.sort,      //排序列名
-                    // sortOrder: params.order //排位命令（desc，asc）
-                };
+            if (examinee_condition.admissionstatue && examinee_condition.admissionstatue != "") {
+                temp.admissionstatue = examinee_condition.admissionstatue;
+            }
+            if (examinee_condition.schoolname && examinee_condition.schoolname != "") {
+                temp.schoolname = examinee_condition.schoolname;
+            }
+            if (examinee_condition.provincename && examinee_condition.provincename != "") {
+                temp.provincename = examinee_condition.provincename;
+            }
+            if (examinee_condition.starttotalscore && examinee_condition.starttotalscore != "") {
+                temp.starttotalscore = examinee_condition.starttotalscore;
+            }
+            if (examinee_condition.endtotalscore && examinee_condition.endtotalscore != "") {
+                temp.endtotalscore = examinee_condition.endtotalscore;
             }
 
-            return temp;
+            temp.pageSize = params.limit;                       //页面大小
+            temp.page = (params.offset / params.limit) + 1;  //页码
+            // temp.sort = params.sort;      //排序列名
+            // temp.orderBy = params.order; //排位命令（desc，asc）
+
+            return JSON.stringify(temp);
+
         },
         columns: [{
             field: 'checkbox',
@@ -101,8 +104,6 @@ function tableInit(tableUrl, flag) {
             align: 'center',
             valign: 'middle',
             formatter: function (value, row, index) {
-                console.log("=========================================")
-
                 console.log(row)
                 //通过formatter可以自定义列显示的内容
                 //value：当前field的值，即id
@@ -112,7 +113,7 @@ function tableInit(tableUrl, flag) {
             }
         }],
         onLoadSuccess: function (e) {
-            console.log(e)
+            // console.log(e)
         },
         onLoadError: function () {
             console.log("数据加载失败！");
@@ -133,10 +134,9 @@ function tableInit(tableUrl, flag) {
         }
     });
     $('#my-table').bootstrapTable('hideColumn', 'volunteerkey');
-    $('#my-table').bootstrapTable('hideColumn', 'examineekey');
+    $('#my-table').bootstrapTable('hideColumn', 'ExamineeinformationEO.examineekey');
 
 }
-
 
 
 /**
@@ -145,17 +145,22 @@ function tableInit(tableUrl, flag) {
  * @Date 2018-10-11
  */
 function selectMatriculate() {
+    if ((!$("#search-select-status") || $("#search-select-status").val().trim() == "") &&
+        (!$("#search-input-school") || $("#search-input-school").val().trim() == "") &&
+        (!$("#search-input-province") || $("#search-input-province").val().trim() == "") &&
+        (!$("#search-input-score1") || $("#search-input-score1").val().trim() == "") &&
+        (!$("#search-input-score2") || $("#search-input-score2").val().trim() == "")) {
+        poptip.alert(POP_TIP.selectInputNotNull)
+    }
 
-    var opt = {
-        url: "http://local/api/data/?format=json",
-        silent: true,
-        query:{
-            type:1,
-            level:2
-        }
-    };
+    examinee_condition.admissionstatue = $("#search-select-status").val();
+    examinee_condition.schoolname = $("#search-input-school").val();
+    examinee_condition.provincename = $("#search-input-province").val();
+    examinee_condition.starttotalscore = $("#search-input-score1").val();
+    examinee_condition.endtotalscore = $("#search-input-score2").val();
 
-    $("#my_table").bootstrapTable('refresh', opt);
+    //条件查询
+    $('#my-table').bootstrapTable('refresh');
 
 }
 
@@ -169,14 +174,14 @@ function confirm() {
         url: AJAX_URL.insertMatriculate,
         type: requestJson ? 'get' : 'put',
         data: JSON.stringify({
-            "volunteerkey": EXAMINEEVOLUNTEER.volunteerkey,
+            "volunteerkey": check_volunteerkey,
             "admissionstatue": 1,
             "admissiontime": $("#matriculate-input-admissiontime").val()
         }),
         dataType: "json",
         contentType: "application/json;charset=utf-8",
         success: function (data) {
-            poptip.alert(POP_TIP.deleteSuccess);
+            poptip.alert(POP_TIP.matriculateSuccess);
             $("#matriculate-modal").modal("hide");
             console.log(data)
         }
@@ -214,8 +219,8 @@ function admssion() {
         poptip.alert(POP_TIP.choiceOnlyOne);
         return 0;
     }
+    check_volunteerkey = checkboxTable[0].volunteerkey;
     $("#matriculate-modal").modal("show");
-    EXAMINEEVOLUNTEER.volunteerkey = checkboxTable[0].volunteerkey;
 
 
 }
@@ -234,24 +239,31 @@ function personalDetails(examineekey) {
         dataType: "json",
         // contentType: "application/json;charset=utf-8",
         success: function (result) {
-            $("#basicinfo-input-quasiexaminationnumber").val(result.data.quasiexaminationnumber)
-            $("#basicinfo-input-realname").val(result.data.realname)
-            if (result.data.sex == "男") {
-                $("input[name='basicinfo-radio-sex'][value='男']").attr("checked", true);
-            } else if (result.data.sex == "女") {
-                $("input[name='basicinfo-radio-sex'][value='女']").attr("checked", true);
+            if (result && result.ok) {
+                $("#basicinfo-input-quasiexaminationnumber").val(result.data.quasiexaminationnumber)
+                $("#basicinfo-input-realname").val(result.data.realname)
+                if (result.data.sex == "男") {
+                    $("input[name='basicinfo-radio-sex'][value='男']").attr("checked", true);
+                } else if (result.data.sex == "女") {
+                    $("input[name='basicinfo-radio-sex'][value='女']").attr("checked", true);
+                }
+                $("#basicinfo-input-age").val(result.data.age)
+                $("#basicinfo-input-idcardnumber").val(result.data.idcardnumber)
+                $("#basicinfo-input-registeredresidence").val(result.data.registeredresidence)
+                $("#basicinfo-input-politicaloutlook").val(result.data.politicaloutlook)
+                $("#basicinfo-input-nativeplace").val(result.data.nativeplace)
+                $("#basicinfo-input-email").val(result.data.email)
+                $("#basicinfo-input-phonenumber").val(result.data.phonenumber)
+                $("#basicinfo-input-graduateschool").val(result.data.graduateschool)
+                $("#personalinfo-modal").modal('show');
+            } else {
+                if (result && result.message != "") {
+                    poptip.alert(result.message)
+                } else {
+                    poptip.alert(result.dataLoadfail)
+                }
             }
 
-            $("#basicinfo-input-age").val(result.data.age)
-            $("#basicinfo-input-idcardnumber").val(result.data.idcardnumber)
-            $("#basicinfo-input-registeredresidence").val(result.data.registeredresidence)
-            $("#basicinfo-input-politicaloutlook").val(result.data.politicaloutlook)
-            $("#basicinfo-input-nativeplace").val(result.data.nativeplace)
-            $("#basicinfo-input-email").val(result.data.email)
-            $("#basicinfo-input-phonenumber").val(result.data.phonenumber)
-            $("#basicinfo-input-graduateschool").val(result.data.graduateschool)
-            console.log(result)
-            $("#personalinfo-modal").modal('show');
         }
     })
 }

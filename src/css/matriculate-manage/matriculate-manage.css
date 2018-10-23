@@ -4,7 +4,6 @@ body, html {
     height: 100%;
     width: 100%;
     overflow-x: hidden;
-    overflow-y: hidden;
 }
 
 .content-box {
@@ -35,6 +34,7 @@ body, html {
     height: 100%;
     padding-left: 3%;
     padding-right: 4%;
+    margin-top: 2%;
 }
 
 .content-section .select-section {
@@ -71,7 +71,7 @@ body, html {
     margin-top: 3%;
 }
 
-.content-section .select-section .select-btn button {
+.content-section .select-section .select-btn input.btn {
     margin-left: 2%;
     width: 100px;
 }
