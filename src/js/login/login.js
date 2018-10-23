@@ -47,7 +47,7 @@ $(function () {
             } else {
                 inputV = $(_set.store).val();
             }
-            if (inputV.toUpperCase() == _storeData(_set.storeLable, null).toUpperCase()){
+            if (inputV.toUpperCase() == _storeData(_set.storeLable, null).toUpperCase()) {
                 //修改的不区分大小写
                 return true;
             } else {
@@ -155,7 +155,7 @@ $("#login-button-examineelogin").click(function () {
         },
         dataType: "json",
         // contentType: "application/json;charset=utf-8",
-        success:function (data) {
+        success: function (data) {
             if (data.ok) {
                 // alert(data.message);
                 window.location.href = '../default/default.html';
@@ -184,24 +184,26 @@ $("#regist-input-examinationnumber").blur(function () {
             success: function (data) {
                 if (data.ok) {
                     alert(data.message);
-                    $("#regist-input-username").attr("disabled",false);
-                    $("#regist-input-password").attr("disabled",false);
-                    $("#regist-input-email").attr("disabled",false);
-                    $("#regist-input-phonenumber").attr("disabled",false);
-                    $("#regist-input-verfication").attr("disabled",false);
+                    $("#regist-input-username").attr("disabled", false);
+                    $("#regist-input-password").attr("disabled", false);
+                    $("#regist-input-email").attr("disabled", false);
+                    $("#regist-input-phonenumber").attr("disabled", false);
+                    $("#regist-input-verfication").attr("disabled", false);
                 } else {
                     alert(data.message);
                 }
             }
         });
-    }else {};
+    } else {
+    }
+    ;
 });
 /**
  *@desc 注册按钮
  *@date 2018/10/22 21:20:28
  *@author zhangziteng
  */
-$("#regist-button-userreg").click(function() {
+$("#regist-button-userreg").click(function () {
     var quasiExaminationNumber = $("#regist-input-examinationnumber").val();
     var userAccount = $("#regist-input-username").val();
     var userPassword = $("#regist-input-password").val();

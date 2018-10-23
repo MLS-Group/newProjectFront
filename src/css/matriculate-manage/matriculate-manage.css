@@ -71,7 +71,7 @@ body, html {
     margin-top: 3%;
 }
 
-.content-section .select-section .select-btn button {
+.content-section .select-section .select-btn input.btn {
     margin-left: 2%;
     width: 100px;
 }

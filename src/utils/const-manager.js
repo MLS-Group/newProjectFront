@@ -41,6 +41,8 @@ const POP_TIP = {
     offlineTimeNotNull: "请选择下线时间",//by 刘志杰
     publishSuccess: "发布成功",//by 刘志杰
     selectFail:"查询失败", //by 刘志杰
+    matriculateSuccess:"录入成功", //by 刘志杰
+
 
 
 

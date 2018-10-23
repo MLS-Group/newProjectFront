@@ -1,10 +1,9 @@
 //用户管理 刘志杰 2018-10-09
-// const LOGIN_INFO = requestJson ? {"userRole": 1} : JSON.parse(sessionStorage.getItem("user-info"));//登录的用户信息
-const LOGIN_INFO = {"userRole": 1}
+const LOGIN_INFO =  JSON.parse(sessionStorage.getItem("user-info"));//登录的用户信息
 
 var user_condition = {} //条件查询的内容
 $(function () {
-    tableInit(AJAX_URL.selectUserManag, false); //表格初始化
+    tableInit(AJAX_URL.selectUserManag); //表格初始化
 })
 
 /**
@@ -68,7 +67,7 @@ function saveInfo() {
             "userpassword": $("#modal-input-password").val(),
             "status": $("input[name='modal-radio-status']:checked").val(),
             "userrole": $("#modal-select-role").val(),
-            "userLoginRole": LOGIN_INFO.userRole
+            "userLoginRole": LOGIN_INFO.userrole
         };
 
         $.ajax({
@@ -100,7 +99,7 @@ function saveInfo() {
             "userpassword": $("#modal-input-password").val(),
             "status": $("input[name='modal-radio-status']:checked").val(),
             "userrole": $("#modal-select-role").val(),
-            "userLoginRole": LOGIN_INFO.userRole
+            "userLoginRole": LOGIN_INFO.userrole
         };
         $.ajax({
             url: AJAX_URL.updateUserManage,
@@ -277,7 +276,7 @@ function deleteUser() {
     }
 
     let dataObj = {
-        "userLoginRole": LOGIN_INFO.userRole,
+        "userLoginRole": LOGIN_INFO.userrole,
         "userkey": checkboxTable[0].userkey,
     };
 
