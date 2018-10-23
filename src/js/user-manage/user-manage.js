@@ -209,7 +209,10 @@ function tableInit(tableUrl) {
                 field: 'createtime',
                 title: '创建时间',
                 formatter: function (value) {
-                    return new Date(value).Format("yyyy-MM-dd");
+                    if (value != null) {
+                        return new Date(value).Format("yyyy-MM-dd");
+                    }
+                    return "-";
                 }
             }, {
                 field: 'status',
@@ -220,6 +223,8 @@ function tableInit(tableUrl) {
                         result = "停用";
                     } else if (value == 1) {
                         result = "启动";
+                    } else if (value == null){
+                        result = "-";
                     }
                     return result;
                 }

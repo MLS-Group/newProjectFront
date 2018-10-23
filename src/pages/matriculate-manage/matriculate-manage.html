@@ -34,9 +34,9 @@
                     <label class="form-inline">
                         <span>状态：</span>
                         <select id="search-select-status" class="form-control" style="width: 150px;">
-                            <option value="">请选择</option>
-                            <option value="0">停用</option>
-                            <option value="1">启用</option>
+                            <option value="">全部</option>
+                            <option value="0">未录用</option>
+                            <option value="1">录用</option>
                         </select>
                     </label>
                     <label class="form-inline">
@@ -76,9 +76,9 @@
                     <div class="col-xs-12 form-horizontal" id="open-dialog">
                         <input type="hidden" id="modal-input-key">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label ">录取时间：</label>
+                            <label class="col-sm-3 control-label required">录取时间：</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="matriculate-input-admissiontime"
+                                <input type="text" class="form-control need-check not-null" id="matriculate-input-admissiontime"
                                        placeholder="录取时间">
 
                                 <span class="alert-warn"></span>
@@ -112,10 +112,9 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-xs-12 form-horizontal" id="open-dialog2">
+                    <div class="col-xs-12 form-horizontal" >
                         <div class="form-group">
-                            <!--requred 必填样式（红色星号）-->
-                            <label for="basicinfo-input-quasiexaminationnumber" class="col-sm-3 control-label required">准考证号 </label>
+                            <label for="basicinfo-input-quasiexaminationnumber" class="col-sm-3 control-label ">准考证号 </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control " id="basicinfo-input-quasiexaminationnumber"
                                        disabled>
@@ -124,9 +123,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <!--requred 必填样式（红色星号）-->
                             <label for="basicinfo-input-realname"
-                                   class="col-sm-3 control-label required">真实姓名 </label>
+                                   class="col-sm-3 control-label ">真实姓名 </label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control "
                                        id="basicinfo-input-realname"
@@ -135,7 +133,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label required">性别 </label>
+                            <label class="col-sm-3 control-label ">性别 </label>
                             <div class="col-sm-9">
                                 <div class="radio">
                                     <label class="radio-inline">
@@ -151,8 +149,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <!--requred 必填样式（红色星号）-->
-                            <label for="basicinfo-input-age" class="col-sm-3 control-label required">年龄</label>
+                            <label for="basicinfo-input-age" class="col-sm-3 control-label ">年龄</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control need-check not-null"
                                        id="basicinfo-input-age"
@@ -161,9 +158,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <!--requred 必填样式（红色星号）-->
                             <label for="basicinfo-input-idcardnumber"
-                                   class="col-sm-3 control-label required">身份证号</label>
+                                   class="col-sm-3 control-label ">身份证号</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control need-check not-null"
                                        id="basicinfo-input-idcardnumber"
@@ -172,9 +168,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <!--requred 必填样式（红色星号）-->
                             <label for="basicinfo-input-registeredresidence"
-                                   class="col-sm-3 control-label required">户口所在地</label>
+                                   class="col-sm-3 control-label ">户口所在地</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control need-check not-null"
                                        id="basicinfo-input-registeredresidence"
@@ -183,9 +178,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <!--requred 必填样式（红色星号）-->
+
                             <label for="basicinfo-input-politicaloutlook"
-                                   class="col-sm-3 control-label required">政治面貌</label>
+                                   class="col-sm-3 control-label ">政治面貌</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control need-check not-null"
                                        id="basicinfo-input-politicaloutlook"
@@ -194,9 +189,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <!--requred 必填样式（红色星号）-->
                             <label for="basicinfo-input-nativeplace"
-                                   class="col-sm-3 control-label required">籍贯</label>
+                                   class="col-sm-3 control-label ">籍贯</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control need-check not-null"
                                        id="basicinfo-input-nativeplace"
@@ -205,8 +199,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <!--requred 必填样式（红色星号）-->
-                            <label for="basicinfo-input-email" class="col-sm-3 control-label required">邮箱地址</label>
+
+                            <label for="basicinfo-input-email" class="col-sm-3 control-label ">邮箱地址</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control need-check not-null"
                                        id="basicinfo-input-email"
@@ -215,9 +209,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <!--requred 必填样式（红色星号）-->
                             <label for="basicinfo-input-phonenumber"
-                                   class="col-sm-3 control-label required">手机号</label>
+                                   class="col-sm-3 control-label ">手机号</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control need-check not-null"
                                        id="basicinfo-input-phonenumber"
@@ -226,14 +219,12 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <!--requred 必填样式（红色星号）-->
                             <label for="basicinfo-input-graduateschool"
-                                   class="col-sm-3 control-label required">毕业学校</label>
+                                   class="col-sm-3 control-label ">毕业学校</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control need-check not-null"
                                        id="basicinfo-input-graduateschool"
                                        disabled>
-
                             </div>
                         </div>
                     </div>
