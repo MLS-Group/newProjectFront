@@ -88,13 +88,20 @@ function tableInit(tableUrl,cond) {
 
         }, {
             field: 'createtime',
-            title: '创建时间'
+            title: '创建时间',
+            formatter: function (v,r,i) {
+                let now = new Date(v);
+                return getMyTime(now);
+            }
         }, {
             title: '发布时间',
             formatter: function (v,r,i) {
                 if (r.ispublish == 0) {
                     return "未发布！";
                 } else {
+                    if (r.publishtime == null || r.publishtime == '') {
+                        return "-";
+                    }
                     let now = new Date(r.publishtime);
                     return getMyTime(now);
                 }

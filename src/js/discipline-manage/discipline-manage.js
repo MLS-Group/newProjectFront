@@ -259,18 +259,7 @@ function DeleteDiscipline() {
         yes: function () {
             console.log('confirm-yes');
             //删除操作
-            $.ajax({
-                url: DELETE_DISCIPLINE_URL,
-                type: requestJson ? 'get' : 'post',
-                data: JSON.stringify(dataObj),
-                dataType: "json",
-                contentType: "application/json;charset=utf-8",
-                success: function (data) {
-                    poptip.alert(POP_TIP.deleteSuccess);
-                    console.log(data);
-                    tableInit(SELECT_DISCIPLINE_URL);
-                }
-            });
+
             poptip.close();
         },
         cancel: function () {
