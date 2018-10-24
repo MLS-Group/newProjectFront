@@ -37,19 +37,16 @@ $(function() {
     })
 
     //通过权限，显示模块 by 刘志杰
-    sessionStorage.setItem("user-info", JSON.stringify({
-        "userrole": 1
-    }))
     if (JSON.parse(sessionStorage.getItem("user-info"))) {
         switch (JSON.parse(sessionStorage.getItem("user-info")).userrole) {
-            case 0: //考生
+            case "0": //考生
                 break;
-            case 1: //管理员
+            case "1": //管理员
                 $("li[name='UserManage']").css("display", "block");
                 break;
-            case 2: //招生者
+            case "2": //招生者
                 break;
-            case 3:
+            case "3":
                 break;
         }
     }

@@ -159,6 +159,9 @@ $("#login-button-adminlogin").click(function () {
         success: function (result) {
             if (result.ok) {
                 if (result.data.userrole === '1'){
+                    sessionStorage.setItem("user-info", JSON.stringify({
+                        "userrole": result.data.userrole
+                    }))
                     window.location.href = '../default/default.html';
                 } else {
                     alert("非管理员用户禁止登陆！");
