@@ -1,7 +1,5 @@
 /*录取管理 刘志杰 2018-10-11*/
-const LOGIN_INFO = JSON.parse(sessionStorage.getItem("user-info"));//登录的用户信息
 var examinee_condition = {} //条件查询的内容
-var check_volunteerkey = ""; //选中的 记录的 volunteerkey
 $(function () {
     tableInit(AJAX_URL.selectMatriculate);
     laydateInit("#matriculate-input-admissiontime");
@@ -93,7 +91,7 @@ function tableInit(tableUrl) {
                 if (value != null) {
                     return new Date(value).Format("yyyy-MM-dd");
                 }
-               return "-";
+                return "-";
             }
         }, {
             field: 'volunteernumber',
@@ -180,7 +178,7 @@ function confirm() {
         url: AJAX_URL.insertMatriculate,
         type: requestJson ? 'get' : 'put',
         data: JSON.stringify({
-            "volunteerkey": check_volunteerkey,
+            "volunteerkey": $("#modal-input-key").val(),
             "admissionstatue": 1,
             "admissiontime": $("#matriculate-input-admissiontime").val()
         }),
@@ -225,7 +223,7 @@ function admssion() {
         poptip.alert(POP_TIP.choiceOnlyOne);
         return 0;
     }
-    check_volunteerkey = checkboxTable[0].volunteerkey;
+    $("#modal-input-key").val(checkboxTable[0].volunteerkey);
     $("#matriculate-modal").modal("show");
 
 
@@ -239,6 +237,10 @@ function admssion() {
  * @Date 2018-10-12
  */
 function personalDetails(examineekey) {
+    if (requestJson) {
+        poptip.alert("就不让你看")
+        return 0;
+    }
     $.ajax({
         url: AJAX_URL.personalDetailsMatriculate + "/" + examineekey,
         type: 'get',
