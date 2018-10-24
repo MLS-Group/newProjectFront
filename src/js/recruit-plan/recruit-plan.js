@@ -486,22 +486,35 @@ function DeletePlan() {
     } else {
         console.log("deleteRow:" + checkboxTable[0].adminssionskey);
         let adminssionskey = checkboxTable[0].adminssionskey;
-        $.ajax({
-            url: DELETE_ADMINPLAN_URL + '/' + adminssionskey,
-            type: 'post',
-            // dataType: "json",
-            // contentType: "application/json;charset=utf-8",
-            success: function (data) {
-                if (data.ok) {
-                    poptip.alert(POP_TIP.deleteSuccess);
-                    $("#plan-table-all").bootstrapTable('destroy');
-                    tableInit(SELECT_ADMINPLAN_URL,"all");
-                } else {
-                    poptip.alert(POP_TIP.dataLoadfail);
-                }
+        poptip.confirm({
+            content: POP_TIP.confirm,
+            yes: function () {
+                console.log('confirm-yes');
+                //删除操作
+                $.ajax({
+                    url: DELETE_ADMINPLAN_URL + '/' + adminssionskey,
+                    type: 'post',
+                    // dataType: "json",
+                    // contentType: "application/json;charset=utf-8",
+                    success: function (data) {
+                        if (data.ok) {
+                            poptip.alert(POP_TIP.deleteSuccess);
+                            $("#plan-table-all").bootstrapTable('destroy');
+                            tableInit(SELECT_ADMINPLAN_URL,"all");
+                        } else {
+                            poptip.alert(POP_TIP.dataLoadfail);
+                        }
 
+                    }
+                });
+                poptip.close();
+            },
+            cancel: function () {
+                poptip.close();
             }
-        })
+        });
+
+
     }
 
 }
