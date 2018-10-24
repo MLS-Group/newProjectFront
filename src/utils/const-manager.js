@@ -158,6 +158,8 @@ const AJAX_URL = {
     personnelConfiguration: requestJson ? '../../jsonDatas/personnelConfiguration.json' : '',
     bomChange: requestJson ? '../../jsonDatas/bomChange.json' : '',
     administratorList: requestJson ? '../../jsonDatas/administratorList.json' : '',
+    //管理员登录 刘笑天 20181024
+    adminLogin: requestJson ? '../../jsonDatas/login.json' : requestUrl + '/api/generate/userinformation/userLogin',
     //崔雨鑫
     announceData: requestJson ? '../../jsonDatas/announceData.json' : '',
     announceDetailData: requestJson ? '../../jsonDatas/announceDetailData.json' : '',

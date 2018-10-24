@@ -143,12 +143,12 @@ $(function () {
  *@date 2018/10/22 21:19:49
  *@author zhangziteng
  */
-$("#login-button-examineelogin").click(function () {
+$("#login-button-adminlogin").click(function () {
     // window.location.href = "../../pages/default/default.html"
     var username = $("#login-input-username").val();
     var password = $("#login-input-password").val();
     $.ajax({
-        url: AJAX_URL.examineeLogin,
+        url: AJAX_URL.adminLogin,
         type: requestJson ? 'get' : 'post',
         data: {
             "userAccount": username,
@@ -156,12 +156,17 @@ $("#login-button-examineelogin").click(function () {
         },
         dataType: "json",
         // contentType: "application/json;charset=utf-8",
-        success: function (data) {
-            if (data.ok) {
+        success: function (result) {
+            if (result.ok) {
+                if (result.data.userrole === '1'){
+                    window.location.href = '../default/default.html';
+                } else {
+                    alert("非管理员用户禁止登陆！");
+                    return
+                }
                 // alert(data.message);
-                window.location.href = '../default/default.html';
             } else {
-                alert(data.message);
+                alert(result.message);
             }
         }
     });
