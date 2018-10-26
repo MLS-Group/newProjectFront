@@ -158,7 +158,7 @@ $("#login-button-adminlogin").click(function () {
         // contentType: "application/json;charset=utf-8",
         success: function (result) {
             if (result.ok) {
-                if (result.data.userrole === '1'){
+                if (result.data.userrole === '1') {
                     sessionStorage.setItem("user-info", JSON.stringify({
                         "userrole": result.data.userrole
                     }))
