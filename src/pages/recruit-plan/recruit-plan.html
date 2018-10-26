@@ -28,15 +28,15 @@
             <form>
                 <div class="search-from form-group">
                     <label>学校名称：</label>
-                    <input type="text" class="from-controller" name="SSK" id="schName" placeholder="请输入学校名称" aria-describedby="sizing-addon2">
+                    <input type="text" class="from-controller" name="SSK" id="select-input-schname" placeholder="请输入学校名称" aria-describedby="sizing-addon2">
                 </div>
                 <div  class="search-from form-group">
                     <label>专业名称：</label>
-                    <input type="text" class="from-controller" name="SSK" id="majName" placeholder="请输入专业名称">
+                    <input type="text" class="from-controller" name="SSK" id="select-input-majname" placeholder="请输入专业名称">
                 </div>
                 <div class="search-from form-group">
                     <label>省份：</label>
-                    <input type="text" class="from-controller" name="SSK" id="proName" placeholder="请选择省份">
+                    <input type="text" class="from-controller" name="SSK" id="select-input-proname" placeholder="请选择省份">
                 </div>
             </form>
         </div>
@@ -51,6 +51,17 @@
         <button type="button" class="btn btn-primary" onclick="AddPlanModal()" data-target="#add-plan-modal" data-toggle="modal" style="padding: 6px 20px;">创建</button>
         <button type="button" class="btn btn-success" onclick="AlterPlanModal()">修改</button>
         <button type="button" class="btn btn-danger" onclick="DeletePlan()" style="padding: 6px 20px;">删除</button>
+
+        <!--<div class="select-creatYear">-->
+            <!--<label for="selectCreatYear" class="转·control-label">年份：</label>-->
+            <!--<select class="from-controller" id="selectCreatYear" style="width: 100px" onchange="">-->
+                <!--<option value="">2015</option>-->
+                <!--<option value="">2016</option>-->
+                <!--<option value="">2017</option>-->
+                <!--<option value="" selected>2018</option>-->
+            <!--</select>-->
+        <!--</div>-->
+
     </div>
     <br>
     <div id="plan-table">
@@ -73,34 +84,33 @@
                     <div class="col-xs-12 form-horizontal" id="add-plan-info">
                         <div class="form-group">
                             <div class="col-sm-12 form-inline">
-                                <label for="selectSchName" class="col-sm-4 control-label">学校名称：</label>
-                                <select class="from-controller" id="selectSchName" style="width: 200px" onchange="schNameByPro(this.value)">
+                                <label for="add-update-select-SchName" class="col-sm-4 control-label">学校名称：</label>
+                                <select class="from-controller" id="add-update-select-SchName" style="width: 200px" onchange="schNameByPro(this.value)">
                                 </select>
-                                <br><span id="schNameIsNull" class="IsNull" style="color: red"></span>
-                            </div>
-
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-12 form-inline">
-                                <label for="selectMajName" class="col-sm-4 control-label">专业名称：</label>
-                                <select class="from-controller" id="selectMajName" style="width: 200px">
-                                </select>
-                                <br><span id="majNameIsNull" class="IsNull" style="color: red"></span>
+                                <br><span id="show-span-schNameIsNull" class="IsNull" style="color: red"></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12 form-inline">
-                                <label for="selectProName" class="col-sm-4 control-label">省&emsp;&emsp;份：</label>
-                                <select class="from-controller" id="selectProName" style="width: 200px" onchange="proNameBySch(this.value)">
+                                <label for="add-update-select-MajName" class="col-sm-4 control-label">专业名称：</label>
+                                <select class="from-controller" id="add-update-select-MajName" style="width: 200px">
                                 </select>
-                                <br><span id="proNameIsNull" class="IsNull" style="color: red"></span>
+                                <br><span id="show-span-majNameIsNull" class="IsNull" style="color: red"></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12 form-inline">
-                                <label for="inputPlanNum" class="col-sm-4 control-label">招生人数：</label>
-                                <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="3" id="inputPlanNum" placeholder="招生人数！！！">
-                                <br><span id="planNumIsNull" class="IsNull" style="color: red"></span>
+                                <label for="add-update-select-ProName" class="col-sm-4 control-label">省&emsp;&emsp;份：</label>
+                                <select class="from-controller" id="add-update-select-ProName" style="width: 200px" onchange="proNameBySch(this.value)">
+                                </select>
+                                <br><span id="show-span-proNameIsNull" class="IsNull" style="color: red"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12 form-inline">
+                                <label for="add-update-input-PlanNum" class="col-sm-4 control-label">招生人数：</label>
+                                <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="3" id="add-update-input-PlanNum" placeholder="招生人数！！！">
+                                <br><span id="show-span-planNumIsNull" class="IsNull" style="color: red"></span>
                             </div>
                         </div>
 

@@ -3,31 +3,18 @@ var SELECT_ADMINPLAN_URL = requestUrl + "api/generate/adminssionsplaninformation
 var SELECT_CONDITION_URL = requestUrl + "api/generate/adminssionsplaninformation/AdminssionsplaninformationVOPageBySMP"; //url地址 条件查询
 var UPDATE_RELEASEIS_URL = requestUrl + "api/generate/adminssionsplaninformation/releaseAdminssionsplaninformationVO"; //url地址 发布
 
-
+/**
+* @Description:   _初始化表格
+* @Author:         yueben
+* @CreateDate:     2018/10/24 10:52
+*/
 $(function () {
-    //tableInit(SELECT_CONDITION_URL,"condition");
     tableInit(SELECT_ADMINPLAN_URL,"all");
 });
 
 /**
- * @Desc laydate 初始化
- * @Author 刘志杰
- * @Date 2018-10-10
- */
-function laydateInit() {
-    laydate.render({
-        elem: '#offlinetime',
-        max: new Date().Format('yyyy-MM-dd'),
-        done: function (value) {
-
-        }
-    });
-
-}
-
-/**
  * @Desc 表格初始化
- * @Author 刘志杰
+ * @Author yueben
  * @Date 2018-10-10
  */
 function tableInit(tableUrl,cond) {
@@ -43,8 +30,8 @@ function tableInit(tableUrl,cond) {
         sortOrder: "asc",                   //排序方式
         sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
         pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
-        pageSize: 3,                     //每页的记录行数（*）
-        pageList: [3,6,9],        //可供选择的每页的行数（*）
+        pageSize: 5,                     //每页的记录行数（*）
+        pageList: [5,10,15],        //可供选择的每页的行数（*）
         search: false,                      //是否显示表格搜索
         strictSearch: true,
         //showColumns: true,                  //是否显示所有的列（选择显示的列）
@@ -72,9 +59,9 @@ function tableInit(tableUrl,cond) {
                 temp = {
                     "pageSize": params.limit,                         //页面大小
                     "page": (params.offset / params.limit) + 1,
-                    "adminssionskey":$("#proName").val(),
-                    "schoolkey":$("#schName").val(),
-                    "majorkey":$("#majName").val()
+                    "adminssionskey":$("#select-input-proName").val(),
+                    "schoolkey":$("#select-input-schName").val(),
+                    "majorkey":$("#select-input-majName").val()
                 }
             }
             return JSON.stringify(temp);
@@ -101,21 +88,35 @@ function tableInit(tableUrl,cond) {
 
         }, {
             field: 'createtime',
-            title: '创建时间'
+            title: '创建时间',
+            formatter: function (v,r,i) {
+                let now = new Date(v);
+                return getMyTime(now);
+            }
         }, {
             title: '发布时间',
             formatter: function (v,r,i) {
                 if (r.ispublish == 0) {
                     return "未发布！";
                 } else {
-                    return r.publishtime;
+                    if (r.publishtime == null || r.publishtime == '') {
+                        return "-";
+                    }
+                    let now = new Date(r.publishtime);
+                    return getMyTime(now);
                 }
             }
 
         }, {
             title: '下线时间',
             formatter: function (v,r,i) {
-                return r.offlinetime;
+
+                if (r.ispublish == 0) {
+                    return "未发布！";
+                } else {
+                    let now = new Date(r.offlinetime)
+                    return getMyTime(now);
+                }
             }
         }],
         onLoadSuccess: function (e) {
@@ -137,10 +138,22 @@ function tableInit(tableUrl,cond) {
     });
 }
 
+/**
+* @Description:   _时间格式规范
+* @Author:         yueben
+* @CreateDate:     2018/10/24 10:52
+*/
+function getMyTime(now) {
+    let yy = now.getFullYear();
+    let mon = (now.getMonth() + 1) < 10 ? "-0" + (now.getMonth() + 1) : "-" + (now.getMonth() + 1);
+    let dd = now.getDate() < 10 ? "-0" + now.getDate() : "-" + now.getDate();
+
+    return yy + mon + dd;
+}
 
 /**
  * @Desc 点击发布按钮 打开模态框
- * @Author 刘志杰
+ * @Author yueben
  * @Date 2018-10-10
  */
 function openModel() {
@@ -152,13 +165,13 @@ function openModel() {
     $("#my-modal").modal("show");
 }
 /**
- * @Desc 发布
- * @Author 刘志杰
- * @Date 2018-10-10
- */
+* @Description:   _发布
+* @Author:         yueben
+* @CreateDate:     2018/10/24 10:53
+*/
 function publishAdminssions() {
     let checkboxTable = $("#adminssions-table").bootstrapTable('getSelections');
-    let offlineTime = $("#offlinetime").val();
+    let offlineTime = $("#update-input-offlinetime").val();
     if (!offlineTime || offlineTime == "") {
         poptip.alert(POP_TIP.offlineTimeNotNull);
         return 0;
@@ -184,8 +197,6 @@ function publishAdminssions() {
             } else {
                 poptip.alert(POP_TIP.operateFail);
             }
-            // console.log("====发布====");
-            // poptip.alert(POP_TIP.publishSuccess)
         }
     })
 }
@@ -200,15 +211,23 @@ $("#search-button").click(function () {
     $("#adminssions-table").bootstrapTable('destroy');
     tableInit(SELECT_CONDITION_URL,"condition");
     console.log("已更新");
-})
-//重置按钮
+});
+
+/**
+* @Description:   _重置按钮
+* @Author:         yueben
+* @CreateDate:     2018/10/24 10:54
+*/
 $("#reset-button").click(function () {
     $("input[name='SSK']").val("");
-})
+});
 
-
-//发布时间控件
+/**
+* @Description:   _发布时间控件
+* @Author:         yueben
+* @CreateDate:     2018/10/24 10:54
+*/
 laydate.render({
-    elem: '#offlinetime',
+    elem: '#update-input-offlinetime',
     type: 'datetime'
 })

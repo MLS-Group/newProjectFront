@@ -4,188 +4,273 @@
     {
       "volunteerkey":"1",
       "examinationnumber": "1",
-      "schoolname": "学校1号",
-      "majorname": "专业1号",
+      "SchoolInformationEO": {
+        "schoolname": "学校1号"
+      },
+      "MajorInformationEO": {
+        "majorname": "专业1号"
+      },
+      "ExamineeinformationEO": {
+        "examineekey": "001"
+      },
       "declaretime": "2018-01-02",
       "volunteernumber": "123321"
     },
     {
       "volunteerkey":"2",
       "examinationnumber": "2",
-      "schoolname": "学校2号",
-      "majorname": "专业2号",
+      "SchoolInformationEO": {
+        "schoolname": "学校2号"
+      },
+      "MajorInformationEO": {
+        "majorname": "专业2号"
+      },
+      "ExamineeinformationEO": {
+        "examineekey": "002"
+      },
       "declaretime": "2018-01-02",
       "volunteernumber": "123321"
     },
     {
       "volunteerkey":"3",
       "examinationnumber": "3",
-      "schoolname": "学校3号",
-      "majorname": "专业3号",
+      "SchoolInformationEO": {
+        "schoolname": "学校3号"
+      },
+      "MajorInformationEO": {
+        "majorname": "专业3号"
+      },
+      "ExamineeinformationEO": {
+        "examineekey": "003"
+      },
       "declaretime": "2018-01-02",
       "volunteernumber": "123321"
     },
     {
       "volunteerkey":"1",
       "examinationnumber": "1",
-      "schoolname": "学校1号",
-      "majorname": "专业1号",
+      "SchoolInformationEO": {
+        "schoolname": "学校1号"
+      },
+      "MajorInformationEO": {
+        "majorname": "专业1号"
+      },
+      "ExamineeinformationEO": {
+        "examineekey": "001"
+      },
       "declaretime": "2018-01-02",
       "volunteernumber": "123321"
     },
     {
       "volunteerkey":"2",
       "examinationnumber": "2",
-      "schoolname": "学校2号",
-      "majorname": "专业2号",
+      "SchoolInformationEO": {
+        "schoolname": "学校2号"
+      },
+      "MajorInformationEO": {
+        "majorname": "专业2号"
+      },
+      "ExamineeinformationEO": {
+        "examineekey": "002"
+      },
       "declaretime": "2018-01-02",
       "volunteernumber": "123321"
     },
     {
       "volunteerkey":"3",
       "examinationnumber": "3",
-      "schoolname": "学校3号",
-      "majorname": "专业3号",
+      "SchoolInformationEO": {
+        "schoolname": "学校3号"
+      },
+      "MajorInformationEO": {
+        "majorname": "专业3号"
+      },
+      "ExamineeinformationEO": {
+        "examineekey": "003"
+      },
       "declaretime": "2018-01-02",
       "volunteernumber": "123321"
-    }, {
+    },
+    {
       "volunteerkey":"1",
       "examinationnumber": "1",
-      "schoolname": "学校1号",
-      "majorname": "专业1号",
+      "SchoolInformationEO": {
+        "schoolname": "学校1号"
+      },
+      "MajorInformationEO": {
+        "majorname": "专业1号"
+      },
+      "ExamineeinformationEO": {
+        "examineekey": "001"
+      },
       "declaretime": "2018-01-02",
       "volunteernumber": "123321"
     },
     {
       "volunteerkey":"2",
       "examinationnumber": "2",
-      "schoolname": "学校2号",
-      "majorname": "专业2号",
+      "SchoolInformationEO": {
+        "schoolname": "学校2号"
+      },
+      "MajorInformationEO": {
+        "majorname": "专业2号"
+      },
+      "ExamineeinformationEO": {
+        "examineekey": "002"
+      },
       "declaretime": "2018-01-02",
       "volunteernumber": "123321"
     },
     {
       "volunteerkey":"3",
       "examinationnumber": "3",
-      "schoolname": "学校3号",
-      "majorname": "专业3号",
+      "SchoolInformationEO": {
+        "schoolname": "学校3号"
+      },
+      "MajorInformationEO": {
+        "majorname": "专业3号"
+      },
+      "ExamineeinformationEO": {
+        "examineekey": "003"
+      },
       "declaretime": "2018-01-02",
       "volunteernumber": "123321"
-    }, {
+    },
+    {
       "volunteerkey":"1",
       "examinationnumber": "1",
-      "schoolname": "学校1号",
-      "majorname": "专业1号",
+      "SchoolInformationEO": {
+        "schoolname": "学校1号"
+      },
+      "MajorInformationEO": {
+        "majorname": "专业1号"
+      },
+      "ExamineeinformationEO": {
+        "examineekey": "001"
+      },
       "declaretime": "2018-01-02",
       "volunteernumber": "123321"
     },
     {
       "volunteerkey":"2",
       "examinationnumber": "2",
-      "schoolname": "学校2号",
-      "majorname": "专业2号",
+      "SchoolInformationEO": {
+        "schoolname": "学校2号"
+      },
+      "MajorInformationEO": {
+        "majorname": "专业2号"
+      },
+      "ExamineeinformationEO": {
+        "examineekey": "002"
+      },
       "declaretime": "2018-01-02",
       "volunteernumber": "123321"
     },
     {
       "volunteerkey":"3",
       "examinationnumber": "3",
-      "schoolname": "学校3号",
-      "majorname": "专业3号",
+      "SchoolInformationEO": {
+        "schoolname": "学校3号"
+      },
+      "MajorInformationEO": {
+        "majorname": "专业3号"
+      },
+      "ExamineeinformationEO": {
+        "examineekey": "003"
+      },
       "declaretime": "2018-01-02",
       "volunteernumber": "123321"
-    }, {
+    },
+    {
       "volunteerkey":"1",
       "examinationnumber": "1",
-      "schoolname": "学校1号",
-      "majorname": "专业1号",
+      "SchoolInformationEO": {
+        "schoolname": "学校1号"
+      },
+      "MajorInformationEO": {
+        "majorname": "专业1号"
+      },
+      "ExamineeinformationEO": {
+        "examineekey": "001"
+      },
       "declaretime": "2018-01-02",
       "volunteernumber": "123321"
     },
     {
       "volunteerkey":"2",
       "examinationnumber": "2",
-      "schoolname": "学校2号",
-      "majorname": "专业2号",
+      "SchoolInformationEO": {
+        "schoolname": "学校2号"
+      },
+      "MajorInformationEO": {
+        "majorname": "专业2号"
+      },
+      "ExamineeinformationEO": {
+        "examineekey": "002"
+      },
       "declaretime": "2018-01-02",
       "volunteernumber": "123321"
     },
     {
       "volunteerkey":"3",
       "examinationnumber": "3",
-      "schoolname": "学校3号",
-      "majorname": "专业3号",
+      "SchoolInformationEO": {
+        "schoolname": "学校3号"
+      },
+      "MajorInformationEO": {
+        "majorname": "专业3号"
+      },
+      "ExamineeinformationEO": {
+        "examineekey": "003"
+      },
       "declaretime": "2018-01-02",
       "volunteernumber": "123321"
-    }, {
+    },
+    {
       "volunteerkey":"1",
       "examinationnumber": "1",
-      "schoolname": "学校1号",
-      "majorname": "专业1号",
+      "SchoolInformationEO": {
+        "schoolname": "学校1号"
+      },
+      "MajorInformationEO": {
+        "majorname": "专业1号"
+      },
+      "ExamineeinformationEO": {
+        "examineekey": "001"
+      },
       "declaretime": "2018-01-02",
       "volunteernumber": "123321"
     },
     {
       "volunteerkey":"2",
       "examinationnumber": "2",
-      "schoolname": "学校2号",
-      "majorname": "专业2号",
+      "SchoolInformationEO": {
+        "schoolname": "学校2号"
+      },
+      "MajorInformationEO": {
+        "majorname": "专业2号"
+      },
+      "ExamineeinformationEO": {
+        "examineekey": "002"
+      },
       "declaretime": "2018-01-02",
       "volunteernumber": "123321"
     },
     {
       "volunteerkey":"3",
       "examinationnumber": "3",
-      "schoolname": "学校3号",
-      "majorname": "专业3号",
-      "declaretime": "2018-01-02",
-      "volunteernumber": "123321"
-    }, {
-      "volunteerkey":"1",
-      "examinationnumber": "1",
-      "schoolname": "学校1号",
-      "majorname": "专业1号",
-      "declaretime": "2018-01-02",
-      "volunteernumber": "123321"
-    },
-    {
-      "volunteerkey":"2",
-      "examinationnumber": "2",
-      "schoolname": "学校2号",
-      "majorname": "专业2号",
-      "declaretime": "2018-01-02",
-      "volunteernumber": "123321"
-    },
-    {
-      "volunteerkey":"3",
-      "examinationnumber": "3",
-      "schoolname": "学校3号",
-      "majorname": "专业3号",
-      "declaretime": "2018-01-02",
-      "volunteernumber": "123321"
-    }, {
-      "volunteerkey":"1",
-      "examinationnumber": "1",
-      "schoolname": "学校1号",
-      "majorname": "专业1号",
-      "declaretime": "2018-01-02",
-      "volunteernumber": "123321"
-    },
-    {
-      "volunteerkey":"2",
-      "examinationnumber": "2",
-      "schoolname": "学校2号",
-      "majorname": "专业2号",
-      "declaretime": "2018-01-02",
-      "volunteernumber": "123321"
-    },
-    {
-      "volunteerkey":"3",
-      "examinationnumber": "3",
-      "schoolname": "学校3号",
-      "majorname": "专业3号",
+      "SchoolInformationEO": {
+        "schoolname": "学校3号"
+      },
+      "MajorInformationEO": {
+        "majorname": "专业3号"
+      },
+      "ExamineeinformationEO": {
+        "examineekey": "003"
+      },
       "declaretime": "2018-01-02",
       "volunteernumber": "123321"
     }
+
   ]
 }
