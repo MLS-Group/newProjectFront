@@ -146,7 +146,7 @@
 .nav-check ul li a {
     display:block;
     padding: 15px 0px;
-    color:#000;
+    /*color:#000;*/
     text-decoration:none;
     font-family:"微软雅黑";
 }
@@ -154,10 +154,10 @@
     display:block;
 }
 .nav-check ul li:hover {
-    background:linear-gradient(to bottom,#4f5964,#5f6975);
+    /*background:linear-gradient(to bottom,#4f5964,#5f6975);*/
 }
 .nav-check ul li:hover a {
-    color:#FFF;
+    /*color:#FFF;*/
 }
 .nav-check ul ul {
     background:#5f6975;
