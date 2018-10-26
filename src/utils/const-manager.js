@@ -60,7 +60,10 @@ const POP_TIP = {
 const INPUT_ALERT = {
     account: '请输入字母或数字，长度限制为4-15',//by qitian
     notNull: '此项不可为空',//by qitian
-    IDNumber: '身份证格式不正确'//by qitian
+    IDNumber: '身份证格式不正确',//by qitian
+    mobilePhoneModify:'电话号码不正确',//zhangziteng
+    address:'地址信息'//zhangziteng
+
 };
 
 /**
@@ -80,6 +83,7 @@ const REGEX = {
     IDNumber: /^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|[X])$/, //身份证号码
     IDNumber2: /^[0-9a-zA-Z]{,18}*$/g, //身份证号码，仅控制位数不能超过18位
     account: /^[a-zA-Z][a-zA-Z0-9_]{4,15}$/,
+    address:/^{0,30}$/,
     password: /^[A-Za-z0-9][a-zA-Z0-9_]{5,20}$/, //验证密码，数字、字母、下划线，不少于5位
     strongPassword: /^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$/,
     specialChar: /[@#\$%\^&\*]+/g, //特殊字符，可以扩充

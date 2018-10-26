@@ -67,3 +67,22 @@ $("#update-input-oldpassword").blur(function () {
         }
     });
 });
+
+/**
+ *@desc 退出登录
+ *@date 2018/10/26 09:16:22
+ *@author zhangziteng
+ */
+$("#logout-a-userout").click(function () {
+    //删除item
+    sessionStorage.removeItem("user-info");
+    //清除数据-----删除所有同源的本地存储的localStorage数据
+    localStorage.clear();
+    //清除数据-----只清空当前会话存储的数据
+    sessionStorage.clear();
+    if (sessionStorage.length == 0) {
+        window.location.href = '../login/login.html';
+    } else {
+        alert("注销失败");
+    }
+});

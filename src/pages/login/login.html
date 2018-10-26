@@ -47,9 +47,9 @@
                                 <!--<a href="#" check-area="update-point-info" data-target="#update-point-nothing" data-toggle="modal" style="color: #2b669a">修改密码</a>-->
                             <!--</div>-->
                             <!--注册按钮-->
-                            <div class="remember" for="remember">
-                                <a href="#" check-area="add-point-info" data-target="#add-point-nothing" data-toggle="modal" style="color: #2b669a"><u>没有账号,点击注册</u></a>
-                            </div>
+                            <!--<div class="remember" for="remember">-->
+                                <!--<a href="#" check-area="add-point-info" data-target="#add-point-nothing" data-toggle="modal" style="color: #2b669a"><u>没有账号,点击注册</u></a>-->
+                            <!--</div>-->
 
                             <div class="button-login text-center" style="margin-top: 40px;">
                                 <button type="button" id="login-button-adminlogin" class="btn btn-primary" style="width: 100px;">登录</button>
@@ -62,69 +62,69 @@
         </div><!--/.fluid-container-->
 
     <!--注册模态窗-->
-    <div class="modal fade" id="add-point-nothing">
-        <div class="modal-dialog" role="document" style="width: 400px">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h3 id="">注册</h3>
-                </div>
-                <div class="modal-body">
-                    <div class="row" style="margin: 0 auto">
-                        <div class="col-xs-12 form-horizontal" id="add-point-info">
-                            <div class="form-group">
-                                <div class="col-sm-12 form-inline">
-                                    <label for="regist-input-examinationnumber" class="col-sm-4 control-label required">准考证号：</label>
-                                    <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="12" id="regist-input-examinationnumber" placeholder="请输入准考证号">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12 form-inline">
-                                    <label for="regist-input-username" class="col-sm-4 control-label required">登录账户：</label>
-                                    <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="12" id="regist-input-username" placeholder="请输入账户名">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12 form-inline">
-                                    <label for="regist-input-password" class="col-sm-4 control-label required">密码：</label>
-                                    <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="12" id="regist-input-password" placeholder="请输入密码">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12 form-inline">
-                                    <label for="regist-input-email" class="col-sm-4 control-label">邮箱：&nbsp;</label>
-                                    <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="20" id="regist-input-email" placeholder="请输入邮箱">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12 form-inline">
-                                    <label for="regist-input-phonenumber" class="col-sm-4 control-label">手机号：&nbsp;</label>
-                                    <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="11" id="regist-input-phonenumber" placeholder="请输入手机号">
-                                </div>
-                            </div>
-                            <!--验证码-->
-                            <div class="form-group">
-                                <div class="col-sm-12 form-inline">
-                                    <label for="regist-input-verfication" class="col-sm-4 control-label">验证码：&nbsp;</label>
-                                    <input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="4" id="regist-input-verfication" placeholder="请输入验证码">
-                                </div>
-                                <div id="idcode-modal" class="login-row">
-                                    <!--<img border=0 src="" id="imageLoginCode" onclick="loginCodeReload()" class="col-xs-5" style="width: 100%;height:33px;">-->
-                                </div>
-                            </div>
+    <!--<div class="modal fade" id="add-point-nothing">-->
+        <!--<div class="modal-dialog" role="document" style="width: 400px">-->
+            <!--<div class="modal-content">-->
+                <!--<div class="modal-header">-->
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+                        <!--<span aria-hidden="true">&times;</span>-->
+                    <!--</button>-->
+                    <!--<h3 id="">注册</h3>-->
+                <!--</div>-->
+                <!--<div class="modal-body">-->
+                    <!--<div class="row" style="margin: 0 auto">-->
+                        <!--<div class="col-xs-12 form-horizontal" id="add-point-info">-->
+                            <!--<div class="form-group">-->
+                                <!--<div class="col-sm-12 form-inline">-->
+                                    <!--<label for="regist-input-examinationnumber" class="col-sm-4 control-label required">准考证号：</label>-->
+                                    <!--<input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="12" id="regist-input-examinationnumber" placeholder="请输入准考证号">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<div class="col-sm-12 form-inline">-->
+                                    <!--<label for="regist-input-username" class="col-sm-4 control-label required">登录账户：</label>-->
+                                    <!--<input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="12" id="regist-input-username" placeholder="请输入账户名">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<div class="col-sm-12 form-inline">-->
+                                    <!--<label for="regist-input-password" class="col-sm-4 control-label required">密码：</label>-->
+                                    <!--<input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="12" id="regist-input-password" placeholder="请输入密码">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<div class="col-sm-12 form-inline">-->
+                                    <!--<label for="regist-input-email" class="col-sm-4 control-label">邮箱：&nbsp;</label>-->
+                                    <!--<input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="20" id="regist-input-email" placeholder="请输入邮箱">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<div class="col-sm-12 form-inline">-->
+                                    <!--<label for="regist-input-phonenumber" class="col-sm-4 control-label">手机号：&nbsp;</label>-->
+                                    <!--<input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="11" id="regist-input-phonenumber" placeholder="请输入手机号">-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash;验证码&ndash;&gt;-->
+                            <!--<div class="form-group">-->
+                                <!--<div class="col-sm-12 form-inline">-->
+                                    <!--<label for="regist-input-verfication" class="col-sm-4 control-label">验证码：&nbsp;</label>-->
+                                    <!--<input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="4" id="regist-input-verfication" placeholder="请输入验证码">-->
+                                <!--</div>-->
+                                <!--<div id="idcode-modal" class="login-row">-->
+                                    <!--&lt;!&ndash;<img border=0 src="" id="imageLoginCode" onclick="loginCodeReload()" class="col-xs-5" style="width: 100%;height:33px;">&ndash;&gt;-->
+                                <!--</div>-->
+                            <!--</div>-->
 
-                            <div class="modal-footer" style="text-align: center">
-                                <!--<button class="btn" data-dismiss="modal">取消</button>-->
-                                <button class="btn btn-success save-check" style="width: 200px;" id="regist-button-userreg">注册</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                            <!--<div class="modal-footer" style="text-align: center">-->
+                                <!--&lt;!&ndash;<button class="btn" data-dismiss="modal">取消</button>&ndash;&gt;-->
+                                <!--<button class="btn btn-success save-check" style="width: 200px;" id="regist-button-userreg">注册</button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 
     <!--修改密码模态框-->
     <!--<div class="modal fade" id="update-point-nothing">-->

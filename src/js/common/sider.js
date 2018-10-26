@@ -43,6 +43,8 @@ $(function() {
                 break;
             case "1": //管理员
                 $("li[name='UserManage']").css("display", "block");
+                $("li[name='DisciplineManage']").css("display", "block");
+                $("li[name='SchoolManage']").css("display", "block");
                 break;
             case "2": //招生者
                 break;
