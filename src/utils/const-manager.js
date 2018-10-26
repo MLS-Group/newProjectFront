@@ -83,7 +83,7 @@ const REGEX = {
     IDNumber: /^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|[X])$/, //身份证号码
     IDNumber2: /^[0-9a-zA-Z]{,18}*$/g, //身份证号码，仅控制位数不能超过18位
     account: /^[a-zA-Z][a-zA-Z0-9_]{4,15}$/,
-    address:/^{0,30}$/,
+    // address:/^{0,30}$/,
     password: /^[A-Za-z0-9][a-zA-Z0-9_]{5,20}$/, //验证密码，数字、字母、下划线，不少于5位
     strongPassword: /^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$/,
     specialChar: /[@#\$%\^&\*]+/g, //特殊字符，可以扩充
@@ -106,16 +106,8 @@ const AJAX_URL = {
      *@date 2018/10/22 21:13:59
      *@author zhangziteng
      */
-    updatePassword: requestJson ? '../../jsonDatas/reportProblem.json' : '',
-    checkPassword: requestJson ? '../../jsonDatas/reportProblem.json' : '',
-    /**
-     *@desc 问题反馈数据
-     *@date 2018/09/27 09:22:00
-     *@author zhangziteng
-     */
-    reportProblem: requestJson ? '../../jsonDatas/reportProblem.json' : '',
-    allProblemData: requestJson ? '../../jsonDatas/allProblemData.json' : '',
-    checkAllProblemData: requestJson ? '../../jsonDatas/checkAllProblemData.json' : '',
+    updatePassword: requestJson ? '' : requestUrl + "api/generate/userinformation",
+    checkPassword: requestJson ? '' : requestUrl + 'api/generate/userinformation/checkOldPassword',
     /**
      *@desc 招生计划数据
      *@date 2018/10/10 10:29:51
@@ -163,7 +155,7 @@ const AJAX_URL = {
     bomChange: requestJson ? '../../jsonDatas/bomChange.json' : '',
     administratorList: requestJson ? '../../jsonDatas/administratorList.json' : '',
     //管理员登录 刘笑天 20181024
-    adminLogin: requestJson ? '../../jsonDatas/login.json' : requestUrl + '/api/generate/userinformation/userLogin',
+    adminLogin: requestJson ? '../../jsonDatas/login.json' : requestUrl + 'api/generate/userinformation/userLogin',
     //崔雨鑫
     announceData: requestJson ? '../../jsonDatas/announceData.json' : '',
     announceDetailData: requestJson ? '../../jsonDatas/announceDetailData.json' : '',

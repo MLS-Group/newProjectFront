@@ -5,6 +5,27 @@
  */
 
 /**
+ *@desc 刘志杰初始化
+ *@date 2018/10/26 14:17:58
+ *@author zhangziteng
+ */
+$(function () {
+    if (JSON.parse(sessionStorage.getItem("user-info")) != null) {
+        switch (JSON.parse(sessionStorage.getItem("user-info")).userrole) {
+            case "0":
+                $("#nav-role").text("考生");
+                break;
+            case "1":
+                $("#nav-role").text("管理员");
+                break;
+            case "2":
+                $("#nav-role").text("招生者");
+                break;
+        }
+    }
+})
+
+/**
  *@desc 修改密码
  *@date 2018/10/22 10:55:07
  *@author zhangziteng

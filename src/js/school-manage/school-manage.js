@@ -84,11 +84,7 @@ function tableInit(tableUrl,cond) {
         columns: [{
             checkbox: true,
             visible: true                  //是否显示复选框
-        }, {
-            field: 'schoolkey',
-            title: '序号',
-            width:100
-        }, {
+        },{
             field: 'schoolname',
             title: '学校名称',
             width:300
@@ -194,7 +190,7 @@ function SearchPlan() {
  *@author zhangziteng
  */
 function ResetPlanInput() {
-
+$("#school-input-search").val('');
 }
 
 /**
@@ -258,7 +254,10 @@ function AddSchool() {
 function AddSchoolModal() {
     $("#school-modal-title").html('<h3>创建学校名称</h3>');
     $(".alert-warn").text("");
-
+    $("#add-input-school").val('');
+    $("#add-input-phone").val('');
+    $("#add-input-address").val('');
+    $("#add-input-introduction").val('');
 }
 
 /**
@@ -297,8 +296,10 @@ function DeleteSchool(){
     if (checkboxTable.length <= 0) {
         poptip.alert(POP_TIP.choiceOne)
         return 0;
+    } else if (checkboxTable.length > 1) {
+        poptip.alert(POP_TIP.choiceOnlyOne)
+        return 0;
     }
-
     delete checkboxTable[0].checkbox;
 
 

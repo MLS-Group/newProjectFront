@@ -158,16 +158,20 @@ $("#login-button-adminlogin").click(function () {
         // contentType: "application/json;charset=utf-8",
         success: function (result) {
             if (result.ok) {
-                if (result.data.userrole === '1'){
-                    sessionStorage.setItem("user-info", JSON.stringify({
-                        "userrole": result.data.userrole
-                    }))
-                    window.location.href = '../default/default.html';
-                } else {
-                    alert("非管理员用户禁止登陆！");
-                    return
-                }
-                // alert(data.message);
+                // if (result.data.userrole === '1'){
+                //     sessionStorage.setItem("user-info", JSON.stringify({
+                //         "userrole": result.data.userrole
+                //     }));
+                //     window.location.href = '../default/default.html';
+                // } else {
+                //     alert("非管理员用户禁止登陆！");
+                //     return
+                // }
+                // // alert(data.message);
+                sessionStorage.setItem("user-info", JSON.stringify({
+                            "userrole": result.data.userrole
+                        }));
+                window.location.href = '../default/default.html';
             } else {
                 alert(result.message);
             }
