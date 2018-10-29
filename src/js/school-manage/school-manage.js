@@ -239,10 +239,14 @@ function AddSchool() {
             data: JSON.stringify(UPDATESCHOOL),
             dataType: "json",
             contentType: "application/json;charset=utf-8",
-            success: function () {
-                poptip.alert(POP_TIP.updateSuccess);
-                $("#add-school-modal").modal("hide");
-                $('#school-table-all').bootstrapTable("refresh");
+            success: function (data) {
+                if (data.data == "学校名称已存在") {
+                    poptip.alert("学校名称已存在");
+                } else {
+                    poptip.alert(POP_TIP.updateSuccess);
+                    $("#add-school-modal").modal("hide");
+                    $('#school-table-all').bootstrapTable("refresh");
+                }
             }
         })
     }

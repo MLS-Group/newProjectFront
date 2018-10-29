@@ -231,10 +231,14 @@ function AddDiscipline() {
             data: JSON.stringify(UPDATEDISCIPLINE),
             dataType: "json",
             contentType: "application/json;charset=utf-8",
-            success: function () {
-                poptip.alert(POP_TIP.updateSuccess);
-                $("#add-discipline-modal").modal("hide");
-                $('#discipline-table-all').bootstrapTable("refresh");
+            success: function (data) {
+                if (data.message == "专业名称已存在") {
+                    poptip.alert("专业名称已存在");
+                } else {
+                    poptip.alert(POP_TIP.updateSuccess);
+                    $("#add-discipline-modal").modal("hide");
+                    $('#discipline-table-all').bootstrapTable("refresh");
+                }
             }
         })
     }
