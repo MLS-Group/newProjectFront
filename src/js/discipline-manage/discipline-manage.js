@@ -163,6 +163,7 @@ $('#discipline-input-search').val('');
  *@author zhangziteng
  */
 function AddDisciplineModal() {
+    $("#add-input-discipline").val('');
     $("#discipline-modal-title").html('<h3>创建专业名称</h3>');
 
 }
@@ -177,6 +178,9 @@ function AlterDisciplineModal() {
     let checkboxTable = $("#discipline-table-all").bootstrapTable('getSelections');
     if (checkboxTable.length <= 0) {
         poptip.alert(POP_TIP.choiceOne)
+        return 0;
+    } else if (checkboxTable.length > 1) {
+        poptip.alert(POP_TIP.choiceOnlyOne)
         return 0;
     }
 
@@ -208,14 +212,16 @@ function AddDiscipline() {
             contentType: "application/json;charset=utf-8",
             success: function (data) {
                 poptip.alert(POP_TIP.addSuccess);
-                tableInit(SELECT_DISCIPLINE_URL);
+                $("#add-discipline-modal").modal("hide");
+                $('#discipline-table-all').bootstrapTable("refresh");
             }
         })
     }
-    if ($("#discipline-modal-title").html() == "<h3>修改专业名称</h3>") {
+    if ($("#discipline-modal-title").text() == "修改专业名称") {
         // 修改
+        let checkboxTable = $("#discipline-table-all").bootstrapTable('getSelections');
         UPDATEDISCIPLINE = {
-            "majorkey": $("#add-input-key").val(),
+            "majorkey": checkboxTable[0].majorkey,
             "majorname": $("#add-input-discipline").val(),
             "userLoginRole": LOGIN_INFO.userLoginRole
         };
@@ -227,8 +233,8 @@ function AddDiscipline() {
             contentType: "application/json;charset=utf-8",
             success: function () {
                 poptip.alert(POP_TIP.updateSuccess);
-                tableInit(SELECT_DISCIPLINE_URL);
-
+                $("#add-discipline-modal").modal("hide");
+                $('#discipline-table-all').bootstrapTable("refresh");
             }
         })
     }
@@ -273,7 +279,7 @@ function DeleteDiscipline() {
                 success: function (data) {
                     poptip.alert(POP_TIP.deleteSuccess);
                     console.log(data);
-                    tableInit(SELECT_DISCIPLINE_URL);
+                    $('#discipline-table-all').bootstrapTable("refresh");
                 }
             });
             poptip.close();
