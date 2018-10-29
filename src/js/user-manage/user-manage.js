@@ -300,7 +300,6 @@ function deleteUser() {
                 success: function (result) {
                     if (result && result.ok) {
                         poptip.alert(POP_TIP.deleteSuccess);
-                        console.log(data)
                         tableInit(AJAX_URL.select_userManag);
                     } else {
                         if (result && result.massage != "") {
