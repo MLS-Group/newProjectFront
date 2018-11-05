@@ -210,7 +210,7 @@ function tableInit(tableUrl) {
                 title: '创建时间',
                 formatter: function (value) {
                     if (value != null) {
-                        return new Date(value).Format("yyyy-MM-dd");
+                        return getMyDate(value);
                     }
                     return "-";
                 }

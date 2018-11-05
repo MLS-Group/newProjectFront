@@ -153,8 +153,10 @@ function tableInit(tableUrl,cond) {
             title: '创建时间',
             width:300,
             formatter: function (value,row,index) {
-                let now = new Date(value);
-                return getMyTime(now);
+                if (value != null) {
+                    return getMyDate(value);
+                }
+                return "-";
             }
         }
          ],
@@ -226,10 +228,10 @@ function cleanSelect() {
 function AlterPlanModal() {
     let checkboxTable = $("#plan-table-all").bootstrapTable('getSelections');
     if (checkboxTable.length > 1) {
-        poptip.alert("一次只能修改一条数据！！！");
+        poptip.alert("一次只能修改一条数据！");
         return;
     } else if (checkboxTable.length < 1) {
-        poptip.alert("请选择一条数据！！！");
+        poptip.alert("请选择一条数据！");
         return;
     } else {
         selectInit("update");
@@ -261,9 +263,9 @@ function selectInit(cOrU) {
     let checkboxTable;
     if (cOrU == 'creat') {
         checkboxTable = [{}];
-        $("#add-update-select-SchName").append("<option value='' style=\"display: none\">请选择学校名称！</option>");
-        $("#add-update-select-ProName").append("<option value='' style=\"display: none\">请选择省份！</option>");
-        $("#add-update-select-MajName").append("<option value='' style=\"display: none\">请选择专业名称！</option>");
+        $("#add-update-select-SchName").append("<option value='' style=\"display: none\">请选择学校名称</option>");
+        $("#add-update-select-ProName").append("<option value='' style=\"display: none\">请选择省份</option>");
+        $("#add-update-select-MajName").append("<option value='' style=\"display: none\">请选择专业名称</option>");
 
     } else {
         checkboxTable = $("#plan-table-all").bootstrapTable('getSelections');
@@ -301,7 +303,7 @@ function schNameByPro(value) {
     console.log(value);
     if (N != 'pro') {
         $("#add-update-select-ProName").empty();
-        $("#add-update-select-ProName").append("<option value='0' style=\"display: none\">请选择省份！</option>");
+        $("#add-update-select-ProName").append("<option value='0' style=\"display: none\">请选择省份</option>");
     }
     $.each(SCH_ARR,function (i,v) {
         if (v.schoolname == value) {
@@ -322,7 +324,7 @@ function schNameByPro(value) {
 function proNameBySch(value) {
     if (N != 'sch') {
         $("#add-update-select-SchName").empty();
-        $("#add-update-select-SchName").append("<option value='0' style=\"display: none\">请选择学校名称！</option>");
+        $("#add-update-select-SchName").append("<option value='0' style=\"display: none\">请选择学校名称</option>");
     }
     $.each(SCH_ARR,function (i,v) {
         if (v.provincename == value) {
@@ -343,25 +345,25 @@ function tiJiao() {
     let isNull = false;
     //判断输入框的值是否空
     if ($("#add-update-select-SchName").val() == '' || $("#add-update-select-SchName").val() == null || $("#add-update-select-SchName").val() == '0') {
-        $("#show-span-schNameIsNull").text("请选择学校！！！");
+        $("#show-span-schNameIsNull").text("请选择学校！");
         isNull = true;
     } else {
         $("#show-span-schNameIsNull").css('display','none');
     }
     if ($("#add-update-select-MajName").val() == '' || $("#add-update-select-MajName").val() == null) {
-        $("#show-span-majNameIsNull").text("请选择专业！！！");
+        $("#show-span-majNameIsNull").text("请选择专业！");
         isNull = true;
     } else {
         $("#show-span-majNameIsNull").css('display','none');
     }
     if ($("#add-update-select-ProName").val() == '' || $("#add-update-select-ProName").val() == null || $("#add-update-select-ProName").val() == '0') {
-        $("#show-span-proNameIsNull").text("请选择省份！！！");
+        $("#show-span-proNameIsNull").text("请选择省份！");
         isNull = true;
     } else {
         $("#show-span-proNameIsNull").css('display','none');
     }
     if ($("#add-update-input-PlanNum").val() == '' || $("#add-update-input-PlanNum").val() == null) {
-        $("#show-span-planNumIsNull").text("请输入招生人数！！！");
+        $("#show-span-planNumIsNull").text("请输入招生人数！");
         isNull = true;
     } else {
         $("#show-span-planNumIsNull").css('display','none');
@@ -478,10 +480,10 @@ function tiJiao() {
 function DeletePlan() {
     let checkboxTable = $("#plan-table-all").bootstrapTable('getSelections');
     if (checkboxTable.length > 1) {
-        poptip.alert("一次只能删除一条数据！！");
+        poptip.alert("一次只能删除一条数据！");
         return;
     } else if (checkboxTable.length < 1) {
-        poptip.alert("请选择一条数据！！！");
+        poptip.alert("请选择一条数据！");
         return;
     } else {
         console.log("deleteRow:" + checkboxTable[0].adminssionskey);

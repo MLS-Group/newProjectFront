@@ -158,86 +158,90 @@ $("#login-button-adminlogin").click(function () {
         // contentType: "application/json;charset=utf-8",
         success: function (result) {
             if (result.ok) {
-                if (result.data.userrole === '1') {
-                    sessionStorage.setItem("user-info", JSON.stringify({
-                        "userrole": result.data.userrole
-                    }))
-                    window.location.href = '../default/default.html';
-                } else {
-                    alert("非管理员用户禁止登陆！");
-                    return
-                }
-                // alert(data.message);
+                // if (result.data.userrole === '1'){
+                //     sessionStorage.setItem("user-info", JSON.stringify({
+                //         "userrole": result.data.userrole
+                //     }));
+                //     window.location.href = '../default/default.html';
+                // } else {
+                //     alert("非管理员用户禁止登陆！");
+                //     return
+                // }
+                // // alert(data.message);
+                sessionStorage.setItem("user-info", JSON.stringify({
+                            "userrole": result.data.userrole
+                        }));
+                window.location.href = '../default/default.html';
             } else {
                 alert(result.message);
             }
         }
     });
 });
-/**
- *@desc * 注册模态框 验证准考证号
- *       * 若验证成功 下面的文本框才可以输入
- *@date 2018/10/22 21:20:07
- *@author zhangziteng
- */
-$("#regist-input-examinationnumber").blur(function () {
-    var quasiExaminationNumber = $("#regist-input-examinationnumber").val();
-    if (quasiExaminationNumber != "") {
-        $.ajax({
-            url: AJAX_URL.checkExaminationNumber,
-            type: "post",
-            data: {
-                "quasiExaminationNumber": quasiExaminationNumber
-            },
-            dataType: "json",
-            success: function (data) {
-                if (data.ok) {
-                    alert(data.message);
-                    $("#regist-input-username").attr("disabled", false);
-                    $("#regist-input-password").attr("disabled", false);
-                    $("#regist-input-email").attr("disabled", false);
-                    $("#regist-input-phonenumber").attr("disabled", false);
-                    $("#regist-input-verfication").attr("disabled", false);
-                } else {
-                    alert(data.message);
-                }
-            }
-        });
-    } else {
-    }
-    ;
-});
-/**
- *@desc 注册按钮
- *@date 2018/10/22 21:20:28
- *@author zhangziteng
- */
-$("#regist-button-userreg").click(function () {
-    var quasiExaminationNumber = $("#regist-input-examinationnumber").val();
-    var userAccount = $("#regist-input-username").val();
-    var userPassword = $("#regist-input-password").val();
-    var email = $("#regist-input-email").val();
-    var phoneNumber = $("#regist-input-phonenumber").val();
-    $.ajax({
-        url: AJAX_URL.userRegist,
-        type: 'post',
-        data: JSON.stringify({
-
-            "examineeinformationEO": {
-                "email": email,
-                "phonenumber": phoneNumber,
-                "quasiexaminationnumber": quasiExaminationNumber
-            },
-            "userinformationEO": {
-                "useraccount": userAccount,
-                "userpassword": userPassword
-            }
-        }),
-        dataType: "json",
-        contentType: "application/json;charset=utf-8",
-        success: function (data) {
-            alert(data.message);
-        }
-    });
-});
+// /**
+//  *@desc * 注册模态框 验证准考证号
+//  *       * 若验证成功 下面的文本框才可以输入
+//  *@date 2018/10/22 21:20:07
+//  *@author zhangziteng
+//  */
+// $("#regist-input-examinationnumber").blur(function () {
+//     var quasiExaminationNumber = $("#regist-input-examinationnumber").val();
+//     if (quasiExaminationNumber != "") {
+//         $.ajax({
+//             url: AJAX_URL.checkExaminationNumber,
+//             type: "post",
+//             data: {
+//                 "quasiExaminationNumber": quasiExaminationNumber
+//             },
+//             dataType: "json",
+//             success: function (data) {
+//                 if (data.ok) {
+//                     alert(data.message);
+//                     $("#regist-input-username").attr("disabled", false);
+//                     $("#regist-input-password").attr("disabled", false);
+//                     $("#regist-input-email").attr("disabled", false);
+//                     $("#regist-input-phonenumber").attr("disabled", false);
+//                     $("#regist-input-verfication").attr("disabled", false);
+//                 } else {
+//                     alert(data.message);
+//                 }
+//             }
+//         });
+//     } else {
+//     }
+//     ;
+// });
+// /**
+//  *@desc 注册按钮
+//  *@date 2018/10/22 21:20:28
+//  *@author zhangziteng
+//  */
+// $("#regist-button-userreg").click(function () {
+//     var quasiExaminationNumber = $("#regist-input-examinationnumber").val();
+//     var userAccount = $("#regist-input-username").val();
+//     var userPassword = $("#regist-input-password").val();
+//     var email = $("#regist-input-email").val();
+//     var phoneNumber = $("#regist-input-phonenumber").val();
+//     $.ajax({
+//         url: AJAX_URL.userRegist,
+//         type: 'post',
+//         data: JSON.stringify({
+//
+//             "examineeinformationEO": {
+//                 "email": email,
+//                 "phonenumber": phoneNumber,
+//                 "quasiexaminationnumber": quasiExaminationNumber
+//             },
+//             "userinformationEO": {
+//                 "useraccount": userAccount,
+//                 "userpassword": userPassword
+//             }
+//         }),
+//         dataType: "json",
+//         contentType: "application/json;charset=utf-8",
+//         success: function (data) {
+//             alert(data.message);
+//         }
+//     });
+// });
 

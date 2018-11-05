@@ -89,7 +89,7 @@ function tableInit(tableUrl) {
             title: '申报时间',
             formatter: function (value) {
                 if (value != null) {
-                    return new Date(value).Format("yyyy-MM-dd");
+                    return getMyDate(value);
                 }
                 return "-";
             }

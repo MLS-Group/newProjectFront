@@ -96,7 +96,7 @@ body, html {
 
 .search-head {
     height: 50%;
-    width: 100%;
+    width: 95%;
 }
 
 .search-from {
@@ -108,7 +108,7 @@ body, html {
 
 .search-submit {
     float: right;
-    width: 22%;
+    width: 25%;
 }
 
 .from-controller{

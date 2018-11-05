@@ -41,7 +41,6 @@
         <button type="button" class="btn btn-success" onclick="AlterSchoolModal()" style="padding: 6px 20px;">修改</button>
         <button type="button" class="btn btn-danger" onclick="DeleteSchool()" style="padding: 6px 20px;">删除</button>
     </div>
-    <br>
     <div id="school-table">
         <table id="school-table-all" style="text-align: center;"></table>
     </div>
@@ -64,20 +63,21 @@
                         <div class="form-group">
                             <div class="col-sm-12 form-inline">
                                 <label for="add-input-school" class="col-sm-4 control-label">学校名称：</label>
-                                <input type="text" class="form-control not-null" style="width: 200px;" maxlength="30" id="add-input-school" placeholder="请输入学校名称">
+                                <input type="text" class="form-control need-check not-null" style="width: 200px;" maxlength="30" id="add-input-school" placeholder="请输入学校名称">
+                                <span class="alert-warn" style="margin: 10px 10px 10px 130px;"></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12 form-inline">
                                 <label for="add-input-phone" class="col-sm-4 control-label">联系电话：</label>
-                                <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="15" id="add-input-phone" placeholder="请输入联系电话">
+                                <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="mobilePhoneModify" maxlength="11" id="add-input-phone" placeholder="请输入联系电话">
                                 <span class="alert-warn" style="margin: 0px 130px 0px;"></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12 form-inline">
                                 <label for="add-input-address" class="col-sm-4 control-label">地址信息：</label>
-                                <input type="text" class="form-control need-check not-null" style="width: 200px;" regex="account" maxlength="30" id="add-input-address" placeholder="请输入地址信息">
+                                <input type="text" class="form-control need-check not-null" style="width: 200px;" maxlength="30" id="add-input-address" placeholder="请输入地址信息">
                                 <span class="alert-warn" style="margin: 0px 130px 0px;"></span>
                             </div>
                         </div>

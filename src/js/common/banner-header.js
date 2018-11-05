@@ -5,6 +5,27 @@
  */
 
 /**
+ *@desc 刘志杰初始化
+ *@date 2018/10/26 14:17:58
+ *@author zhangziteng
+ */
+$(function () {
+    if (JSON.parse(sessionStorage.getItem("user-info")) != null) {
+        switch (JSON.parse(sessionStorage.getItem("user-info")).userrole) {
+            case "0":
+                $("#nav-role").text("考生");
+                break;
+            case "1":
+                $("#nav-role").text("管理员");
+                break;
+            case "2":
+                $("#nav-role").text("招生者");
+                break;
+        }
+    }
+})
+
+/**
  *@desc 修改密码
  *@date 2018/10/22 10:55:07
  *@author zhangziteng
@@ -66,4 +87,23 @@ $("#update-input-oldpassword").blur(function () {
             }
         }
     });
+});
+
+/**
+ *@desc 退出登录
+ *@date 2018/10/26 09:16:22
+ *@author zhangziteng
+ */
+$("#logout-a-userout").click(function () {
+    //删除item
+    sessionStorage.removeItem("user-info");
+    //清除数据-----删除所有同源的本地存储的localStorage数据
+    localStorage.clear();
+    //清除数据-----只清空当前会话存储的数据
+    sessionStorage.clear();
+    if (sessionStorage.length == 0) {
+        window.location.href = '../login/login.html';
+    } else {
+        alert("注销失败");
+    }
 });

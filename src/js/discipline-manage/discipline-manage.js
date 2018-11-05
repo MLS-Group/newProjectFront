@@ -84,17 +84,19 @@ function tableInit(tableUrl,cond) {
             checkbox: true,
             visible: true                  //是否显示复选框
         }, {
-            field: 'majorkey',
-            title: '序号',
-            width:100
-        }, {
             field: 'majorname',
             title: '专业名称',
             width:500
         }, {
             field: 'createtime',
             title: '创建时间',
-            width:500
+            width:500,
+            formatter:function(value) {
+                if (value != null) {
+                    return getMyDate(value);
+                }
+                return "-";
+            }
         }
             // ,{
             //     field:'ID',
@@ -152,7 +154,7 @@ function SearchPlan() {
  *@author zhangziteng
  */
 function ResetPlanInput() {
-
+$('#discipline-input-search').val('');
 }
 
 /**
@@ -242,6 +244,9 @@ function DeleteDiscipline() {
     let checkboxTable = $("#discipline-table-all").bootstrapTable('getSelections');
     if (checkboxTable.length <= 0) {
         poptip.alert(POP_TIP.choiceOne)
+        return 0;
+    } else if (checkboxTable.length > 1) {
+        poptip.alert(POP_TIP.choiceOnlyOne)
         return 0;
     }
 
