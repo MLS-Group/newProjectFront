@@ -42,6 +42,8 @@ const POP_TIP = {
     publishSuccess: "发布成功",//by 刘志杰
     selectFail:"查询失败", //by 刘志杰
     matriculateSuccess:"录入成功", //by 刘志杰
+    matriculateFail:"录入失败", //by 刘志杰
+
 
 
 

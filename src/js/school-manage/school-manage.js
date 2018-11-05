@@ -215,16 +215,18 @@ function AddSchool() {
             data: JSON.stringify(ADDSCHOOL),
             dataType: "json",
             contentType: "application/json;charset=utf-8",
-            success: function (data) {
+            success: function () {
                 poptip.alert(POP_TIP.addSuccess);
-                tableInit(SELECT_SCHOOL_URL);
+                $("#add-school-modal").modal("hide");
+                $('#school-table-all').bootstrapTable("refresh");
             }
         })
     }
     if ($("#school-modal-title").html() == "<h3>修改学校名称</h3>") {
         //修改
+        let checkboxTable = $("#school-table-all").bootstrapTable('getSelections');
         UPDATESCHOOL = {
-            "schoolkey": $("#add-input-key").val(),
+            "schoolkey": checkboxTable[0].schoolkey,
             "schoolname": $("#add-input-school").val(),
             "phone": $("#add-input-phone").val(),
             "address": $("#add-input-address").val(),
@@ -237,10 +239,14 @@ function AddSchool() {
             data: JSON.stringify(UPDATESCHOOL),
             dataType: "json",
             contentType: "application/json;charset=utf-8",
-            success: function () {
-                poptip.alert(POP_TIP.updateSuccess);
-                tableInit(SELECT_SCHOOL_URL);
-
+            success: function (data) {
+                if (data.data == "学校名称已存在") {
+                    poptip.alert("学校名称已存在");
+                } else {
+                    poptip.alert(POP_TIP.updateSuccess);
+                    $("#add-school-modal").modal("hide");
+                    $('#school-table-all').bootstrapTable("refresh");
+                }
             }
         })
     }
@@ -271,11 +277,13 @@ function AlterSchoolModal() {
     if (checkboxTable.length <= 0) {
         poptip.alert(POP_TIP.choiceOne)
         return 0;
+    } else if (checkboxTable.length > 1) {
+        poptip.alert(POP_TIP.choiceOnlyOne)
+        return 0;
     }
 
 
     $("#school-modal-title").html('<h3>修改学校名称</h3>');
-    $("#add-input-key").val(checkboxTable[0].schoolkey);
     $("#add-input-school").val(checkboxTable[0].schoolname);
     $("#add-input-phone").val(checkboxTable[0].phone);
     $("#add-input-address").val(checkboxTable[0].address);
@@ -327,7 +335,7 @@ function DeleteSchool(){
                 contentType: "application/json;charset=utf-8",
                 success: function (data) {
                     poptip.alert(POP_TIP.deleteSuccess);
-                    tableInit(SELECT_SCHOOL_URL);
+                    $('#school-table-all').bootstrapTable("refresh");
                 }
             })
             poptip.close();

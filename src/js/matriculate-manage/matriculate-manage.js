@@ -43,7 +43,6 @@ function tableInit(tableUrl) {
         //得到查询的参数
         queryParams: function (params) {
             let temp = {};
-            //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
             if (examinee_condition.admissionstatue && examinee_condition.admissionstatue != "") {
                 temp.admissionstatue = examinee_condition.admissionstatue;
             }
@@ -100,6 +99,21 @@ function tableInit(tableUrl) {
         }, {
             field: 'ExamineeinformationEO.examineekey',
             title: '学生信息主键',
+
+        }, {
+            field: 'admissionstatue',
+            title: '录取状态',
+            formatter: function (val) {
+                if (val != null) {
+                    if (val == 0) {
+                        return '未录取';
+                    } else if (val == 1) {
+                        return '录取';
+                    }
+                } else {
+                    return '-';
+                }
+            }
 
         }, {
             field: 'ID',
@@ -176,7 +190,7 @@ function selectMatriculate() {
 function confirm() {
     $.ajax({
         url: AJAX_URL.insertMatriculate,
-        type: requestJson ? 'get' : 'put',
+        type: requestJson ? 'get' : 'post',
         data: JSON.stringify({
             "volunteerkey": $("#modal-input-key").val(),
             "admissionstatue": 1,
@@ -184,10 +198,19 @@ function confirm() {
         }),
         dataType: "json",
         contentType: "application/json;charset=utf-8",
-        success: function (data) {
-            poptip.alert(POP_TIP.matriculateSuccess);
-            $("#matriculate-modal").modal("hide");
-            console.log(data)
+        success: function (result) {
+            if (result.ok) {
+                poptip.alert(POP_TIP.matriculateSuccess);
+                $("#matriculate-modal").modal("hide");
+                $("#my-table").bootstrapTable("refresh");
+            } else {
+                if (result.message) {
+                    poptip.alert(result.message)
+                } else {
+                    poptip.alert(POP_TIP.matriculateFail)
+                }
+            }
+
         }
     })
 }
@@ -201,10 +224,7 @@ function confirm() {
 function laydateInit(id) {
     laydate.render({
         elem: id,
-        max: new Date().Format('yyyy-MM-dd'),
-        done: function (value) {
-
-        }
+        type: 'date'
     });
 
 }
@@ -224,6 +244,8 @@ function admssion() {
         return 0;
     }
     $("#modal-input-key").val(checkboxTable[0].volunteerkey);
+    //输入框内容 清空
+    $("#matriculate-input-admissiontime").val("");
     $("#matriculate-modal").modal("show");
 
 
